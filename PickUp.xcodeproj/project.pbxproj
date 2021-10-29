@@ -7,15 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E6F5F45E4315E888C87761B /* Pods_PickUp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 845ECFD29D52EE7F6D96C17F /* Pods_PickUp.framework */; };
 		9218DB672729C5F4007F8E5A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9218DB662729C5F4007F8E5A /* AppDelegate.swift */; };
 		9218DB692729C5F4007F8E5A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9218DB682729C5F4007F8E5A /* SceneDelegate.swift */; };
 		9218DB6B2729C5F4007F8E5A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9218DB6A2729C5F4007F8E5A /* ViewController.swift */; };
 		9218DB6E2729C5F4007F8E5A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9218DB6C2729C5F4007F8E5A /* Main.storyboard */; };
 		9218DB702729C5F5007F8E5A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9218DB6F2729C5F5007F8E5A /* Assets.xcassets */; };
 		9218DB732729C5F5007F8E5A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9218DB712729C5F5007F8E5A /* LaunchScreen.storyboard */; };
+		9218DB7C2729C700007F8E5A /* GoogleService-Info (1).plist in Resources */ = {isa = PBXBuildFile; fileRef = 9218DB7B2729C700007F8E5A /* GoogleService-Info (1).plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5AA461351BE0FB261A82B3C6 /* Pods-PickUp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PickUp.release.xcconfig"; path = "Target Support Files/Pods-PickUp/Pods-PickUp.release.xcconfig"; sourceTree = "<group>"; };
+		845ECFD29D52EE7F6D96C17F /* Pods_PickUp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PickUp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9218DB632729C5F4007F8E5A /* PickUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PickUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9218DB662729C5F4007F8E5A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9218DB682729C5F4007F8E5A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +28,8 @@
 		9218DB6F2729C5F5007F8E5A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9218DB722729C5F5007F8E5A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9218DB742729C5F5007F8E5A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9218DB7B2729C700007F8E5A /* GoogleService-Info (1).plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info (1).plist"; path = "../../../Downloads/GoogleService-Info (1).plist"; sourceTree = "<group>"; };
+		FFA592F220171AEDEB0DF850 /* Pods-PickUp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PickUp.debug.xcconfig"; path = "Target Support Files/Pods-PickUp/Pods-PickUp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +37,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E6F5F45E4315E888C87761B /* Pods_PickUp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5C0E445F54A058595DD9B452 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FFA592F220171AEDEB0DF850 /* Pods-PickUp.debug.xcconfig */,
+				5AA461351BE0FB261A82B3C6 /* Pods-PickUp.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		9218DB5A2729C5F4007F8E5A = {
 			isa = PBXGroup;
 			children = (
 				9218DB652729C5F4007F8E5A /* PickUp */,
 				9218DB642729C5F4007F8E5A /* Products */,
+				5C0E445F54A058595DD9B452 /* Pods */,
+				C52F269024B5A7D799B78564 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -63,8 +82,17 @@
 				9218DB6F2729C5F5007F8E5A /* Assets.xcassets */,
 				9218DB712729C5F5007F8E5A /* LaunchScreen.storyboard */,
 				9218DB742729C5F5007F8E5A /* Info.plist */,
+				9218DB7B2729C700007F8E5A /* GoogleService-Info (1).plist */,
 			);
 			path = PickUp;
+			sourceTree = "<group>";
+		};
+		C52F269024B5A7D799B78564 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				845ECFD29D52EE7F6D96C17F /* Pods_PickUp.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +102,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9218DB772729C5F5007F8E5A /* Build configuration list for PBXNativeTarget "PickUp" */;
 			buildPhases = (
+				21C19A04C7283D100491605F /* [CP] Check Pods Manifest.lock */,
 				9218DB5F2729C5F4007F8E5A /* Sources */,
 				9218DB602729C5F4007F8E5A /* Frameworks */,
 				9218DB612729C5F4007F8E5A /* Resources */,
+				C992D0DC9342FE417CCD56ED /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -127,10 +157,53 @@
 				9218DB732729C5F5007F8E5A /* LaunchScreen.storyboard in Resources */,
 				9218DB702729C5F5007F8E5A /* Assets.xcassets in Resources */,
 				9218DB6E2729C5F4007F8E5A /* Main.storyboard in Resources */,
+				9218DB7C2729C700007F8E5A /* GoogleService-Info (1).plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		21C19A04C7283D100491605F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PickUp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C992D0DC9342FE417CCD56ED /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PickUp/Pods-PickUp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PickUp/Pods-PickUp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PickUp/Pods-PickUp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		9218DB5F2729C5F4007F8E5A /* Sources */ = {
@@ -283,6 +356,7 @@
 		};
 		9218DB782729C5F5007F8E5A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FFA592F220171AEDEB0DF850 /* Pods-PickUp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -301,6 +375,7 @@
 		};
 		9218DB792729C5F5007F8E5A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5AA461351BE0FB261A82B3C6 /* Pods-PickUp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
