@@ -7,8 +7,23 @@
 
 import UIKit
 
-class ViewController3: UIViewController, UITableViewDataSource {
+class ViewController3: UIViewController{
+    @IBOutlet weak var grade: UITextField!
+    @IBOutlet weak var name: UITextField!
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        title = "___"
+    }
+    @IBAction func submitButton(_ sender: Any) {
+        let childName: String = name.text!
+        let childGrade: String = grade.text!
+        let instance:DATABASE = DATABASE()
+        instance.AddInfo(childName, childGrade)
+        name.text! = ""
+        grade.text! = ""
+    }
+    /*
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -22,13 +37,11 @@ class ViewController3: UIViewController, UITableViewDataSource {
         cell.textLabel?.text = "test"
         return cell
     }
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        title = "___"
+    
         // Do any additional setup after loading the view.
         
     }
-    
+    */
 
     /*
     // MARK: - Navigation
