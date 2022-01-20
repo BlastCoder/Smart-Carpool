@@ -16,7 +16,7 @@ class ViewController3: UIViewController{
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "___"
+        title = "Add Student"
     }
     @IBAction func submitButton(_ sender: Any) {
         //self.background.async {

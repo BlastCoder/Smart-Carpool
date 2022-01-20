@@ -27,7 +27,7 @@ class ViewController2: UIViewController, UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
-        title = "Nav-Bar"
+        title = "View Students"
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "TableViewCell")
         // Do any additional setup after loading the view.
     }
