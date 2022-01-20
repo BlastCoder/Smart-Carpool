@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="02v-dv-NOs">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Kuj-5d-ChP">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller2-->
+        <!--View Student-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController2" customModule="PickUp" customModuleProvider="target" sceneMemberID="viewController">
@@ -25,24 +25,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WAv-o3-0QP">
-                                <rect key="frame" x="123" y="803" width="168" height="90"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain">
-                                    <attributedString key="attributedTitle">
-                                        <fragment content="Add Student">
-                                            <attributes>
-                                                <font key="NSFont" size="17" name="Helvetica"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                            </attributes>
-                                        </fragment>
-                                    </attributedString>
-                                </buttonConfiguration>
-                                <connections>
-                                    <segue destination="rzJ-37-t8T" kind="show" id="EOE-jh-GA1"/>
-                                </connections>
-                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="CYT-ek-iAg">
                                 <rect key="frame" x="20" y="241" width="374" height="588"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -52,7 +34,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="mJC-FY-J3E"/>
+                    <navigationItem key="navigationItem" title="View Student" id="mJC-FY-J3E"/>
                     <connections>
                         <outlet property="tableView" destination="CYT-ek-iAg" id="bwe-lb-NLf"/>
                     </connections>
@@ -61,7 +43,7 @@
             </objects>
             <point key="canvasLocation" x="928.98550724637687" y="68.973214285714278"/>
         </scene>
-        <!--View Controller3-->
+        <!--Add Student-->
         <scene sceneID="Xre-F5-8eH">
             <objects>
                 <viewController id="rzJ-37-t8T" customClass="ViewController3" customModule="PickUp" customModuleProvider="target" sceneMemberID="viewController">
@@ -106,7 +88,7 @@
                         <viewLayoutGuide key="safeArea" id="fDc-Yv-bkU"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Hw4-G0-d94"/>
+                    <navigationItem key="navigationItem" title="Add Student" id="Hw4-G0-d94"/>
                     <connections>
                         <outlet property="grade" destination="gnx-VQ-qHv" id="IBw-YM-LDO"/>
                         <outlet property="name" destination="GnR-ks-ikY" id="zBy-Hg-wIE"/>
@@ -116,10 +98,11 @@
             </objects>
             <point key="canvasLocation" x="1715.9420289855075" y="68.973214285714278"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Item-->
         <scene sceneID="uA6-IG-P4Z">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="02v-dv-NOs" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="wBz-RJ-h6q"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="hgh-bo-iV5">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -132,7 +115,42 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ofj-bG-ZPG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="18.840579710144929" y="68.973214285714278"/>
+            <point key="canvasLocation" x="929" y="-687"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="mad-H4-jHg">
+            <objects>
+                <tabBarController id="Kuj-5d-ChP" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="NO9-cj-Tot">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="02v-dv-NOs" kind="relationship" relationship="viewControllers" id="R1n-tB-gfF"/>
+                        <segue destination="H07-r7-sSo" kind="relationship" relationship="viewControllers" id="nSD-xC-tJ4"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dJS-T6-ncm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1317" y="-1480"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="S27-A3-QrV">
+            <objects>
+                <navigationController id="H07-r7-sSo" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="1zE-26-wSj"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="vO7-Fn-r4Y">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="rzJ-37-t8T" kind="relationship" relationship="rootViewController" id="J1U-1J-H4L"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CRD-g5-9g4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1716" y="-687"/>
         </scene>
     </scenes>
     <resources>
