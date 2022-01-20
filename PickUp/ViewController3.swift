@@ -8,6 +8,9 @@
 import UIKit
 
 class ViewController3: UIViewController{
+    lazy var background: DispatchQueue = {
+        return DispatchQueue.init(label: "background.queue", attributes: .concurrent)
+    }()
     @IBOutlet weak var grade: UITextField!
     @IBOutlet weak var name: UITextField!
 
@@ -16,13 +19,23 @@ class ViewController3: UIViewController{
         title = "___"
     }
     @IBAction func submitButton(_ sender: Any) {
-        let childName: String = name.text!
-        let childGrade: String = grade.text!
+        self.background.async {
+        //let childName: String = name.text!
+        //let childGrade: String = grade.text!
         let instance:DATABASE = DATABASE()
-        instance.AddInfo(childName, childGrade)
-        name.text! = ""
-        grade.text! = ""
+        print(instance.StudentOrder())
+        //instance.AddInfo(childName, childGrade)
+        //name.text! = ""
+        //grade.text! = ""
+        }
     }
+    
+    
+    
+    
+    
+    
+    
     /*
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1

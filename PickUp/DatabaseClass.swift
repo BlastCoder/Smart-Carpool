@@ -10,6 +10,7 @@ import FirebaseDatabase
 class DATABASE{
     var ref: DatabaseReference!
     var Children: [[String : String]]
+    var Order: Int = 0
     init(){
         self.Children = []
         self.ref = Database.database().reference(fromURL: "https://pickup-2568e-default-rtdb.firebaseio.com/")
@@ -53,4 +54,19 @@ class DATABASE{
     func EditInfo(_ id: String, _ Status: String){
         ref.child("Children").child(id).updateChildValues(["Status": Status])
     }
+    func StudentOrder() -> String{
+        let group = DispatchGroup.init()
+        group.enter()
+        self.ref.child("Order").child("recentOrder").getData(completion:  { error, snapshot in
+            guard error == nil else {
+              return
+            }
+            self.Order = ((((snapshot.value! as? NSDictionary)!["Order"]!)as? Int)!)
+            group.leave()
+          })
+        self.ref.child("Order").child("recentOrder").updateChildValues(["Order": String(self.Order + 1)])
+        group.wait()
+        return String(self.Order)
+    }
 }
+    
