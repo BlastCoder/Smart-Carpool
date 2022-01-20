@@ -10,10 +10,11 @@ import FirebaseDatabase
 class DATABASE{
     var ref: DatabaseReference!
     var Children: [[String : String]]
-    var Order: Int = 0
+    var Order: Int
     init(){
         self.Children = []
         self.ref = Database.database().reference(fromURL: "https://pickup-2568e-default-rtdb.firebaseio.com/")
+        self.Order = -1
     }
     func GetInfo(_ queryWord: String) ->  [[String: String]] {
         //enter the group for async I guess
@@ -61,11 +62,14 @@ class DATABASE{
             guard error == nil else {
               return
             }
-            self.Order = ((((snapshot.value! as? NSDictionary)!["Order"]!)as? Int)!)
+            guard let OrderDict = snapshot.value as? [String: String]
+            else {return}
+            self.Order = Int(OrderDict["Order"] ?? ("0")) ?? (1)
+            //self.Order = ((((snapshot.value! as? NSDictionary)!["Order"]!)as? Int)!)
             group.leave()
           })
-        self.ref.child("Order").child("recentOrder").updateChildValues(["Order": String(self.Order + 1)])
         group.wait()
+        self.ref.child("Order").child("recentOrder").updateChildValues(["Order": String(self.Order + 1)])
         return String(self.Order)
     }
 }
