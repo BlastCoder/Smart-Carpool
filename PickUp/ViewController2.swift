@@ -9,9 +9,10 @@ import UIKit
 
 class ViewController2: UIViewController {
 
+    @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "______h"
+        title = "Nav-Bar"
         // Do any additional setup after loading the view.
     }
     

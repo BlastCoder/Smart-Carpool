@@ -19,15 +19,15 @@ class ViewController3: UIViewController{
         title = "___"
     }
     @IBAction func submitButton(_ sender: Any) {
-        self.background.async {
-        //let childName: String = name.text!
-        //let childGrade: String = grade.text!
+        //self.background.async {
+        let childName: String = name.text!
+        let childGrade: String = grade.text!
         let instance:DATABASE = DATABASE()
-        print(instance.StudentOrder())
-        //instance.AddInfo(childName, childGrade)
-        //name.text! = ""
-        //grade.text! = ""
-        }
+        //print(instance.StudentOrder())
+        instance.AddInfo(childName, childGrade)
+        name.text! = ""
+        grade.text! = ""
+        //}
     }
     
     
