@@ -23,7 +23,7 @@
 /* Begin PBXFileReference section */
 		5AA461351BE0FB261A82B3C6 /* Pods-PickUp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PickUp.release.xcconfig"; path = "Target Support Files/Pods-PickUp/Pods-PickUp.release.xcconfig"; sourceTree = "<group>"; };
 		845ECFD29D52EE7F6D96C17F /* Pods_PickUp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PickUp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9218DB632729C5F4007F8E5A /* PickUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PickUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9218DB632729C5F4007F8E5A /* PickUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = PickUp.app; path = "/Users/krishpatel/Desktop/PickUp-MasterCopy/build/Debug-iphoneos/PickUp.app"; sourceTree = "<absolute>"; };
 		9218DB662729C5F4007F8E5A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9218DB682729C5F4007F8E5A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		9218DB6D2729C5F4007F8E5A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -63,18 +63,9 @@
 			isa = PBXGroup;
 			children = (
 				9218DB652729C5F4007F8E5A /* PickUp */,
-				9218DB642729C5F4007F8E5A /* Products */,
 				5C0E445F54A058595DD9B452 /* Pods */,
 				C52F269024B5A7D799B78564 /* Frameworks */,
 			);
-			sourceTree = "<group>";
-		};
-		9218DB642729C5F4007F8E5A /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				9218DB632729C5F4007F8E5A /* PickUp.app */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		9218DB652729C5F4007F8E5A /* PickUp */ = {
@@ -148,7 +139,7 @@
 				Base,
 			);
 			mainGroup = 9218DB5A2729C5F4007F8E5A;
-			productRefGroup = 9218DB642729C5F4007F8E5A /* Products */;
+			productRefGroup = 9218DB5A2729C5F4007F8E5A;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
