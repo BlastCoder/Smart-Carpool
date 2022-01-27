@@ -31,9 +31,10 @@ class ViewController2: UIViewController, UITableViewDelegate, UITableViewDataSou
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "View Students"
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "TableViewCell")
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "TableViewCell")
+        
         // Do any additional setup after loading the view.
     }
     
