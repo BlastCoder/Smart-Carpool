@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController2: UIViewController, UITableViewDataSource {
+class ViewController2: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     let tableViewData = Array(repeating: "Item", count: 5)
 
@@ -22,15 +22,21 @@ class ViewController2: UIViewController, UITableViewDataSource {
             cell.textLabel?.text = self.tableViewData[indexPath.row]
             return cell
     }
-
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+           print("section: \(indexPath.section)")
+           print("row: \(indexPath.row)")
+    }
+   
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.dataSource = self
         title = "View Students"
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "TableViewCell")
+        tableView.dataSource = self
+        tableView.delegate = self
         // Do any additional setup after loading the view.
     }
+    
     
     // MARK: - Navigation
 
