@@ -44,6 +44,7 @@ class DATABASE{
         }
         //wait for competion
         group.wait()
+        //make a seperate function to return self.children
         //Returns array of dictionaries
         return(self.Children)
     }
