@@ -11,26 +11,31 @@ import Firebase
 
 class ViewController2: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    @IBOutlet weak var getGradeTextField: UITextField!
     var tableViewData = ["Loading..."]
     var peopleArray: [[String:String]] = [[:]]
+    let ref = Database.database().reference(fromURL: "https://pickup-2568e-default-rtdb.firebaseio.com/")
     lazy var background: DispatchQueue = {
         return DispatchQueue.init(label: "background.queue", attributes: .concurrent)
     }()
-        
-    @objc func updateData(){
+    var queryGrade: String = "0"
+    
+    func updateData(_ queryGrade: String){
         self.background.async {
             let instance: DATABASE = DATABASE()
             self.peopleArray = instance.GetInfo("notHere")
             self.tableViewData = []
             for people in self.peopleArray {
-                self.tableViewData.append("\(people["Name"] ?? "Error"):\(people["Grade"] ?? "Error")")
+                if people["Grade"] == queryGrade{
+                    self.tableViewData.append("\(people["Name"] ?? "Error")")
+                }
             }
             //print(self.tableViewData)
         }
-        self.tableView.reloadData()
-
     }
-   
+    @objc func reloadData() {
+        self.tableView.reloadData()
+    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.tableViewData.count
 
@@ -44,6 +49,7 @@ class ViewController2: UIViewController, UITableViewDelegate, UITableViewDataSou
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let instance: DATABASE = DATABASE()
+        print(indexPath.row)
         instance.EditInfo(self.peopleArray[indexPath.row]["Id"]!, "here")
         //instance.EditInfo(self.tableViewData[indexPath.row]["ID"], "here")
     }
@@ -55,11 +61,18 @@ class ViewController2: UIViewController, UITableViewDelegate, UITableViewDataSou
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "TableViewCell")
-        var timer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: "updateData", userInfo: nil, repeats: true)
+        var timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: "reloadData", userInfo: nil, repeats: true)
+        //not efficent but works I guess (maybe add observer on the self.peopleArray to detect change)
+        ref.child("Children").observe(.childChanged, with: {(snapshot) -> Void in
+            self.updateData(self.queryGrade)
+          })
         // Do any additional setup after loading the view.
     }
-    
-    
+    @IBAction func onButtonClick(_ sender: Any) {
+        self.queryGrade = getGradeTextField.text!
+        //getGradeTextField.text! = ""
+        self.updateData(queryGrade)
+    }
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
