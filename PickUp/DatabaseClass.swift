@@ -32,11 +32,11 @@ class DATABASE{
                 let Grade = dict["Grade"]! as! String
                 let Status = dict["Status"] as! String
                 if Status == queryWord{
-                    var childInfo: [String: String] = ["Id": ID, "Name": Name, "Grade": Grade, "Status": Status]
+                    let childInfo: [String: String] = ["Id": ID, "Name": Name, "Grade": Grade, "Status": Status]
                     self.Children.append(childInfo)
                 }
                 else if queryWord == "All" {
-                    var childInfo: [String: String] = ["Id": ID, "Name": Name, "Grade": Grade, "Status": Status]
+                    let childInfo: [String: String] = ["Id": ID, "Name": Name, "Grade": Grade, "Status": Status]
                     self.Children.append(childInfo)
                 } 
             }
@@ -50,11 +50,15 @@ class DATABASE{
     }
     func AddInfo(_ name: String, _ grade: String){
         let uuid = "Child:\(UUID().uuidString)"
-        var object: [String: String] = ["Name": name, "Grade": grade, "Status": "notHere"]
+        let object: [String: String] = ["Name": name, "Grade": grade, "Status": "notHere", "Order": "0"]
         self.ref.child("Children").child(uuid).setValue(object)
     }
     func EditInfo(_ id: String, _ Status: String){
         ref.child("Children").child(id).updateChildValues(["Status": Status])
+        Task.init{
+            let order = StudentOrder()
+            ref.child("Children").child(id).updateChildValues(["Order": order])
+        }
     }
     func StudentOrder() -> String{
         let group = DispatchGroup.init()
@@ -72,6 +76,14 @@ class DATABASE{
         group.wait()
         self.ref.child("Order").child("recentOrder").updateChildValues(["Order": String(self.Order + 1)])
         return String(self.Order)
+    }
+    func ResetValues() {
+        self.ref.child("Children").observeSingleEvent(of: .value) { snapshot in
+            for case let child as DataSnapshot in snapshot.children {
+                self.ref.child("Children").child(child.key).updateChildValues(["Order": "0", "Status": "notHere"])
+            }
+        }
+        self.ref.child("Order").child("recentOrder").updateChildValues(["Order": "1"])
     }
 }
     

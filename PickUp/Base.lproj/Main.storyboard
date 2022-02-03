@@ -39,7 +39,7 @@
                                 </prototypes>
                             </tableView>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Grade" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YlH-oS-zyx">
-                                <rect key="frame" x="57" y="135" width="141" height="34"/>
+                                <rect key="frame" x="58" y="135" width="141" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -51,6 +51,15 @@
                                 <buttonConfiguration key="configuration" style="plain" title="Reload"/>
                                 <connections>
                                     <action selector="onButtonClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="w7Y-hf-ubB"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fAq-oF-loo">
+                                <rect key="frame" x="36" y="786" width="89" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Reset"/>
+                                <connections>
+                                    <action selector="resetTest:" destination="BYZ-38-t0r" eventType="touchUpInside" id="z0f-wm-gdg"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -75,7 +84,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="929" y="143"/>
+            <point key="canvasLocation" x="928.98550724637687" y="142.63392857142856"/>
         </scene>
         <!--Add Student-->
         <scene sceneID="Xre-F5-8eH">
