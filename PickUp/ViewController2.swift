@@ -73,7 +73,6 @@ class ViewController2: UIViewController, UITableViewDelegate, UITableViewDataSou
         self.updateData(queryGrade)
     }
     @IBAction func resetTest(_ sender: Any) {
-        print("HERE!")
         let instance: DATABASE = DATABASE()
         instance.ResetValues()
     }
