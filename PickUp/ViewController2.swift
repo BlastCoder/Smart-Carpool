@@ -42,10 +42,11 @@ class ViewController2: UIViewController, UITableViewDelegate, UITableViewDataSou
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell",
-                                                     for: indexPath)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell",
+                                                         for: indexPath)
             cell.textLabel?.text = self.tableViewData[indexPath.row]
-            return cell
+                return cell
+       
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let instance: DATABASE = DATABASE()
