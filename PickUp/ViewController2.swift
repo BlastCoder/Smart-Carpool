@@ -12,7 +12,7 @@ import Firebase
 class ViewController2: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var getGradeTextField: UITextField!
-    var tableViewData = ["Loading..."]
+    var tableViewData = ["Enter a grade..."]
     var peopleArray: [[String:String]] = [[:]]
     let ref = Database.database().reference(fromURL: "https://pickup-2568e-default-rtdb.firebaseio.com/")
     lazy var background: DispatchQueue = {
@@ -24,6 +24,7 @@ class ViewController2: UIViewController, UITableViewDelegate, UITableViewDataSou
         self.background.async {
             let instance: DATABASE = DATABASE()
             self.peopleArray = instance.GetInfo("notHere")
+            self.peopleArray.sort { ($0["Name"]!) < ($1["Name"]!) }
             self.tableViewData = []
             for people in self.peopleArray {
                 if people["Grade"] == queryGrade{
