@@ -22,7 +22,6 @@ class ViewController3: UIViewController{
         title = "Add Student"
     }
     @IBAction func submitButton(_ sender: Any) {
-        //self.background.async {
         let childName: String = name.text!
         let childGrade: String = grade.text!
         plateNums.append(plateText.text!)
@@ -30,14 +29,20 @@ class ViewController3: UIViewController{
         print(self.plateNums)
         let instance:DATABASE = DATABASE()
         //print(instance.StudentOrder())
-        instance.AddInfo(childName, childGrade)
+        instance.AddInfo(childName, childGrade, self.plateNums)
         name.text! = ""
         grade.text! = ""
-        //}
+        plateNums = []
+        /* Testing Purpose, to find Student with plate, it works
+        self.background.async {
+            print(instance.FindIDWithPlate("111AAA"))
+        }
+         */
     }
     @IBAction func resetTest(_ sender: Any) {
         let instance: DATABASE = DATABASE()
         instance.ResetValues()
+        //not going to be in final app!
     }
     
     @IBAction func morePlates(_ sender: Any) {

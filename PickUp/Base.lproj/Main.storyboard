@@ -132,7 +132,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UKq-9S-YpV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="912" y="155"/>
+            <point key="canvasLocation" x="929" y="155"/>
         </scene>
         <!--Add Student-->
         <scene sceneID="Xre-F5-8eH">
@@ -167,15 +167,6 @@
                                     <action selector="submitButton:" destination="rzJ-37-t8T" eventType="touchUpInside" id="T8I-Wf-ZY1"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xBe-P8-uEm">
-                                <rect key="frame" x="169" y="675" width="76" height="38"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Reset"/>
-                                <connections>
-                                    <action selector="resetTest:" destination="rzJ-37-t8T" eventType="touchUpInside" id="xbY-Bu-VQW"/>
-                                </connections>
-                            </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Plate Number" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9i6-K0-vGg">
                                 <rect key="frame" x="28" y="431" width="281" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -189,6 +180,15 @@
                                 <buttonConfiguration key="configuration" style="gray" title="More"/>
                                 <connections>
                                     <action selector="morePlates:" destination="rzJ-37-t8T" eventType="touchUpInside" id="uyQ-0C-15Q"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xBe-P8-uEm">
+                                <rect key="frame" x="144" y="789" width="105" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Temp: Reset"/>
+                                <connections>
+                                    <action selector="resetTest:" destination="rzJ-37-t8T" eventType="touchUpInside" id="xbY-Bu-VQW"/>
                                 </connections>
                             </button>
                         </subviews>

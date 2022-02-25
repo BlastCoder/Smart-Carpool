@@ -57,6 +57,7 @@ class MarkStudentPresent: UITableViewController, UISearchResultsUpdating, UISear
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let instance: DATABASE = DATABASE()
         print(indexPath.row)
+        //have to fix this, becuase of filter, the index does matter anymore!
         instance.EditInfo(self.peopleArray[indexPath.row]["Id"]!, "here")
         //instance.EditInfo(self.tableViewData[indexPath.row]["ID"], "here")
     }

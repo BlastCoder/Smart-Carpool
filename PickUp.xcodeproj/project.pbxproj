@@ -78,6 +78,7 @@
 		9218DB652729C5F4007F8E5A /* PickUp */ = {
 			isa = PBXGroup;
 			children = (
+				926F9FB32734500000E8D435 /* DatabaseClass.swift */,
 				9218DB662729C5F4007F8E5A /* AppDelegate.swift */,
 				9218DB682729C5F4007F8E5A /* SceneDelegate.swift */,
 				9218DB6C2729C5F4007F8E5A /* Main.storyboard */,
@@ -91,7 +92,6 @@
 				9218DB712729C5F5007F8E5A /* LaunchScreen.storyboard */,
 				9218DB742729C5F5007F8E5A /* Info.plist */,
 				926F9FAF27344ADB00E8D435 /* GoogleService-Info.plist */,
-				926F9FB32734500000E8D435 /* DatabaseClass.swift */,
 			);
 			path = PickUp;
 			sourceTree = "<group>";

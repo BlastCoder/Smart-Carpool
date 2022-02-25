@@ -6,7 +6,7 @@
 import UIKit
 import Firebase
 import FirebaseDatabase
-///This has all the components of the database, can currently read and write
+///This has all the components of the database, can  read, write, and edit order
 class DATABASE{
     var ref: DatabaseReference!
     var Children: [[String : String]]
@@ -49,9 +49,9 @@ class DATABASE{
         //Returns array of dictionaries
         return(self.Children)
     }
-    func AddInfo(_ name: String, _ grade: String){
+    func AddInfo(_ name: String, _ grade: String, _ plates: [String]){
         let uuid = "Child:\(UUID().uuidString)"
-        let object: [String: String] = ["Name": name, "Grade": grade, "Status": "notHere", "Order": "0"]
+        let object: [String: Any] = ["Name": name, "Grade": grade, "Status": "notHere", "Order": "0", "CarPlates": plates]
         self.ref.child("Children").child(uuid).setValue(object)
     }
     func EditInfo(_ id: String, _ Status: String){
@@ -85,6 +85,30 @@ class DATABASE{
             }
         }
         self.ref.child("Order").child("recentOrder").updateChildValues(["Order": "1"])
+    }
+    func FindIDWithPlate(_ plate: String) -> [String] {
+        //works finds student or students with matching plate
+        var StudentId: [String] = []
+        let group = DispatchGroup.init()
+        group.enter()
+        self.ref.child("Children").observeSingleEvent(of: .value) { snapshot in
+            for case let child as DataSnapshot in snapshot.children {
+                guard let dict = child.value as? [String:Any] else {
+                    return
+                }
+                let ID = child.key
+                let carPlates = dict["CarPlates"] as! [String]
+                for plates in carPlates {
+                    if plates == plate {
+                        StudentId.append(ID)
+                        break
+                    }
+                }
+            }
+            group.leave()
+        }
+        group.wait()
+        return StudentId
     }
 }
     
