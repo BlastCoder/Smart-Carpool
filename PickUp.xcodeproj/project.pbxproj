@@ -13,6 +13,8 @@
 		9218DB6E2729C5F4007F8E5A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9218DB6C2729C5F4007F8E5A /* Main.storyboard */; };
 		9218DB702729C5F5007F8E5A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9218DB6F2729C5F5007F8E5A /* Assets.xcassets */; };
 		9218DB732729C5F5007F8E5A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9218DB712729C5F5007F8E5A /* LaunchScreen.storyboard */; };
+		9267F8B127C4393700E8788D /* MarkStudentPresent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9267F8B027C4393700E8788D /* MarkStudentPresent.swift */; };
+		9267F8B327C688E100E8788D /* MarkStudentGivenTVController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9267F8B227C688E100E8788D /* MarkStudentGivenTVController.swift */; };
 		926F9FB027344ADC00E8D435 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 926F9FAF27344ADB00E8D435 /* GoogleService-Info.plist */; };
 		926F9FB42734500000E8D435 /* DatabaseClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926F9FB32734500000E8D435 /* DatabaseClass.swift */; };
 		92FB1D042790CF0A009B82C8 /* ViewController3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FB1D012790CF0A009B82C8 /* ViewController3.swift */; };
@@ -31,6 +33,8 @@
 		9218DB722729C5F5007F8E5A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9218DB742729C5F5007F8E5A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9239197327A2FC1A00620A31 /* PickUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PickUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9267F8B027C4393700E8788D /* MarkStudentPresent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkStudentPresent.swift; sourceTree = "<group>"; };
+		9267F8B227C688E100E8788D /* MarkStudentGivenTVController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkStudentGivenTVController.swift; sourceTree = "<group>"; };
 		926F9FAF27344ADB00E8D435 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		926F9FB32734500000E8D435 /* DatabaseClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseClass.swift; sourceTree = "<group>"; };
 		92FB1D012790CF0A009B82C8 /* ViewController3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController3.swift; sourceTree = "<group>"; };
@@ -77,9 +81,11 @@
 				9218DB662729C5F4007F8E5A /* AppDelegate.swift */,
 				9218DB682729C5F4007F8E5A /* SceneDelegate.swift */,
 				9218DB6C2729C5F4007F8E5A /* Main.storyboard */,
-				92FB1D022790CF0A009B82C8 /* ViewController.swift */,
-				92FB1D032790CF0A009B82C8 /* ViewController2.swift */,
+				9267F8B027C4393700E8788D /* MarkStudentPresent.swift */,
+				9267F8B227C688E100E8788D /* MarkStudentGivenTVController.swift */,
 				92FB1D012790CF0A009B82C8 /* ViewController3.swift */,
+				92FB1D032790CF0A009B82C8 /* ViewController2.swift */,
+				92FB1D022790CF0A009B82C8 /* ViewController.swift */,
 				EAD0C3A727A2FDAC00AD852B /* ViewController4.swift */,
 				9218DB6F2729C5F5007F8E5A /* Assets.xcassets */,
 				9218DB712729C5F5007F8E5A /* LaunchScreen.storyboard */,
@@ -219,6 +225,8 @@
 				926F9FB42734500000E8D435 /* DatabaseClass.swift in Sources */,
 				9218DB692729C5F4007F8E5A /* SceneDelegate.swift in Sources */,
 				92FB1D042790CF0A009B82C8 /* ViewController3.swift in Sources */,
+				9267F8B327C688E100E8788D /* MarkStudentGivenTVController.swift in Sources */,
+				9267F8B127C4393700E8788D /* MarkStudentPresent.swift in Sources */,
 				92FB1D052790CF0A009B82C8 /* ViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

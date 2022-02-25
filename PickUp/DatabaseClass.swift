@@ -31,12 +31,13 @@ class DATABASE{
                 let Name = dict["Name"]! as! String
                 let Grade = dict["Grade"]! as! String
                 let Status = dict["Status"] as! String
+                let Order = dict["Order"] as! String
                 if Status == queryWord{
-                    let childInfo: [String: String] = ["Id": ID, "Name": Name, "Grade": Grade, "Status": Status]
+                    let childInfo: [String: String] = ["Id": ID, "Name": Name, "Grade": Grade, "Status": Status, "Order": Order]
                     self.Children.append(childInfo)
                 }
                 else if queryWord == "All" {
-                    let childInfo: [String: String] = ["Id": ID, "Name": Name, "Grade": Grade, "Status": Status]
+                    let childInfo: [String: String] = ["Id": ID, "Name": Name, "Grade": Grade, "Status": Status, "Order": Order]
                     self.Children.append(childInfo)
                 } 
             }
