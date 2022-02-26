@@ -16,7 +16,7 @@ class MarkStudentPresent: UITableViewController, UISearchResultsUpdating, UISear
     let searchController =  UISearchController()
     var peopleArray: [[String:String]] = [[:]]
     let ref = Database.database().reference(fromURL: "https://pickup-2568e-default-rtdb.firebaseio.com/")
-    var queryGrade: String = "0"
+    var queryGrade: String = "All"
 
     lazy var background: DispatchQueue = {
         return DispatchQueue.init(label: "background.queue", attributes: .concurrent)
@@ -25,7 +25,7 @@ class MarkStudentPresent: UITableViewController, UISearchResultsUpdating, UISear
     func updateData(_ queryGrade: String){
         self.background.async {
             let instance: DATABASE = DATABASE()
-            self.peopleArray = instance.GetInfo("notHere")
+            self.peopleArray = instance.GetInfo("notHere", queryGrade)
             self.peopleArray.sort { ($0["Name"]!) < ($1["Name"]!) }
             self.tableViewData = []
             for people in self.peopleArray {

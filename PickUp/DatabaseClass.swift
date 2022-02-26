@@ -16,7 +16,7 @@ class DATABASE{
         self.ref = Database.database().reference(fromURL: "https://pickup-2568e-default-rtdb.firebaseio.com/")
         self.Order = -1
     }
-    func GetInfo(_ queryWord: String) ->  [[String: String]] {
+    func GetInfo(_ queryWord: String, _ queryGrade: String) ->  [[String: String]] {
         //enter the group for async I guess
         self.Children = []
         let group = DispatchGroup.init()
@@ -27,19 +27,36 @@ class DATABASE{
                 guard let dict = child.value as? [String:Any] else {
                     return
                 }
-                let ID = child.key
-                let Name = dict["Name"]! as! String
-                let Grade = dict["Grade"]! as! String
-                let Status = dict["Status"] as! String
-                let Order = dict["Order"] as! String
-                if Status == queryWord{
-                    let childInfo: [String: String] = ["Id": ID, "Name": Name, "Grade": Grade, "Status": Status, "Order": Order]
-                    self.Children.append(childInfo)
+                if dict["Grade"]! as! String == queryGrade{
+                    let ID = child.key
+                    let Name = dict["Name"]! as! String
+                    let Grade = dict["Grade"]! as! String
+                    let Status = dict["Status"] as! String
+                    let Order = dict["Order"] as! String
+                    if Status == queryWord{
+                        let childInfo: [String: String] = ["Id": ID, "Name": Name, "Grade": Grade, "Status": Status, "Order": Order]
+                        self.Children.append(childInfo)
+                    }
+                    else if queryWord == "All" {
+                        let childInfo: [String: String] = ["Id": ID, "Name": Name, "Grade": Grade, "Status": Status, "Order": Order]
+                        self.Children.append(childInfo)
+                    }
                 }
-                else if queryWord == "All" {
-                    let childInfo: [String: String] = ["Id": ID, "Name": Name, "Grade": Grade, "Status": Status, "Order": Order]
-                    self.Children.append(childInfo)
-                } 
+                else if queryGrade == "All" {
+                    let ID = child.key
+                    let Name = dict["Name"]! as! String
+                    let Grade = dict["Grade"]! as! String
+                    let Status = dict["Status"] as! String
+                    let Order = dict["Order"] as! String
+                    if Status == queryWord{
+                        let childInfo: [String: String] = ["Id": ID, "Name": Name, "Grade": Grade, "Status": Status, "Order": Order]
+                        self.Children.append(childInfo)
+                    }
+                    else if queryWord == "All" {
+                        let childInfo: [String: String] = ["Id": ID, "Name": Name, "Grade": Grade, "Status": Status, "Order": Order]
+                        self.Children.append(childInfo)
+                    }
+                }
             }
             group.leave()
         }

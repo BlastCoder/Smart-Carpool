@@ -23,7 +23,7 @@ class ViewController2: UIViewController, UITableViewDelegate, UITableViewDataSou
     func updateData(_ queryGrade: String){
         self.background.async {
             let instance: DATABASE = DATABASE()
-            self.peopleArray = instance.GetInfo("notHere")
+            self.peopleArray = instance.GetInfo("notHere", queryGrade)
             self.peopleArray.sort { ($0["Name"]!) < ($1["Name"]!) }
             self.tableViewData = []
             for people in self.peopleArray {

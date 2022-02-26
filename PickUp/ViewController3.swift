@@ -33,11 +33,11 @@ class ViewController3: UIViewController{
         name.text! = ""
         grade.text! = ""
         plateNums = []
-        /* Testing Purpose, to find Student with plate, it works
+        //Testing Purpose, to find Student with plate, it works
         self.background.async {
             print(instance.FindIDWithPlate("111AAA"))
         }
-         */
+        
     }
     @IBAction func resetTest(_ sender: Any) {
         let instance: DATABASE = DATABASE()

@@ -20,7 +20,7 @@ class MarkStudentGivenTVController: UITableViewController {
     func updateData(){
         self.background.async {
             let instance: DATABASE = DATABASE()
-            self.peopleArray = instance.GetInfo("here")
+            self.peopleArray = instance.GetInfo("here", "All")
             self.peopleArray.sort{($0["Order"]!) < ($1["Order"]!)}
             self.tableViewData = []
             for people in self.peopleArray {
@@ -56,7 +56,7 @@ class MarkStudentGivenTVController: UITableViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "tableviewCell")
-        var timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: "reloadData", userInfo: nil, repeats: true)
+        _ = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.reloadData), userInfo: nil, repeats: true)
         //not efficent but works I guess (maybe add observer on the self.peopleArray to detect change)
         ref.child("Children").observe(.childChanged, with: {(snapshot) -> Void in
             self.updateData()

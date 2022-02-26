@@ -19,8 +19,6 @@
 		926F9FB42734500000E8D435 /* DatabaseClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926F9FB32734500000E8D435 /* DatabaseClass.swift */; };
 		92FB1D042790CF0A009B82C8 /* ViewController3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FB1D012790CF0A009B82C8 /* ViewController3.swift */; };
 		92FB1D052790CF0A009B82C8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FB1D022790CF0A009B82C8 /* ViewController.swift */; };
-		92FB1D062790CF0A009B82C8 /* ViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FB1D032790CF0A009B82C8 /* ViewController2.swift */; };
-		EAD0C3A827A2FDAC00AD852B /* ViewController4.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD0C3A727A2FDAC00AD852B /* ViewController4.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,8 +37,6 @@
 		926F9FB32734500000E8D435 /* DatabaseClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseClass.swift; sourceTree = "<group>"; };
 		92FB1D012790CF0A009B82C8 /* ViewController3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController3.swift; sourceTree = "<group>"; };
 		92FB1D022790CF0A009B82C8 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		92FB1D032790CF0A009B82C8 /* ViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController2.swift; sourceTree = "<group>"; };
-		EAD0C3A727A2FDAC00AD852B /* ViewController4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController4.swift; sourceTree = "<group>"; };
 		FFA592F220171AEDEB0DF850 /* Pods-PickUp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PickUp.debug.xcconfig"; path = "Target Support Files/Pods-PickUp/Pods-PickUp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -85,9 +81,7 @@
 				9267F8B027C4393700E8788D /* MarkStudentPresent.swift */,
 				9267F8B227C688E100E8788D /* MarkStudentGivenTVController.swift */,
 				92FB1D012790CF0A009B82C8 /* ViewController3.swift */,
-				92FB1D032790CF0A009B82C8 /* ViewController2.swift */,
 				92FB1D022790CF0A009B82C8 /* ViewController.swift */,
-				EAD0C3A727A2FDAC00AD852B /* ViewController4.swift */,
 				9218DB6F2729C5F5007F8E5A /* Assets.xcassets */,
 				9218DB712729C5F5007F8E5A /* LaunchScreen.storyboard */,
 				9218DB742729C5F5007F8E5A /* Info.plist */,
@@ -220,8 +214,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				9218DB672729C5F4007F8E5A /* AppDelegate.swift in Sources */,
-				EAD0C3A827A2FDAC00AD852B /* ViewController4.swift in Sources */,
-				92FB1D062790CF0A009B82C8 /* ViewController2.swift in Sources */,
 				926F9FB42734500000E8D435 /* DatabaseClass.swift in Sources */,
 				9218DB692729C5F4007F8E5A /* SceneDelegate.swift in Sources */,
 				92FB1D042790CF0A009B82C8 /* ViewController3.swift in Sources */,
