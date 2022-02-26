@@ -209,7 +209,6 @@
         <!--Mark Given-->
         <scene sceneID="kwS-9N-Bdc">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="pbJ-Ie-yJN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <tableViewController id="hfk-GY-eWB" customClass="MarkStudentGivenTVController" customModule="PickUp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="MS6-JT-ZWO">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -240,6 +239,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Mark Given" id="NNQ-mq-5cu"/>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pbJ-Ie-yJN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2538" y="155"/>
         </scene>

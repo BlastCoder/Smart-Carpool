@@ -34,9 +34,9 @@ class ViewController3: UIViewController{
         grade.text! = ""
         plateNums = []
         //Testing Purpose, to find Student with plate, it works
-        self.background.async {
-            print(instance.FindIDWithPlate("111AAA"))
-        }
+        //self.background.async {
+          //  print(instance.FindIDWithPlate("111AAA"))
+        //}
         
     }
     @IBAction func resetTest(_ sender: Any) {
