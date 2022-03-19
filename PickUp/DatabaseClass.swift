@@ -6,7 +6,7 @@
 import UIKit
 import Firebase
 import FirebaseDatabase
-///This has all the components of the database, can  read, write, and edit order
+///This has all the components of the database, can  read, write, edit order and status, and edit name + grade
 class DATABASE{
     var ref: DatabaseReference!
     lazy var background: DispatchQueue = {
@@ -42,7 +42,7 @@ class DATABASE{
                 else {
                     nameMatch = false
                 }
-
+                
                 if dict["Grade"]! as! String == queryGrade && nameMatch {
                     let ID = child.key
                     let Name = dict["Name"]! as! String
@@ -171,5 +171,8 @@ class DATABASE{
     }
     func EditAllInfo(_ id: String, _ name: String, _ grade: String){
         ref.child("Children").child(id).updateChildValues(["Name": name, "Grade": grade])
+    }
+    func RemoveStudent(_ id: String) {
+        self.ref.child("Children").child(id).removeValue()
     }
 }

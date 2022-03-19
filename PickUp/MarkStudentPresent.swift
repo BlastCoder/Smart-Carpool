@@ -8,17 +8,37 @@
 import UIKit
 import Firebase
 import FirebaseDatabase
+import Foundation
 
 class MarkStudentPresent: UITableViewController, UISearchResultsUpdating, UISearchBarDelegate {
     
     var EditStatus: Bool = false
-    var tableViewData = ["Enter a grade..."]
+    //var i: Int = 0
+    var tableViewData = ["Loading..."]
+    /*
+    var tableViewData: [String] = ["Enter a grade..."] {
+        willSet(tableViewData) {
+            print("HERE")
+        }
+        didSet {
+            if i == 4 {
+                i = 0
+                DispatchQueue.main.async {
+                    self.reloadData()
+                }
+            }
+            else {
+                i += 1
+            }
+        }
+    }
+    */
     let searchController =  UISearchController()
     var peopleArray: [[String:String]] = [[:]]
     let ref = Database.database().reference(fromURL: "https://pickup-2568e-default-rtdb.firebaseio.com/")
     var queryGrade: String = "All"
     var queryName: String = ""
-    var EditPersonID: String = " "
+    var EditPersonID: String = ""
 
     lazy var background: DispatchQueue = {
         return DispatchQueue.init(label: "background.queue", attributes: .concurrent)
@@ -67,7 +87,7 @@ class MarkStudentPresent: UITableViewController, UISearchResultsUpdating, UISear
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "View Students"
-        updateData("All", "")
+        //updateData("All", "")
         var timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: "reloadData", userInfo: nil, repeats: true)
         initSearchController()
         //not efficent but works I guess (maybe add observer on the self.peopleArray to detect change)
@@ -127,7 +147,11 @@ class MarkStudentPresent: UITableViewController, UISearchResultsUpdating, UISear
                 vc.studentID = self.EditPersonID
                 }
     }
+    override func viewWillAppear(_ animated: Bool) {
+        updateData("All", "")
+    }
 }
+
     // MARK: - Table view data source
     
 
@@ -150,7 +174,7 @@ class MarkStudentPresent: UITableViewController, UISearchResultsUpdating, UISear
             // Delete the row from the data source
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+            // Create a new instance of the appropriate class, insert it into the array, a a new row to the table view
         }    
     }
     */

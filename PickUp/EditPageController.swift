@@ -46,7 +46,17 @@ class EditPageController: UIViewController {
         }
     }
         // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+    @IBAction func deleteRecord(_ sender: Any) {
+        let instance: DATABASE = DATABASE()
+        instance.RemoveStudent(self.studentID)
+        self.ChildName.text = ""
+        self.ChildGrade.text = ""
+        self.saveLabeled.text = "Deleted Student!"
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            self.saveLabeled.text = ""
+        }
+    }
+    // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
