@@ -20,7 +20,7 @@ class MarkStudentGivenTVController: UITableViewController {
     func updateData(){
         self.background.async {
             let instance: DATABASE = DATABASE()
-            self.peopleArray = instance.GetInfo("here", "All")
+            self.peopleArray = instance.GetInfo("here", "All", "")
             self.peopleArray.sort{($0["Order"]!) < ($1["Order"]!)}
             self.tableViewData = []
             for people in self.peopleArray {

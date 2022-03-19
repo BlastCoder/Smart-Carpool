@@ -9,14 +9,18 @@ import FirebaseDatabase
 ///This has all the components of the database, can  read, write, and edit order
 class DATABASE{
     var ref: DatabaseReference!
+    lazy var background: DispatchQueue = {
+        return DispatchQueue.init(label: "background.queue", attributes: .concurrent)
+    }()
     var Children: [[String : String]]
     var Order: Int
+    var StudentIDInfo: NSDictionary = [:]
     init(){
         self.Children = []
         self.ref = Database.database().reference(fromURL: "https://pickup-2568e-default-rtdb.firebaseio.com/")
         self.Order = -1
     }
-    func GetInfo(_ queryWord: String, _ queryGrade: String) ->  [[String: String]] {
+    func GetInfo(_ queryWord: String, _ queryGrade: String, _ queryName: String) ->  [[String: String]] {
         //enter the group for async I guess
         self.Children = []
         let group = DispatchGroup.init()
@@ -27,7 +31,19 @@ class DATABASE{
                 guard let dict = child.value as? [String:Any] else {
                     return
                 }
-                if dict["Grade"]! as! String == queryGrade{
+                var name = dict["Name"]! as! String
+                var nameMatch: Bool = false
+                if queryName == "" {
+                        nameMatch = true
+                }
+                else if name.lowercased().contains(queryName.lowercased()) {
+                    nameMatch = true
+                }
+                else {
+                    nameMatch = false
+                }
+
+                if dict["Grade"]! as! String == queryGrade && nameMatch {
                     let ID = child.key
                     let Name = dict["Name"]! as! String
                     let Grade = dict["Grade"]! as! String
@@ -37,12 +53,12 @@ class DATABASE{
                         let childInfo: [String: String] = ["Id": ID, "Name": Name, "Grade": Grade, "Status": Status, "Order": Order]
                         self.Children.append(childInfo)
                     }
-                    else if queryWord == "All" {
+                    else if queryWord == "All" && nameMatch {
                         let childInfo: [String: String] = ["Id": ID, "Name": Name, "Grade": Grade, "Status": Status, "Order": Order]
                         self.Children.append(childInfo)
                     }
                 }
-                else if queryGrade == "All" {
+                else if queryGrade == "All" && nameMatch {
                     let ID = child.key
                     let Name = dict["Name"]! as! String
                     let Grade = dict["Grade"]! as! String
@@ -73,9 +89,10 @@ class DATABASE{
     }
     func EditInfo(_ id: String, _ Status: String){
         ref.child("Children").child(id).updateChildValues(["Status": Status])
-        Task.init{
-            let order = StudentOrder()
-            ref.child("Children").child(id).updateChildValues(["Order": order])
+        if Status == "gone"{return}
+        self.background.async{
+            let order = self.StudentOrder()
+            self.ref.child("Children").child(id).updateChildValues(["Order": order])
         }
     }
     func StudentOrder() -> String{
@@ -127,5 +144,32 @@ class DATABASE{
         group.wait()
         return StudentId
     }
+    func GetInfoWithID(_ Id: String) -> NSDictionary {
+        let group = DispatchGroup.init()
+        StudentIDInfo = [:]
+        group.enter()
+        self.ref.child("Children").child(Id).observeSingleEvent(of: .value, with: { snapshot in
+            self.StudentIDInfo = (snapshot.value as? NSDictionary)!
+            group.leave()
+              // ...
+            }) { error in
+              print(error.localizedDescription)
+            }
+        /*
+        self.ref.child("Children/\(Id)").getData(completion: { error, snapshot in
+            guard error == nil else {
+              return
+            }
+            guard let StudentIDInfo  = snapshot.value as? [String: Any]
+            else {return}
+            print(StudentIDInfo)
+           
+        })
+         */
+        group.wait()
+    return StudentIDInfo
+    }
+    func EditAllInfo(_ id: String, _ name: String, _ grade: String){
+        ref.child("Children").child(id).updateChildValues(["Name": name, "Grade": grade])
+    }
 }
-    

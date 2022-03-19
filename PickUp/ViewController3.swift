@@ -21,6 +21,8 @@ class ViewController3: UIViewController{
         super.viewDidLoad()
         title = "Add Student"
     }
+    @IBOutlet weak var addedLabel: UILabel!
+    
     @IBAction func submitButton(_ sender: Any) {
         let childName: String = name.text!
         let childGrade: String = grade.text!
@@ -33,6 +35,13 @@ class ViewController3: UIViewController{
         name.text! = ""
         grade.text! = ""
         plateNums = []
+        self.addedLabel.text = "Student Added Succesfully!"
+        //self.addedLabel.isHidden = false
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            self.addedLabel.text = ""
+            //self.addedLabel.isHidden = true
+        }
+
         //Testing Purpose, to find Student with plate, it works
         //self.background.async {
           //  print(instance.FindIDWithPlate("111AAA"))
