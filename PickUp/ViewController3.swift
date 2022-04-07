@@ -20,6 +20,9 @@ class ViewController3: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Add Student"
+        grade.delegate = self
+        name.delegate = self
+        plateText.delegate = self
     }
     @IBOutlet weak var addedLabel: UILabel!
     
@@ -70,3 +73,10 @@ class ViewController3: UIViewController{
     */
 
 }
+extension ViewController3: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder() // dismiss keyboard
+        return true
+    }
+}
+

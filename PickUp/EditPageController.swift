@@ -20,6 +20,9 @@ class EditPageController: UIViewController {
     var studentValue: NSDictionary = [:]
     override func viewDidLoad() {
         super.viewDidLoad()
+        ChildName.delegate = self
+        ChildGrade.delegate = self
+        
         self.background.async {
             let instance: DATABASE = DATABASE()
             self.studentValue = instance.GetInfoWithID(self.studentID)
@@ -73,3 +76,10 @@ class EditPageController: UIViewController {
     */
 
 }
+extension EditPageController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder() // dismiss keyboard
+        return true
+    }
+}
+
