@@ -35,7 +35,7 @@
                     <navigationItem key="navigationItem" title="Mark Student Present" id="K72-m1-o9n">
                         <barButtonItem key="leftBarButtonItem" style="plain" systemItem="camera" id="PTR-bK-TWp">
                             <connections>
-                                <segue destination="Mfr-pl-DrR" kind="presentation" modalPresentationStyle="fullScreen" id="XYa-GR-zuy"/>
+                                <segue destination="Mfr-pl-DrR" kind="show" id="XYa-GR-zuy"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="plain" id="osg-Rx-7Ub">
@@ -465,29 +465,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eXE-KA-sP6">
-                                <rect key="frame" x="0.0" y="761.5" width="414" height="134.5"/>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PFm-tI-kff">
+                                <rect key="frame" x="0.0" y="59" width="414" height="60"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eXE-KA-sP6">
+                                <rect key="frame" x="0.0" y="707" width="414" height="189"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Adm-fg-N6y">
-                                        <rect key="frame" x="136" y="18" width="143" height="74"/>
+                                        <rect key="frame" x="136" y="30" width="143" height="74"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                         <size key="shadowOffset" width="0.0" height="0.0"/>
                                     </label>
-                                </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </view>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PFm-tI-kff">
-                                <rect key="frame" x="0.0" y="59" width="414" height="60"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Xn-tR-0UB">
-                                        <rect key="frame" x="298" y="15" width="97" height="31"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="gray" title="Button"/>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
@@ -505,6 +497,7 @@
                             <constraint firstAttribute="bottom" secondItem="eXE-KA-sP6" secondAttribute="bottom" id="wBb-Ff-t4d"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="X3K-zT-mUh"/>
                     <connections>
                         <outlet property="plateNum" destination="Adm-fg-N6y" id="2dV-uP-YBR"/>
                     </connections>
@@ -512,7 +505,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="raH-6u-GFO" sceneMemberID="firstResponder"/>
                 <navigationItem id="g9V-Lw-IkQ"/>
             </objects>
-            <point key="canvasLocation" x="-203" y="155"/>
+            <point key="canvasLocation" x="-204.34782608695653" y="154.6875"/>
         </scene>
     </scenes>
     <color key="tintColor" systemColor="linkColor"/>
