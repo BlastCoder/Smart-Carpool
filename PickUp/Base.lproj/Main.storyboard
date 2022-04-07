@@ -32,26 +32,26 @@
                             <outlet property="delegate" destination="vvj-Lw-fox" id="M1D-ye-Zzj"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Mark Student Present" id="oJR-VU-Ygh">
-                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="camera" id="AgF-9a-X8h">
+                    <navigationItem key="navigationItem" title="Mark Student Present" id="K72-m1-o9n">
+                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="camera" id="PTR-bK-TWp">
                             <connections>
-                                <segue destination="Mfr-pl-DrR" kind="presentation" modalPresentationStyle="fullScreen" id="Mim-xM-UpT"/>
+                                <segue destination="Mfr-pl-DrR" kind="presentation" modalPresentationStyle="fullScreen" id="XYa-GR-zuy"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="gYb-es-YrT">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="89o-a7-8oJ" userLabel="Edit">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="osg-Rx-7Ub">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="len-ol-Wuv" userLabel="Edit">
                                 <rect key="frame" x="302" y="5" width="92" height="34.5"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="gray" title="Edit"/>
                                 <connections>
-                                    <action selector="EditStudent:" destination="vvj-Lw-fox" eventType="touchUpInside" id="J6o-Ek-2OA"/>
+                                    <action selector="EditStudent:" destination="vvj-Lw-fox" eventType="touchUpInside" id="77k-lh-BEz"/>
                                 </connections>
                             </button>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="EditButton" destination="89o-a7-8oJ" id="G1y-Lh-URo"/>
+                        <outlet property="EditButton" destination="len-ol-Wuv" id="qVt-kp-h3E"/>
                         <segue destination="z5s-2q-hmX" kind="show" identifier="EditPage" id="dvG-Tr-TFY"/>
                     </connections>
                 </tableViewController>
@@ -64,11 +64,11 @@
             <objects>
                 <viewController id="z5s-2q-hmX" customClass="EditPageController" customModule="PickUp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="50K-g8-dSO">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Child Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="u3i-pG-pHX">
-                                <rect key="frame" x="58" y="227" width="299" height="34"/>
+                                <rect key="frame" x="58" y="271" width="299" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="czN-mM-rGp"/>
                                     <constraint firstAttribute="width" constant="299" id="v9u-yv-zKl"/>
@@ -77,7 +77,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Grade" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lt4-zI-UWK">
-                                <rect key="frame" x="58" y="299" width="299" height="34"/>
+                                <rect key="frame" x="58" y="343" width="299" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="299" id="gqf-k4-qY0"/>
                                     <constraint firstAttribute="height" constant="34" id="kKU-G5-odz"/>
@@ -86,7 +86,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Es-to-dR6">
-                                <rect key="frame" x="0.0" y="56" width="414" height="49"/>
+                                <rect key="frame" x="0.0" y="100" width="414" height="49"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="49" id="UG2-Q3-ewI"/>
                                     <constraint firstAttribute="width" constant="414" id="zuZ-rI-4uW"/>
@@ -140,7 +140,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7I3-jX-uFz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="928.98550724637687" y="908.70535714285711"/>
+            <point key="canvasLocation" x="961" y="925"/>
         </scene>
         <!--Add Student-->
         <scene sceneID="Xre-F5-8eH">
@@ -456,7 +456,7 @@
         <!--View Controller-->
         <scene sceneID="gLm-gP-vk9">
             <objects>
-                <viewController id="Mfr-pl-DrR" customClass="ViewController" customModule="SmartCameraLBTA" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Mfr-pl-DrR" customClass="ViewController" customModule="PickUp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="TQ1-FE-jnj"/>
                         <viewControllerLayoutGuide type="bottom" id="0r3-xW-fmQ"/>
@@ -487,9 +487,6 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="gray" title="Button"/>
-                                        <connections>
-                                            <segue destination="vvj-Lw-fox" kind="presentation" modalPresentationStyle="fullScreen" id="yZ1-rG-t8G"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -518,9 +515,6 @@
             <point key="canvasLocation" x="-203" y="155"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="yZ1-rG-t8G"/>
-    </inferredMetricsTieBreakers>
     <color key="tintColor" systemColor="linkColor"/>
     <resources>
         <systemColor name="linkColor">
