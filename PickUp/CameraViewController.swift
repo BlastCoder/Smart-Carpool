@@ -8,6 +8,9 @@ import UIKit
 import AVKit
 import Vision
 import VideoToolbox
+import UIKit
+import Firebase
+import FirebaseDatabase
 
 class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDelegate {
     var image:CGImage? = nil
@@ -20,18 +23,29 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
     let maximumZoom: CGFloat = 10.0
     var lastZoomFactor: CGFloat = 1.0
     var device: AVCaptureDevice? = nil
+    //var idNums: [String] = [""]
+    lazy var background: DispatchQueue = {
+        return DispatchQueue.init(label: "background.queue", attributes: .concurrent)
+    }()
     private let videoDataOutputQueue = DispatchQueue(label: "VideoDataOutput", qos: .userInitiated, attributes: [], autoreleaseFrequency: .workItem)
     var currentPlate: String = "" {
         willSet {}
         didSet {
-            print(currentPlate)
-            //run the fucntion here to mark children present!
+            //print(currentPlate)
+            self.background.async {
+                let instance: DATABASE = DATABASE()
+                var idNums = instance.FindIDWithPlate(self.currentPlate)
+                for plate in idNums {
+                    self.background.async {
+                        let instance: DATABASE = DATABASE()
+                        instance.EditInfo(plate, "here")
+                    }
+                }
+            }
         }
     }
     
     @IBOutlet weak var plateNum: UILabel!
-
-    @IBOutlet weak var afterImageView: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
         setupVision()
@@ -76,14 +90,13 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
             print(error)
         }
         captureSession.commitConfiguration()
-        //captureSession.addOutput(dataOutput)
         
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     @objc func pinch(_ pinch: UIPinchGestureRecognizer) {
-            // Return zoom value between the minimum and maximum zoom values
+            // Return zoo   m value between the minimum and maximum zoom values
             func minMaxZoom(_ factor: CGFloat) -> CGFloat {
                 return min(min(max(factor, minimumZoom), maximumZoom), device!.activeFormat.videoMaxZoomFactor)
             }
@@ -230,14 +243,4 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
         }
     }
 }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 

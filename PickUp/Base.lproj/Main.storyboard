@@ -473,7 +473,7 @@
                                 <rect key="frame" x="0.0" y="707" width="414" height="189"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Adm-fg-N6y">
-                                        <rect key="frame" x="136" y="30" width="143" height="74"/>
+                                        <rect key="frame" x="136" y="24" width="143" height="74"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                         <nil key="textColor"/>
@@ -492,7 +492,7 @@
                             <constraint firstItem="PFm-tI-kff" firstAttribute="leading" secondItem="eXE-KA-sP6" secondAttribute="leading" id="K1d-mX-dDE"/>
                             <constraint firstItem="eXE-KA-sP6" firstAttribute="centerX" secondItem="dfW-DP-Cqc" secondAttribute="centerX" id="gOS-9b-boL"/>
                             <constraint firstItem="eXE-KA-sP6" firstAttribute="width" secondItem="dfW-DP-Cqc" secondAttribute="width" id="jKd-Ek-k0T"/>
-                            <constraint firstItem="eXE-KA-sP6" firstAttribute="height" secondItem="dfW-DP-Cqc" secondAttribute="height" multiplier="0.15" id="mno-B8-dvI"/>
+                            <constraint firstItem="eXE-KA-sP6" firstAttribute="height" secondItem="dfW-DP-Cqc" secondAttribute="height" multiplier="0.2" id="mno-B8-dvI"/>
                             <constraint firstItem="PFm-tI-kff" firstAttribute="top" secondItem="pHa-rg-1XJ" secondAttribute="top" constant="15" id="orj-kk-NwJ"/>
                             <constraint firstAttribute="bottom" secondItem="eXE-KA-sP6" secondAttribute="bottom" id="wBb-Ff-t4d"/>
                         </constraints>
