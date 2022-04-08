@@ -34,7 +34,7 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
             //print(currentPlate)
             self.background.async {
                 let instance: DATABASE = DATABASE()
-                var idNums = instance.FindIDWithPlate(self.currentPlate)
+                var idNums = instance.FindIDWithPlate(DATABASE.ApplyHash(self.currentPlate))
                 for plate in idNums {
                     self.background.async {
                         let instance: DATABASE = DATABASE()
@@ -207,7 +207,7 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
             }
             
             // Process the recognized strings.
-            let removeCharacters: Set<Character> = [" ", "-", "•", "[", "]", "(", ")", "!", "*"]
+            let removeCharacters: Set<Character> = [" ", "-", "•", "[", "]", "(", ")", "!", "*", "+"]
             let numbSet: Set<Character> = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]
 
             

@@ -20,7 +20,7 @@
 		926F9FB42734500000E8D435 /* DatabaseClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926F9FB32734500000E8D435 /* DatabaseClass.swift */; };
 		92EBE5C727FF32B4000C1A98 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EBE5C627FF32B4000C1A98 /* CameraViewController.swift */; };
 		92EBE5C927FF33D8000C1A98 /* LisencePlate2780.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 92EBE5C827FF33D8000C1A98 /* LisencePlate2780.mlmodel */; };
-		92FB1D042790CF0A009B82C8 /* ViewController3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FB1D012790CF0A009B82C8 /* ViewController3.swift */; };
+		92FB1D042790CF0A009B82C8 /* AddStudentPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FB1D012790CF0A009B82C8 /* AddStudentPage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,7 +40,7 @@
 		926F9FB32734500000E8D435 /* DatabaseClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseClass.swift; sourceTree = "<group>"; };
 		92EBE5C627FF32B4000C1A98 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		92EBE5C827FF33D8000C1A98 /* LisencePlate2780.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = LisencePlate2780.mlmodel; sourceTree = "<group>"; };
-		92FB1D012790CF0A009B82C8 /* ViewController3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController3.swift; sourceTree = "<group>"; };
+		92FB1D012790CF0A009B82C8 /* AddStudentPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddStudentPage.swift; sourceTree = "<group>"; };
 		FFA592F220171AEDEB0DF850 /* Pods-PickUp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PickUp.debug.xcconfig"; path = "Target Support Files/Pods-PickUp/Pods-PickUp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -86,7 +86,7 @@
 				9267F8B027C4393700E8788D /* MarkStudentPresent.swift */,
 				9244C29527D7D55A007BCF13 /* EditPageController.swift */,
 				9267F8B227C688E100E8788D /* MarkStudentGivenTVController.swift */,
-				92FB1D012790CF0A009B82C8 /* ViewController3.swift */,
+				92FB1D012790CF0A009B82C8 /* AddStudentPage.swift */,
 				9218DB6F2729C5F5007F8E5A /* Assets.xcassets */,
 				92EBE5C827FF33D8000C1A98 /* LisencePlate2780.mlmodel */,
 				9218DB712729C5F5007F8E5A /* LaunchScreen.storyboard */,
@@ -224,7 +224,7 @@
 				92EBE5C927FF33D8000C1A98 /* LisencePlate2780.mlmodel in Sources */,
 				926F9FB42734500000E8D435 /* DatabaseClass.swift in Sources */,
 				9218DB692729C5F4007F8E5A /* SceneDelegate.swift in Sources */,
-				92FB1D042790CF0A009B82C8 /* ViewController3.swift in Sources */,
+				92FB1D042790CF0A009B82C8 /* AddStudentPage.swift in Sources */,
 				92EBE5C727FF32B4000C1A98 /* CameraViewController.swift in Sources */,
 				9267F8B327C688E100E8788D /* MarkStudentGivenTVController.swift in Sources */,
 				9267F8B127C4393700E8788D /* MarkStudentPresent.swift in Sources */,

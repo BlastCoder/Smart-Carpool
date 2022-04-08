@@ -6,6 +6,8 @@
 import UIKit
 import Firebase
 import FirebaseDatabase
+import CryptoKit
+
 ///This has all the components of the database, can  read, write, edit order and status, and edit name + grade
 class DATABASE{
     var ref: DatabaseReference!
@@ -155,17 +157,6 @@ class DATABASE{
             }) { error in
               print(error.localizedDescription)
             }
-        /*
-        self.ref.child("Children/\(Id)").getData(completion: { error, snapshot in
-            guard error == nil else {
-              return
-            }
-            guard let StudentIDInfo  = snapshot.value as? [String: Any]
-            else {return}
-            print(StudentIDInfo)
-           
-        })
-         */
         group.wait()
     return StudentIDInfo
     }
@@ -174,5 +165,11 @@ class DATABASE{
     }
     func RemoveStudent(_ id: String) {
         self.ref.child("Children").child(id).removeValue()
+    }
+    static func ApplyHash(_ input: String) -> String {
+        let inputData = Data(input.utf8)
+        let hashed = SHA256.hash(data: inputData)
+        let string = hashed.compactMap { String(format: "%02x", $0)}.joined()
+        return string
     }
 }

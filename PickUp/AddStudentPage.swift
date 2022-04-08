@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController3: UIViewController{
+class AddStudentPage: UIViewController{
     lazy var background: DispatchQueue = {
         return DispatchQueue.init(label: "background.queue", attributes: .concurrent)
     }()
@@ -31,9 +31,13 @@ class ViewController3: UIViewController{
         let childGrade: String = grade.text!
         plateNums.append(plateText.text!)
         plateText.text = ""
-        print(self.plateNums)
+        
         let instance:DATABASE = DATABASE()
-        //print(instance.StudentOrder())
+        
+        for (index, plate) in plateNums.enumerated() {
+            plateNums[index] = DATABASE.ApplyHash(plate)
+        }
+        
         instance.AddInfo(childName, childGrade, self.plateNums)
         name.text! = ""
         grade.text! = ""
@@ -62,18 +66,8 @@ class ViewController3: UIViewController{
         plateText.text = ""
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
-extension ViewController3: UITextFieldDelegate {
+extension AddStudentPage: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder() // dismiss keyboard
         return true
