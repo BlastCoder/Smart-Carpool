@@ -8,7 +8,7 @@
 import UIKit
 
 class SignUpVC: UIViewController {
-    var EmailList: [String] = [""]
+    var EmailList: [String] = []
     
     @IBOutlet weak var Email: UITextField!
     @IBOutlet weak var SchoolName: UITextField!
@@ -28,7 +28,14 @@ class SignUpVC: UIViewController {
     @IBAction func Submit(_ sender: Any) {
         guard let school = SchoolName.text else{return}
         let instance: DATABASE = DATABASE()
-        //instance.addSchool
+        guard let email = Email.text
+        else{return}
+        self.EmailList.append(email)
+        
+        Email.text = ""
+        SchoolName.text = ""
+        instance.addAccount(school, self.EmailList)
+        self.EmailList = []
     }
     
     /*
