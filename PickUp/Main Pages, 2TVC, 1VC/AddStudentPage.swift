@@ -20,9 +20,9 @@ class AddStudentPage: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Add Student"
-        //grade.delegate = self
-        //name.delegate = self
-        //plateText.delegate = self
+        grade.delegate = self
+        name.delegate = self
+        plateText.delegate = self
     }
     @IBOutlet weak var addedLabel: UILabel!
     
@@ -67,12 +67,12 @@ class AddStudentPage: UIViewController{
     }
     
 }
-/*
+
 extension AddStudentPage: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder() // dismiss keyboard
         return true
     }
 }
-*/
+
 
