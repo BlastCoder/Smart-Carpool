@@ -38,26 +38,26 @@
                                 <segue destination="Mfr-pl-DrR" kind="show" id="XYa-GR-zuy"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Item" style="plain" id="osg-Rx-7Ub">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="len-ol-Wuv" userLabel="Edit">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="b3Y-Tu-HqM">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="JUh-No-Fh2">
                                 <rect key="frame" x="302" y="5" width="92" height="34.5"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="gray" title="Edit"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Edit"/>
                                 <connections>
-                                    <action selector="EditStudent:" destination="vvj-Lw-fox" eventType="touchUpInside" id="77k-lh-BEz"/>
+                                    <action selector="EditStudent:" destination="vvj-Lw-fox" eventType="touchUpInside" id="4Ee-br-IR9"/>
                                 </connections>
                             </button>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="EditButton" destination="len-ol-Wuv" id="qVt-kp-h3E"/>
+                        <outlet property="EditButton" destination="JUh-No-Fh2" id="64N-rd-l5l"/>
                         <segue destination="z5s-2q-hmX" kind="show" identifier="EditPage" id="dvG-Tr-TFY"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UKq-9S-YpV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="929" y="155"/>
+            <point key="canvasLocation" x="929" y="115"/>
         </scene>
         <!--Edit Page Controller-->
         <scene sceneID="ZF8-P1-gtD">
@@ -143,7 +143,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7I3-jX-uFz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="929" y="867"/>
+            <point key="canvasLocation" x="929" y="896"/>
         </scene>
         <!--Add Student-->
         <scene sceneID="Xre-F5-8eH">
@@ -248,7 +248,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dNX-dL-vub" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1716" y="155"/>
+            <point key="canvasLocation" x="1716" y="115"/>
         </scene>
         <!--Mark Given-->
         <scene sceneID="kwS-9N-Bdc">
@@ -285,7 +285,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pbJ-Ie-yJN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2454" y="155"/>
+            <point key="canvasLocation" x="2496" y="115"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="mad-H4-jHg">
@@ -332,7 +332,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="nP0-Uf-LSn">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" systemColor="systemPinkColor"/>
+                        <color key="backgroundColor" systemColor="systemYellowColor"/>
                         <color key="tintColor" systemColor="linkColor"/>
                     </navigationBar>
                     <connections>
@@ -341,7 +341,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uu2-aA-6ys" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2454" y="-687"/>
+            <point key="canvasLocation" x="2496" y="-687"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="gSJ-pi-ebR">
@@ -417,7 +417,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MkW-qZ-D26" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-790" y="-765"/>
+            <point key="canvasLocation" x="-778" y="-766"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="YSQ-fw-ZA6">
@@ -443,7 +443,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="hgh-bo-iV5">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" systemColor="systemYellowColor"/>
+                        <color key="backgroundColor" red="0.85112726319916521" green="0.94615056667019437" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <color key="tintColor" systemColor="linkColor"/>
                         <color key="barTintColor" systemColor="systemTealColor"/>
                     </navigationBar>
@@ -508,7 +508,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="raH-6u-GFO" sceneMemberID="firstResponder"/>
                 <navigationItem id="g9V-Lw-IkQ"/>
             </objects>
-            <point key="canvasLocation" x="132" y="155"/>
+            <point key="canvasLocation" x="68" y="115"/>
         </scene>
     </scenes>
     <color key="tintColor" systemColor="linkColor"/>
@@ -524,9 +524,6 @@
         </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemPinkColor">
-            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemTealColor">
             <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -78,15 +78,13 @@
 		9218DB652729C5F4007F8E5A /* PickUp */ = {
 			isa = PBXGroup;
 			children = (
+				92EBE5CC28009407000C1A98 /* 2 Pages, from MSP */,
+				92EBE5CB2800939C000C1A98 /* Main Pages, 2TVC, 1VC */,
+				92EBE5CA28009372000C1A98 /* Login VC */,
 				926F9FB32734500000E8D435 /* DatabaseClass.swift */,
 				9218DB662729C5F4007F8E5A /* AppDelegate.swift */,
 				9218DB682729C5F4007F8E5A /* SceneDelegate.swift */,
 				9218DB6C2729C5F4007F8E5A /* Main.storyboard */,
-				92EBE5C627FF32B4000C1A98 /* CameraViewController.swift */,
-				9267F8B027C4393700E8788D /* MarkStudentPresent.swift */,
-				9244C29527D7D55A007BCF13 /* EditPageController.swift */,
-				9267F8B227C688E100E8788D /* MarkStudentGivenTVController.swift */,
-				92FB1D012790CF0A009B82C8 /* AddStudentPage.swift */,
 				9218DB6F2729C5F5007F8E5A /* Assets.xcassets */,
 				92EBE5C827FF33D8000C1A98 /* LisencePlate2780.mlmodel */,
 				9218DB712729C5F5007F8E5A /* LaunchScreen.storyboard */,
@@ -94,6 +92,32 @@
 				926F9FAF27344ADB00E8D435 /* GoogleService-Info.plist */,
 			);
 			path = PickUp;
+			sourceTree = "<group>";
+		};
+		92EBE5CA28009372000C1A98 /* Login VC */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Login VC";
+			sourceTree = "<group>";
+		};
+		92EBE5CB2800939C000C1A98 /* Main Pages, 2TVC, 1VC */ = {
+			isa = PBXGroup;
+			children = (
+				9267F8B027C4393700E8788D /* MarkStudentPresent.swift */,
+				92FB1D012790CF0A009B82C8 /* AddStudentPage.swift */,
+				9267F8B227C688E100E8788D /* MarkStudentGivenTVController.swift */,
+			);
+			path = "Main Pages, 2TVC, 1VC";
+			sourceTree = "<group>";
+		};
+		92EBE5CC28009407000C1A98 /* 2 Pages, from MSP */ = {
+			isa = PBXGroup;
+			children = (
+				92EBE5C627FF32B4000C1A98 /* CameraViewController.swift */,
+				9244C29527D7D55A007BCF13 /* EditPageController.swift */,
+			);
+			path = "2 Pages, from MSP";
 			sourceTree = "<group>";
 		};
 		C52F269024B5A7D799B78564 /* Frameworks */ = {

@@ -13,7 +13,7 @@ import Foundation
 class MarkStudentPresent: UITableViewController, UISearchResultsUpdating, UISearchBarDelegate {
     
     var EditStatus: Bool = false
-    //var i: Int = 0
+    
     var tableViewData = ["Loading..."]
     /*
     var tableViewData: [String] = ["Enter a grade..."] {
@@ -134,10 +134,10 @@ class MarkStudentPresent: UITableViewController, UISearchResultsUpdating, UISear
     @IBAction func EditStudent(_ sender: Any) {
         EditStatus = !EditStatus
         if EditStatus {
-            EditButton.backgroundColor = .green
+            EditButton.tintColor = .red
         }
         else {
-            EditButton.backgroundColor = .lightGray
+            EditButton.tintColor = .link
         }
         //performSegue(withIdentifier: "EditPage", sender: self)
         
