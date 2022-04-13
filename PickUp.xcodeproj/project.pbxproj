@@ -21,6 +21,7 @@
 		92EBE5C727FF32B4000C1A98 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EBE5C627FF32B4000C1A98 /* CameraViewController.swift */; };
 		92EBE5C927FF33D8000C1A98 /* LisencePlate2780.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 92EBE5C827FF33D8000C1A98 /* LisencePlate2780.mlmodel */; };
 		92EBE5CE28049A83000C1A98 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EBE5CD28049A83000C1A98 /* SignUpVC.swift */; };
+		92EBE5D028062330000C1A98 /* ConfigFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EBE5CF28062330000C1A98 /* ConfigFile.swift */; };
 		92FB1D042790CF0A009B82C8 /* AddStudentPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FB1D012790CF0A009B82C8 /* AddStudentPage.swift */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +43,7 @@
 		92EBE5C627FF32B4000C1A98 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		92EBE5C827FF33D8000C1A98 /* LisencePlate2780.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = LisencePlate2780.mlmodel; sourceTree = "<group>"; };
 		92EBE5CD28049A83000C1A98 /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
+		92EBE5CF28062330000C1A98 /* ConfigFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigFile.swift; sourceTree = "<group>"; };
 		92FB1D012790CF0A009B82C8 /* AddStudentPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddStudentPage.swift; sourceTree = "<group>"; };
 		FFA592F220171AEDEB0DF850 /* Pods-PickUp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PickUp.debug.xcconfig"; path = "Target Support Files/Pods-PickUp/Pods-PickUp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -80,6 +82,7 @@
 		9218DB652729C5F4007F8E5A /* PickUp */ = {
 			isa = PBXGroup;
 			children = (
+				92EBE5CF28062330000C1A98 /* ConfigFile.swift */,
 				92EBE5CC28009407000C1A98 /* 2 Pages, from MSP */,
 				92EBE5CB2800939C000C1A98 /* Main Pages, 2TVC, 1VC */,
 				92EBE5CA28009372000C1A98 /* Login VC */,
@@ -248,6 +251,7 @@
 			files = (
 				9218DB672729C5F4007F8E5A /* AppDelegate.swift in Sources */,
 				9244C29627D7D55A007BCF13 /* EditPageController.swift in Sources */,
+				92EBE5D028062330000C1A98 /* ConfigFile.swift in Sources */,
 				92EBE5C927FF33D8000C1A98 /* LisencePlate2780.mlmodel in Sources */,
 				926F9FB42734500000E8D435 /* DatabaseClass.swift in Sources */,
 				9218DB692729C5F4007F8E5A /* SceneDelegate.swift in Sources */,

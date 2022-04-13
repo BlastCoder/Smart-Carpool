@@ -23,9 +23,20 @@ class DATABASE{
         self.Order = -1
     }
     func addAccount(_ school: String, _ emails: [String]) {
-        //self.ref.child("School").child(school).getData(completion: <#T##(Error?, DataSnapshot) -> Void#>) !=
-        let object: [String: [String]] = ["Emails": emails]
-        self.ref.child("School").child(school).setValue(object)
+        let schoolName = school.uppercased()
+
+        self.ref.child("School").child(schoolName).getData(completion:  { error, snapshot in
+            guard error == nil else {
+              return
+            }
+            guard let OrderDict = snapshot.value as? [String: [String]]
+            else {
+                let object: [String: [String]] = ["Emails": emails]
+                self.ref.child("School").child(schoolName).setValue(object)
+                return
+            }
+          })
+        return
     }
     func GetInfo(_ queryWord: String, _ queryGrade: String, _ queryName: String) ->  [[String: String]] {
         //enter the group for async I guess
