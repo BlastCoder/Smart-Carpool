@@ -38,6 +38,20 @@ class DATABASE{
           })
         return
     }
+    func checkAccount(_ school: String, _ email: String) -> Bool {
+        self.ref.child("School").child(school).getData(completion:  { error, snapshot in
+            guard error == nil else {
+                  return
+                }
+            
+                guard let OrderDict = snapshot.value as? [String: [String]]
+                else {
+                return
+                }
+            var emails = OrderDict["Emails"]
+          })
+        return true
+    }
     func GetInfo(_ queryWord: String, _ queryGrade: String, _ queryName: String) ->  [[String: String]] {
         //enter the group for async I guess
         self.Children = []
