@@ -438,6 +438,18 @@
                                     <segue destination="Kuj-5d-ChP" kind="presentation" modalPresentationStyle="fullScreen" id="brt-f9-bRi"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qko-GP-wUW">
+                                <rect key="frame" x="99" y="426" width="217" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Sign In With Google"/>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="School Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ir1-cd-rbv">
+                                <rect key="frame" x="67" y="322" width="281" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="foh-Zl-Han"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -449,7 +461,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MkW-qZ-D26" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-778" y="-766"/>
+            <point key="canvasLocation" x="-778.26086956521749" y="-766.07142857142856"/>
         </scene>
         <!--Sign UpVC-->
         <scene sceneID="YSQ-fw-ZA6">
