@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="XaL-pM-Kay">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="XaL-pM-Kay">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -307,7 +307,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="mad-H4-jHg">
             <objects>
-                <tabBarController id="Kuj-5d-ChP" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="MainPage" id="Kuj-5d-ChP" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="NO9-cj-Tot">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -368,8 +368,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kUZ-mV-zB9">
-                                <rect key="frame" x="145.5" y="643" width="123" height="52"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kUZ-mV-zB9">
+                                <rect key="frame" x="145" y="615" width="123" height="52"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="52" id="EYb-HX-VQq"/>
                                     <constraint firstAttribute="width" constant="123" id="tNr-v8-dOu"/>
@@ -380,8 +380,8 @@
                                     <segue destination="cEQ-05-5X3" kind="presentation" modalPresentationStyle="fullScreen" id="5gz-PN-9f2"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FWm-Ux-B5v">
-                                <rect key="frame" x="146" y="730" width="122" height="57"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FWm-Ux-B5v">
+                                <rect key="frame" x="146" y="687" width="122" height="57"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="57" id="l95-Cu-cOA"/>
                                     <constraint firstAttribute="width" constant="122" id="yhC-GV-0HG"/>
@@ -420,10 +420,10 @@
             </objects>
             <point key="canvasLocation" x="-778.26086956521749" y="-1505.3571428571429"/>
         </scene>
-        <!--View Controller-->
+        <!--Sign InVC-->
         <scene sceneID="BCQ-O5-nJO">
             <objects>
-                <viewController id="fjU-bG-x8C" sceneMemberID="viewController">
+                <viewController id="fjU-bG-x8C" customClass="SignInVC" customModule="PickUp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mTg-ed-dKO">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -433,7 +433,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="gray" title="Done"/>
                                 <connections>
-                                    <segue destination="Kuj-5d-ChP" kind="presentation" modalPresentationStyle="fullScreen" id="brt-f9-bRi"/>
+                                    <action selector="submitButton:" destination="fjU-bG-x8C" eventType="touchUpInside" id="biO-Yl-GB0"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="School Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ir1-cd-rbv">
@@ -449,6 +449,9 @@
                                 <rect key="frame" x="99" y="429" width="217" height="38"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Sign In With Google"/>
+                                <connections>
+                                    <action selector="SignIn:" destination="fjU-bG-x8C" eventType="touchUpInside" id="sHg-wq-sBu"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="foh-Zl-Han"/>
@@ -462,6 +465,10 @@
                             <constraint firstItem="ir1-cd-rbv" firstAttribute="centerX" secondItem="foh-Zl-Han" secondAttribute="centerX" id="yRV-4V-0zc"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="schoolName" destination="ir1-cd-rbv" id="3Qi-dK-DdV"/>
+                        <segue destination="Kuj-5d-ChP" kind="presentation" identifier="MainPageSegue" modalPresentationStyle="fullScreen" id="gFa-g8-ecE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MkW-qZ-D26" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -487,7 +494,7 @@
                                     <action selector="Submit:" destination="cEQ-05-5X3" eventType="touchUpInside" id="gkE-gV-m80"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="School Name" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="hNA-S8-oDC">
+                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="School Name" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="hNA-S8-oDC">
                                 <rect key="frame" x="50" y="369" width="314" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
@@ -527,6 +534,7 @@
                             <constraint firstItem="h9j-g0-cXQ" firstAttribute="centerX" secondItem="7ud-Ln-Qoj" secondAttribute="centerX" id="DIg-xg-56f"/>
                             <constraint firstItem="dCC-1N-xwk" firstAttribute="top" secondItem="hNA-S8-oDC" secondAttribute="bottom" constant="28" id="ZYc-Xa-txx"/>
                             <constraint firstItem="7ud-Ln-Qoj" firstAttribute="bottom" secondItem="TSk-hq-5ty" secondAttribute="bottom" constant="91" id="iO1-qR-cRM"/>
+                            <constraint firstItem="hNA-S8-oDC" firstAttribute="centerX" secondItem="7ud-Ln-Qoj" secondAttribute="centerX" id="l0a-Zt-qWg"/>
                             <constraint firstItem="h9j-g0-cXQ" firstAttribute="centerY" secondItem="7ud-Ln-Qoj" secondAttribute="centerY" id="plL-6C-yIN"/>
                             <constraint firstItem="TSk-hq-5ty" firstAttribute="centerX" secondItem="7ud-Ln-Qoj" secondAttribute="centerX" id="wT9-SO-0c6"/>
                         </constraints>

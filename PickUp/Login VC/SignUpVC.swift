@@ -21,7 +21,7 @@ class SignUpVC: UIViewController {
     @IBAction func MoreEmail(_ sender: Any) {
         guard let email = Email.text
         else{return}
-        EmailList.append(email)
+        EmailList.append(email.uppercased())
         Email.text = ""
     }
     
@@ -30,7 +30,7 @@ class SignUpVC: UIViewController {
         let instance: DATABASE = DATABASE()
         guard let email = Email.text
         else{return}
-        self.EmailList.append(email)
+        self.EmailList.append(email.uppercased())
         
         Email.text = ""
         SchoolName.text = ""

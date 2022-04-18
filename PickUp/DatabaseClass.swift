@@ -17,6 +17,8 @@ class DATABASE{
     var Children: [[String : String]]
     var Order: Int
     var StudentIDInfo: NSDictionary = [:]
+    var status: Bool = false
+    var emails: [String] = []
     init(){
         self.Children = []
         self.ref = Database.database().reference(fromURL: "https://pickup-2568e-default-rtdb.firebaseio.com/")
@@ -38,19 +40,28 @@ class DATABASE{
           })
         return
     }
-    func checkAccount(_ school: String, _ email: String) -> Bool {
-        self.ref.child("School").child(school).getData(completion:  { error, snapshot in
+    func checkAccount(_ school: String, _ enterEmail: String) -> Bool {
+        let group = DispatchGroup.init()
+        group.enter()
+        self.ref.child("School").child(school.uppercased()).getData(completion:  { error, snapshot in
             guard error == nil else {
                   return
                 }
-            
-                guard let OrderDict = snapshot.value as? [String: [String]]
-                else {
+            guard let OrderDict = snapshot.value as? [String: [String]]
+            else {
                 return
-                }
-            var emails = OrderDict["Emails"]
+            }
+            self.emails = OrderDict["Emails"]!
+            group.leave()
           })
-        return true
+        group.wait()
+        
+        for email in self.emails {
+            if enterEmail.uppercased() == email {
+                return true
+            }
+        }
+        return false
     }
     func GetInfo(_ queryWord: String, _ queryGrade: String, _ queryName: String) ->  [[String: String]] {
         //enter the group for async I guess
