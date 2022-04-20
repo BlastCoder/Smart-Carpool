@@ -19,6 +19,7 @@ class SignInVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        schoolName.delegate = self
         // Do any additional setup after loading the view.
     }
    
@@ -53,4 +54,11 @@ class SignInVC: UIViewController {
             let vc = segue.destination as? MainPage
     }
     */
+}
+
+extension SignInVC: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder() // dismiss keyboard
+        return true
+    }
 }

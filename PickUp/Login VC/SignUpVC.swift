@@ -15,6 +15,9 @@ class SignUpVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        Email.delegate = self
+        SchoolName.delegate = self
+
         // Do any additional setup after loading the view.
     }
     
@@ -48,4 +51,10 @@ class SignUpVC: UIViewController {
     }
     */
 
+}
+extension SignUpVC: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder() // dismiss keyboard
+        return true
+    }
 }

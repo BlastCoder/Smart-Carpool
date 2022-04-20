@@ -27,14 +27,14 @@ class DATABASE{
     func addAccount(_ school: String, _ emails: [String]) {
         let schoolName = school.uppercased()
 
-        self.ref.child("School").child(schoolName).getData(completion:  { error, snapshot in
+        self.ref.child(schoolName).child("Teachers").getData(completion:  { error, snapshot in
             guard error == nil else {
               return
             }
             guard let OrderDict = snapshot.value as? [String: [String]]
             else {
                 let object: [String: [String]] = ["Emails": emails]
-                self.ref.child("School").child(schoolName).setValue(object)
+                self.ref.child(schoolName).child("Teachers").setValue(object)
                 return
             }
           })
@@ -43,7 +43,7 @@ class DATABASE{
     func checkAccount(_ school: String, _ enterEmail: String) -> Bool {
         let group = DispatchGroup.init()
         group.enter()
-        self.ref.child("School").child(school.uppercased()).getData(completion:  { error, snapshot in
+        self.ref.child(school.uppercased()).child("Teachers").getData(completion:  { error, snapshot in
             guard error == nil else {
                   return
                 }
@@ -69,7 +69,7 @@ class DATABASE{
         let group = DispatchGroup.init()
         group.enter()
         //Get info, with given query info
-        self.ref.child("Children").observeSingleEvent(of: .value) { snapshot in
+        self.ref.child(SCHOOLNAME).child("Children").observeSingleEvent(of: .value) { snapshot in
             for case let child as DataSnapshot in snapshot.children {
                 guard let dict = child.value as? [String:Any] else {
                     return
@@ -128,20 +128,20 @@ class DATABASE{
     func AddInfo(_ name: String, _ grade: String, _ plates: [String]){
         let uuid = "Child:\(UUID().uuidString)"
         let object: [String: Any] = ["Name": name, "Grade": grade, "Status": "notHere", "Order": "0", "CarPlates": plates]
-        self.ref.child("Children").child(uuid).setValue(object)
+        self.ref.child(SCHOOLNAME).child("Children").child(uuid).setValue(object)
     }
     func EditInfo(_ id: String, _ Status: String){
-        ref.child("Children").child(id).updateChildValues(["Status": Status])
+        ref.child(SCHOOLNAME).child("Children").child(id).updateChildValues(["Status": Status])
         if Status == "gone"{return}
         self.background.async{
             let order = self.StudentOrder()
-            self.ref.child("Children").child(id).updateChildValues(["Order": order])
+            self.ref.child(SCHOOLNAME).child("Children").child(id).updateChildValues(["Order": order])
         }
     }
     func StudentOrder() -> String{
         let group = DispatchGroup.init()
         group.enter()
-        self.ref.child("Order").child("recentOrder").getData(completion:  { error, snapshot in
+        self.ref.child(SCHOOLNAME).child("Order").child("recentOrder").getData(completion:  { error, snapshot in
             guard error == nil else {
               return
             }
@@ -152,23 +152,23 @@ class DATABASE{
             group.leave()
           })
         group.wait()
-        self.ref.child("Order").child("recentOrder").updateChildValues(["Order": String(self.Order + 1)])
+        self.ref.child(SCHOOLNAME).child("Order").child("recentOrder").updateChildValues(["Order": String(self.Order + 1)])
         return String(self.Order)
     }
     func ResetValues() {
-        self.ref.child("Children").observeSingleEvent(of: .value) { snapshot in
+        self.ref.child(SCHOOLNAME).child("Children").observeSingleEvent(of: .value) { snapshot in
             for case let child as DataSnapshot in snapshot.children {
-                self.ref.child("Children").child(child.key).updateChildValues(["Order": "0", "Status": "notHere"])
+                self.ref.child(SCHOOLNAME).child("Children").child(child.key).updateChildValues(["Order": "0", "Status": "notHere"])
             }
         }
-        self.ref.child("Order").child("recentOrder").updateChildValues(["Order": "1"])
+        self.ref.child(SCHOOLNAME).child("Order").child("recentOrder").updateChildValues(["Order": "1"])
     }
     func FindIDWithPlate(_ plate: String) -> [String] {
         //works finds student or students with matching plate
         var StudentId: [String] = []
         let group = DispatchGroup.init()
         group.enter()
-        self.ref.child("Children").observeSingleEvent(of: .value) { snapshot in
+        self.ref.child(SCHOOLNAME).child("Children").observeSingleEvent(of: .value) { snapshot in
             for case let child as DataSnapshot in snapshot.children {
                 guard let dict = child.value as? [String:Any] else {
                     return
@@ -191,7 +191,7 @@ class DATABASE{
         let group = DispatchGroup.init()
         StudentIDInfo = [:]
         group.enter()
-        self.ref.child("Children").child(Id).observeSingleEvent(of: .value, with: { snapshot in
+        self.ref.child(SCHOOLNAME).child("Children").child(Id).observeSingleEvent(of: .value, with: { snapshot in
             self.StudentIDInfo = (snapshot.value as? NSDictionary)!
             group.leave()
               // ...
@@ -202,10 +202,10 @@ class DATABASE{
     return StudentIDInfo
     }
     func EditAllInfo(_ id: String, _ name: String, _ grade: String){
-        ref.child("Children").child(id).updateChildValues(["Name": name, "Grade": grade])
+        ref.child(SCHOOLNAME).child("Children").child(id).updateChildValues(["Name": name, "Grade": grade])
     }
     func RemoveStudent(_ id: String) {
-        self.ref.child("Children").child(id).removeValue()
+        self.ref.child(SCHOOLNAME).child("Children").child(id).removeValue()
     }
     static func ApplyHash(_ input: String) -> String {
         let inputData = Data(input.utf8)

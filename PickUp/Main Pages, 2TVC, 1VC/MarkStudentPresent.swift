@@ -91,7 +91,7 @@ class MarkStudentPresent: UITableViewController, UISearchResultsUpdating, UISear
         var timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: "reloadData", userInfo: nil, repeats: true)
         initSearchController()
         //not efficent but works I guess (maybe add observer on the self.peopleArray to detect change)
-        ref.child("Children").observe(.childChanged, with: {(snapshot) -> Void in
+        ref.child(SCHOOLNAME).child("Children").observe(.childChanged, with: {(snapshot) -> Void in
             self.updateData(self.queryGrade, self.queryName)
           })
         // Do any additional setup after loading the view.

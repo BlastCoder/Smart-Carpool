@@ -27,7 +27,6 @@ class MarkStudentGivenTVController: UITableViewController {
                     self.tableViewData.append("\(people["Name"] ?? "Error") Grade: \(people["Grade"]!)")
             }
             }
-            //print(self.tableViewData)
         }
     @objc func reloadData() {
         tableView.reloadData()
@@ -42,12 +41,11 @@ class MarkStudentGivenTVController: UITableViewController {
                                                          for: indexPath)
             cell.textLabel?.text = self.tableViewData[indexPath.row]
                 return cell
-       
     }
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let instance: DATABASE = DATABASE()
         instance.EditInfo(self.peopleArray[indexPath.row]["Id"]!, "gone")
-        //instance.EditInfo(self.tableViewData[indexPath.row]["ID"], "here")
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,7 +56,7 @@ class MarkStudentGivenTVController: UITableViewController {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "tableviewCell")
         _ = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.reloadData), userInfo: nil, repeats: true)
         //not efficent but works I guess (maybe add observer on the self.peopleArray to detect change)
-        ref.child("Children").observe(.childChanged, with: {(snapshot) -> Void in
+        ref.child(SCHOOLNAME).child("Children").observe(.childChanged, with: {(snapshot) -> Void in
             self.updateData()
           })
         // Do any additional setup after loading the view.
