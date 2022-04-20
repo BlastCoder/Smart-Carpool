@@ -24,6 +24,7 @@ class DATABASE{
         self.ref = Database.database().reference(fromURL: "https://pickup-2568e-default-rtdb.firebaseio.com/")
         self.Order = -1
     }
+    // Add a school account
     func addAccount(_ school: String, _ emails: [String]) {
         let schoolName = school.uppercased()
 
@@ -40,6 +41,7 @@ class DATABASE{
           })
         return
     }
+    // Check if email is in an account
     func checkAccount(_ school: String, _ enterEmail: String) -> Bool {
         let group = DispatchGroup.init()
         group.enter()
@@ -63,6 +65,7 @@ class DATABASE{
         }
         return false
     }
+    // Get information of a student
     func GetInfo(_ queryWord: String, _ queryGrade: String, _ queryName: String) ->  [[String: String]] {
         //enter the group for async I guess
         self.Children = []
@@ -125,11 +128,13 @@ class DATABASE{
         //Returns array of dictionaries
         return(self.Children)
     }
+    // Add student information
     func AddInfo(_ name: String, _ grade: String, _ plates: [String]){
         let uuid = "Child:\(UUID().uuidString)"
         let object: [String: Any] = ["Name": name, "Grade": grade, "Status": "notHere", "Order": "0", "CarPlates": plates]
         self.ref.child(SCHOOLNAME).child("Children").child(uuid).setValue(object)
     }
+    // Edit student information
     func EditInfo(_ id: String, _ Status: String){
         ref.child(SCHOOLNAME).child("Children").child(id).updateChildValues(["Status": Status])
         if Status == "gone"{return}
@@ -138,6 +143,7 @@ class DATABASE{
             self.ref.child(SCHOOLNAME).child("Children").child(id).updateChildValues(["Order": order])
         }
     }
+    // Order the students depending on arrival
     func StudentOrder() -> String{
         let group = DispatchGroup.init()
         group.enter()
@@ -155,6 +161,7 @@ class DATABASE{
         self.ref.child(SCHOOLNAME).child("Order").child("recentOrder").updateChildValues(["Order": String(self.Order + 1)])
         return String(self.Order)
     }
+    // Reset the value of if students have arrived
     func ResetValues() {
         self.ref.child(SCHOOLNAME).child("Children").observeSingleEvent(of: .value) { snapshot in
             for case let child as DataSnapshot in snapshot.children {
