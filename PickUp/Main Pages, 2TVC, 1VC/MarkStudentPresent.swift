@@ -15,24 +15,7 @@ class MarkStudentPresent: UITableViewController, UISearchResultsUpdating, UISear
     var EditStatus: Bool = false
     
     var tableViewData = ["Loading..."]
-    /*
-    var tableViewData: [String] = ["Enter a grade..."] {
-        willSet(tableViewData) {
-            print("HERE")
-        }
-        didSet {
-            if i == 4 {
-                i = 0
-                DispatchQueue.main.async {
-                    self.reloadData()
-                }
-            }
-            else {
-                i += 1
-            }
-        }
-    }
-    */
+    
     let searchController =  UISearchController()
     var peopleArray: [[String:String]] = [[:]]
     let ref = Database.database().reference(fromURL: "https://pickup-2568e-default-rtdb.firebaseio.com/")
@@ -53,7 +36,6 @@ class MarkStudentPresent: UITableViewController, UISearchResultsUpdating, UISear
             for people in self.peopleArray {
                 self.tableViewData.append("\(people["Name"] ?? "Error")")
             }
-            //print(self.tableViewData)
         }
     }
     @objc func reloadData() {

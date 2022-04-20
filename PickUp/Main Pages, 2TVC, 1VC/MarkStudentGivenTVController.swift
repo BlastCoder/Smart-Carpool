@@ -26,14 +26,15 @@ class MarkStudentGivenTVController: UITableViewController {
             for people in self.peopleArray {
                     self.tableViewData.append("\(people["Name"] ?? "Error") Grade: \(people["Grade"]!)")
             }
-            }
         }
+    }
+    
     @objc func reloadData() {
         tableView.reloadData()
     }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.tableViewData.count
-
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -47,6 +48,7 @@ class MarkStudentGivenTVController: UITableViewController {
         let instance: DATABASE = DATABASE()
         instance.EditInfo(self.peopleArray[indexPath.row]["Id"]!, "gone")
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Present Students"
@@ -59,7 +61,6 @@ class MarkStudentGivenTVController: UITableViewController {
         ref.child(SCHOOLNAME).child("Children").observe(.childChanged, with: {(snapshot) -> Void in
             self.updateData()
           })
-        // Do any additional setup after loading the view.
     }
 
         // Uncomment the following line to preserve selection between presentations
