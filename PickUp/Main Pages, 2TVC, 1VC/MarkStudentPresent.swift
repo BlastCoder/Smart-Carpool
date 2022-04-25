@@ -3,8 +3,6 @@
 //  PickUp
 //
 //  Created by Krish Patel on 2/21/22.
-//
-
 import UIKit
 import Firebase
 import FirebaseDatabase
@@ -22,7 +20,13 @@ class MarkStudentPresent: UITableViewController, UISearchResultsUpdating, UISear
     var queryGrade: String = "All"
     var queryName: String = ""
     var EditPersonID: String = ""
-
+    var testVar: Bool = false {
+        didSet {
+            DispatchQueue.main.async {
+                self.reloadData()
+            }
+        }
+    }
     lazy var background: DispatchQueue = {
         return DispatchQueue.init(label: "background.queue", attributes: .concurrent)
     }()
@@ -36,6 +40,7 @@ class MarkStudentPresent: UITableViewController, UISearchResultsUpdating, UISear
             for people in self.peopleArray {
                 self.tableViewData.append("\(people["Name"] ?? "Error")")
             }
+            self.testVar = !self.testVar
         }
     }
     @objc func reloadData() {
@@ -70,7 +75,9 @@ class MarkStudentPresent: UITableViewController, UISearchResultsUpdating, UISear
         super.viewDidLoad()
         title = "View Students"
         //updateData("All", "")
-        var timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: "reloadData", userInfo: nil, repeats: true)
+        //print(self.queryGrade)
+        
+        //var timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: "reloadData", userInfo: nil, repeats: true)
         initSearchController()
         //not efficent but works I guess (maybe add observer on the self.peopleArray to detect change)
         ref.child(SCHOOLNAME).child("Children").observe(.childChanged, with: {(snapshot) -> Void in
@@ -130,51 +137,14 @@ class MarkStudentPresent: UITableViewController, UISearchResultsUpdating, UISear
                 }
     }
     override func viewWillAppear(_ animated: Bool) {
-        updateData("All", "")
+        //print(tableViewData)
+        if tableViewData.first == "Loading..." {
+            updateData("All", "")
+        }
     }
 }
 
-    // MARK: - Table view data source
-    
-
-        // Pass the selected object to the new view controller.
-
-
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, a a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
+  
 
     /*
     // MARK: - Navigation
