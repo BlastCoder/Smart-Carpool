@@ -1,0 +1,10 @@
+{
+  "MLModelCreatorDefinedKey" : {
+    "com.apple.createml.app.tag" : "78.8",
+    "com.apple.createml.version" : "12.2.1",
+    "com.apple.coreml.model.preview.type" : "objectDetector",
+    "iterations" : "2780",
+    "com.apple.createml.app.version" : "3.0"
+  },
+  "MLModelAuthorKey" : "Krish Patel"
+}

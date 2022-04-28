@@ -23,12 +23,18 @@ class SignInVC: UIViewController {
         // Do any additional setup after loading the view.
     }
    
+    @IBOutlet weak var doneButton: UIButton!
     @IBAction func SignIn(_ sender: Any) {
         GIDSignIn.sharedInstance.signIn(with: signInConfig, presenting: self) { user, error in
             guard error == nil else { return }
             let user = GIDSignIn.sharedInstance.currentUser
             self.email = (user?.profile?.email)!
-            // If sign in succeeded, display the app's main content View.
+            self.doneButton.isEnabled = false
+
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                self.doneButton.isEnabled = true
+            }
+            
           }
     }
     

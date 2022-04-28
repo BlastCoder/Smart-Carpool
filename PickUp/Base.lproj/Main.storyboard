@@ -9,6 +9,42 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--View Controller-->
+        <scene sceneID="rpZ-nJ-GQh">
+            <objects>
+                <viewController id="niG-fb-tLS" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9zd-y4-x1p">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fao-t1-yTA">
+                                <rect key="frame" x="140" y="514" width="139" height="46"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="gray" title="QR Code Scanner"/>
+                                <connections>
+                                    <segue destination="GlG-Ff-UVn" kind="show" id="wE1-Lp-XXw"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="51f-1J-6bq">
+                                <rect key="frame" x="121" y="396" width="174" height="43"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="gray" title="Liscense Plate Scanner"/>
+                                <connections>
+                                    <segue destination="Mfr-pl-DrR" kind="show" id="XJf-nM-LLa"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6lU-Rp-hwU"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="x3Z-fg-mwT"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ijr-sv-RbO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-636" y="5"/>
+        </scene>
         <!--Mark Student Present-->
         <scene sceneID="n4Q-Gb-CKr">
             <objects>
@@ -35,7 +71,7 @@
                     <navigationItem key="navigationItem" title="Mark Student Present" id="K72-m1-o9n">
                         <barButtonItem key="leftBarButtonItem" style="plain" systemItem="camera" id="PTR-bK-TWp">
                             <connections>
-                                <segue destination="Mfr-pl-DrR" kind="show" id="XYa-GR-zuy"/>
+                                <segue destination="niG-fb-tLS" kind="show" id="A14-KQ-Cwa"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="plain" id="b3Y-Tu-HqM">
@@ -58,6 +94,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UKq-9S-YpV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="929" y="115"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="0aD-9h-QVk">
+            <objects>
+                <viewController id="GlG-Ff-UVn" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4oZ-FU-nGf">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="5QT-dO-RMw"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="847-MB-Ybo"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pom-Oi-sGk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-268" y="731"/>
         </scene>
         <!--Edit Page Controller-->
         <scene sceneID="ZF8-P1-gtD">
@@ -141,7 +193,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7I3-jX-uFz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="929" y="896"/>
+            <point key="canvasLocation" x="970" y="895"/>
         </scene>
         <!--Add Student-->
         <scene sceneID="Xre-F5-8eH">
@@ -392,33 +444,30 @@
                                     <segue destination="fjU-bG-x8C" kind="presentation" modalPresentationStyle="fullScreen" id="BDX-Fb-bGb"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Smart Pickup" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ETC-gg-qPc">
-                                <rect key="frame" x="103" y="73" width="208" height="62"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Code X" translatesAutoresizingMaskIntoConstraints="NO" id="8Gk-n6-9Yq">
+                                <rect key="frame" x="-102.5" y="44" width="619" height="359"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="208" id="2Xj-DQ-h9e"/>
-                                    <constraint firstAttribute="height" constant="62" id="kBY-mq-tuw"/>
+                                    <constraint firstAttribute="width" constant="619" id="1TM-zR-nUq"/>
+                                    <constraint firstAttribute="height" constant="359" id="UEh-J2-q3a"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="cPU-SU-Wvi"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="ETC-gg-qPc" firstAttribute="centerX" secondItem="cPU-SU-Wvi" secondAttribute="centerX" id="1HT-dP-yKc"/>
                             <constraint firstItem="kUZ-mV-zB9" firstAttribute="centerX" secondItem="cPU-SU-Wvi" secondAttribute="centerX" id="I5t-Xm-gAo"/>
                             <constraint firstItem="FWm-Ux-B5v" firstAttribute="centerX" secondItem="cPU-SU-Wvi" secondAttribute="centerX" id="K6q-lu-3D6"/>
+                            <constraint firstItem="8Gk-n6-9Yq" firstAttribute="centerX" secondItem="cPU-SU-Wvi" secondAttribute="centerX" id="KMF-Ro-L6F"/>
                             <constraint firstItem="cPU-SU-Wvi" firstAttribute="bottom" secondItem="FWm-Ux-B5v" secondAttribute="bottom" constant="75" id="L2y-sk-aWh"/>
                             <constraint firstItem="FWm-Ux-B5v" firstAttribute="top" secondItem="kUZ-mV-zB9" secondAttribute="bottom" constant="35" id="SVf-Nw-hSd"/>
-                            <constraint firstItem="ETC-gg-qPc" firstAttribute="top" secondItem="cPU-SU-Wvi" secondAttribute="top" constant="37" id="Zru-hY-8Yd"/>
+                            <constraint firstItem="8Gk-n6-9Yq" firstAttribute="top" secondItem="cPU-SU-Wvi" secondAttribute="top" id="awn-11-Ph4"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="gFt-SL-7Iq"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kcb-Pb-Exb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-938" y="-1505"/>
+            <point key="canvasLocation" x="-939.13043478260875" y="-1505.3571428571429"/>
         </scene>
         <!--Sign InVC-->
         <scene sceneID="BCQ-O5-nJO">
@@ -466,13 +515,14 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="doneButton" destination="2DX-59-BQR" id="Ltp-m9-cCx"/>
                         <outlet property="schoolName" destination="ir1-cd-rbv" id="3Qi-dK-DdV"/>
                         <segue destination="Kuj-5d-ChP" kind="presentation" identifier="MainPageSegue" modalPresentationStyle="fullScreen" id="gFa-g8-ecE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MkW-qZ-D26" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-778.26086956521749" y="-766.07142857142856"/>
+            <point key="canvasLocation" x="-939" y="-763"/>
         </scene>
         <!--Sign UpVC-->
         <scene sceneID="YSQ-fw-ZA6">
@@ -556,7 +606,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EMO-9q-gki" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="266.66666666666669" y="-1505.3571428571429"/>
+            <point key="canvasLocation" x="228" y="-1505"/>
         </scene>
         <!--Item-->
         <scene sceneID="uA6-IG-P4Z">
@@ -632,11 +682,12 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="raH-6u-GFO" sceneMemberID="firstResponder"/>
                 <navigationItem id="g9V-Lw-IkQ"/>
             </objects>
-            <point key="canvasLocation" x="68" y="115"/>
+            <point key="canvasLocation" x="-981" y="731"/>
         </scene>
     </scenes>
     <color key="tintColor" systemColor="linkColor"/>
     <resources>
+        <image name="Code X" width="250" height="250"/>
         <systemColor name="linkColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

@@ -20,8 +20,8 @@
 		926F9FB027344ADC00E8D435 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 926F9FAF27344ADB00E8D435 /* GoogleService-Info.plist */; };
 		926F9FB42734500000E8D435 /* DatabaseClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926F9FB32734500000E8D435 /* DatabaseClass.swift */; };
 		92733B112807662F00BEE0D2 /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92733B102807662F00BEE0D2 /* SignInVC.swift */; };
+		92D23474281751A3008085F8 /* LisencePlate2780.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = 92D23473281751A3008085F8 /* LisencePlate2780.mlpackage */; };
 		92EBE5C727FF32B4000C1A98 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EBE5C627FF32B4000C1A98 /* CameraViewController.swift */; };
-		92EBE5C927FF33D8000C1A98 /* LisencePlate2780.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 92EBE5C827FF33D8000C1A98 /* LisencePlate2780.mlmodel */; };
 		92EBE5CE28049A83000C1A98 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EBE5CD28049A83000C1A98 /* SignUpVC.swift */; };
 		92EBE5D028062330000C1A98 /* ConfigFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EBE5CF28062330000C1A98 /* ConfigFile.swift */; };
 		92FB1D042790CF0A009B82C8 /* AddStudentPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FB1D012790CF0A009B82C8 /* AddStudentPage.swift */; };
@@ -44,8 +44,8 @@
 		926F9FAF27344ADB00E8D435 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		926F9FB32734500000E8D435 /* DatabaseClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseClass.swift; sourceTree = "<group>"; };
 		92733B102807662F00BEE0D2 /* SignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
+		92D23473281751A3008085F8 /* LisencePlate2780.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; path = LisencePlate2780.mlpackage; sourceTree = "<group>"; };
 		92EBE5C627FF32B4000C1A98 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
-		92EBE5C827FF33D8000C1A98 /* LisencePlate2780.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = LisencePlate2780.mlmodel; sourceTree = "<group>"; };
 		92EBE5CD28049A83000C1A98 /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		92EBE5CF28062330000C1A98 /* ConfigFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigFile.swift; sourceTree = "<group>"; };
 		92FB1D012790CF0A009B82C8 /* AddStudentPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddStudentPage.swift; sourceTree = "<group>"; };
@@ -95,7 +95,7 @@
 				9218DB682729C5F4007F8E5A /* SceneDelegate.swift */,
 				9218DB6C2729C5F4007F8E5A /* Main.storyboard */,
 				9218DB6F2729C5F5007F8E5A /* Assets.xcassets */,
-				92EBE5C827FF33D8000C1A98 /* LisencePlate2780.mlmodel */,
+				92D23473281751A3008085F8 /* LisencePlate2780.mlpackage */,
 				9218DB712729C5F5007F8E5A /* LaunchScreen.storyboard */,
 				9218DB742729C5F5007F8E5A /* Info.plist */,
 				926F9FAF27344ADB00E8D435 /* GoogleService-Info.plist */,
@@ -260,13 +260,13 @@
 				9244C29627D7D55A007BCF13 /* EditPageController.swift in Sources */,
 				92733B112807662F00BEE0D2 /* SignInVC.swift in Sources */,
 				92EBE5D028062330000C1A98 /* ConfigFile.swift in Sources */,
-				92EBE5C927FF33D8000C1A98 /* LisencePlate2780.mlmodel in Sources */,
 				926F9FB42734500000E8D435 /* DatabaseClass.swift in Sources */,
 				9218DB692729C5F4007F8E5A /* SceneDelegate.swift in Sources */,
 				92FB1D042790CF0A009B82C8 /* AddStudentPage.swift in Sources */,
 				92EBE5C727FF32B4000C1A98 /* CameraViewController.swift in Sources */,
 				9267F8B327C688E100E8788D /* MarkStudentGivenTVController.swift in Sources */,
 				92EBE5CE28049A83000C1A98 /* SignUpVC.swift in Sources */,
+				92D23474281751A3008085F8 /* LisencePlate2780.mlpackage in Sources */,
 				9267F8B127C4393700E8788D /* MarkStudentPresent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

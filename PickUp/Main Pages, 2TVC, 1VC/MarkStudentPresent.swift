@@ -16,7 +16,6 @@ class MarkStudentPresent: UITableViewController, UISearchResultsUpdating, UISear
     
     let searchController =  UISearchController()
     var peopleArray: [[String:String]] = [[:]]
-    let ref = Database.database().reference(fromURL: "https://pickup-2568e-default-rtdb.firebaseio.com/")
     var queryGrade: String = "All"
     var queryName: String = ""
     var EditPersonID: String = ""
@@ -72,6 +71,7 @@ class MarkStudentPresent: UITableViewController, UISearchResultsUpdating, UISear
         //instance.EditInfo(self.tableViewData[indexPath.row]["ID"], "here")
     }
     override func viewDidLoad() {
+        let ref = Database.database().reference(fromURL: "https://pickup-2568e-default-rtdb.firebaseio.com/")
         super.viewDidLoad()
         title = "View Students"
         //updateData("All", "")
