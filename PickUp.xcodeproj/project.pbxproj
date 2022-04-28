@@ -21,6 +21,7 @@
 		926F9FB42734500000E8D435 /* DatabaseClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926F9FB32734500000E8D435 /* DatabaseClass.swift */; };
 		92733B112807662F00BEE0D2 /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92733B102807662F00BEE0D2 /* SignInVC.swift */; };
 		92D23474281751A3008085F8 /* LisencePlate2780.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = 92D23473281751A3008085F8 /* LisencePlate2780.mlpackage */; };
+		92D23476281AF181008085F8 /* QRCodeScannerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D23475281AF180008085F8 /* QRCodeScannerVC.swift */; };
 		92EBE5C727FF32B4000C1A98 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EBE5C627FF32B4000C1A98 /* CameraViewController.swift */; };
 		92EBE5CE28049A83000C1A98 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EBE5CD28049A83000C1A98 /* SignUpVC.swift */; };
 		92EBE5D028062330000C1A98 /* ConfigFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EBE5CF28062330000C1A98 /* ConfigFile.swift */; };
@@ -45,6 +46,7 @@
 		926F9FB32734500000E8D435 /* DatabaseClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseClass.swift; sourceTree = "<group>"; };
 		92733B102807662F00BEE0D2 /* SignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
 		92D23473281751A3008085F8 /* LisencePlate2780.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; path = LisencePlate2780.mlpackage; sourceTree = "<group>"; };
+		92D23475281AF180008085F8 /* QRCodeScannerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeScannerVC.swift; sourceTree = "<group>"; };
 		92EBE5C627FF32B4000C1A98 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		92EBE5CD28049A83000C1A98 /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		92EBE5CF28062330000C1A98 /* ConfigFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigFile.swift; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 			children = (
 				92EBE5C627FF32B4000C1A98 /* CameraViewController.swift */,
 				9244C29527D7D55A007BCF13 /* EditPageController.swift */,
+				92D23475281AF180008085F8 /* QRCodeScannerVC.swift */,
 			);
 			path = "2 Pages, from MSP";
 			sourceTree = "<group>";
@@ -268,6 +271,7 @@
 				92EBE5CE28049A83000C1A98 /* SignUpVC.swift in Sources */,
 				92D23474281751A3008085F8 /* LisencePlate2780.mlpackage in Sources */,
 				9267F8B127C4393700E8788D /* MarkStudentPresent.swift in Sources */,
+				92D23476281AF181008085F8 /* QRCodeScannerVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fao-t1-yTA">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fao-t1-yTA">
                                 <rect key="frame" x="140" y="514" width="139" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
@@ -95,10 +95,10 @@
             </objects>
             <point key="canvasLocation" x="929" y="115"/>
         </scene>
-        <!--View Controller-->
+        <!--Code ScannerVC-->
         <scene sceneID="0aD-9h-QVk">
             <objects>
-                <viewController id="GlG-Ff-UVn" sceneMemberID="viewController">
+                <viewController id="GlG-Ff-UVn" customClass="QRCodeScannerVC" customModule="PickUp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4oZ-FU-nGf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -467,7 +467,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kcb-Pb-Exb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-939.13043478260875" y="-1505.3571428571429"/>
+            <point key="canvasLocation" x="-1304" y="-1505"/>
         </scene>
         <!--Sign InVC-->
         <scene sceneID="BCQ-O5-nJO">
@@ -522,7 +522,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MkW-qZ-D26" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-939" y="-763"/>
+            <point key="canvasLocation" x="-1304" y="-749"/>
         </scene>
         <!--Sign UpVC-->
         <scene sceneID="YSQ-fw-ZA6">
@@ -606,7 +606,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EMO-9q-gki" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="228" y="-1505"/>
+            <point key="canvasLocation" x="-51" y="-1505"/>
         </scene>
         <!--Item-->
         <scene sceneID="uA6-IG-P4Z">
