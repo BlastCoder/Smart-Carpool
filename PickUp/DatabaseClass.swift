@@ -57,12 +57,15 @@ class DATABASE{
             group.leave()
           })
         group.wait()
-        
+        //print(enterEmail)
         for email in self.emails {
-            if enterEmail.uppercased() == email {
+            //print(email)
+
+            if email == enterEmail.uppercased() {
                 return true
             }
         }
+        //print("HERE")
         return false
     }
     // Get information of a student

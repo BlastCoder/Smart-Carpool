@@ -48,12 +48,15 @@ class SignInVC: UIViewController {
         self.background.async {
             let instance = DATABASE()
             if !instance.checkAccount(sName, self.email) {
+                print("Here")
                 return
             }
+            SCHOOLNAME = sName.uppercased()
+            //print(SCHOOLNAME)
+            DispatchQueue.main.async {
+                self.performSegue(withIdentifier: "MainPageSegue", sender: self)
+            }
         }
-        SCHOOLNAME = sName.uppercased()
-        print(SCHOOLNAME)
-        performSegue(withIdentifier: "MainPageSegue", sender: self)
     }
     /*
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
