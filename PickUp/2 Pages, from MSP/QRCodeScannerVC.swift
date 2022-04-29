@@ -13,7 +13,12 @@ import AVFoundation
 class QRCodeScannerVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     var captureSession: AVCaptureSession!
     var previewLayer: AVCaptureVideoPreviewLayer!
-
+    var studentID: String = "" {
+        didSet {
+            let instance = DATABASE()
+            instance.EditInfo(self.studentID, "here")
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -93,7 +98,9 @@ class QRCodeScannerVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate 
     }
 
     func found(code: String) {
-        print(code)
+        if code != studentID {
+            studentID = code
+        }
     }
 
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {

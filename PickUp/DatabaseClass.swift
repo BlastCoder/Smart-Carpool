@@ -221,7 +221,7 @@ class DATABASE{
     static func ApplyHash(_ input: String) -> String {
         let inputData = Data(input.utf8)
         let hashed = SHA256.hash(data: inputData)
-        let string = hashed.compactMap { String(format: "%02x", $0)}.joined()
+        let string = hashed.compactMap {String(format: "%02x", $0)}.joined()
         return string
     }
 }
