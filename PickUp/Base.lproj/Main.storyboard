@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="XaL-pM-Kay">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="XaL-pM-Kay">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -195,6 +195,41 @@
             </objects>
             <point key="canvasLocation" x="970" y="895"/>
         </scene>
+        <!--QRGenerator-->
+        <scene sceneID="otv-AF-NX1">
+            <objects>
+                <viewController title="QRGenerator" id="CEO-uv-7Va" customClass="QRGenerator" customModule="PickUp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qUP-EL-jQ8">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="amJ-2O-cbO">
+                                <rect key="frame" x="87" y="386.5" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="Km1-Yr-qZo"/>
+                                    <constraint firstAttribute="height" constant="128" id="hrz-X8-WhF"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="y4Y-eo-HhG"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="amJ-2O-cbO" firstAttribute="centerX" secondItem="y4Y-eo-HhG" secondAttribute="centerX" id="mJQ-gf-LuO"/>
+                            <constraint firstItem="amJ-2O-cbO" firstAttribute="centerY" secondItem="y4Y-eo-HhG" secondAttribute="centerY" id="xfZ-9x-1xK"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="MiP-JG-Ebi"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="" value="NO"/>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <outlet property="imageView" destination="amJ-2O-cbO" id="dQk-4c-c7r"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vhG-bd-VqR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1716" y="895"/>
+        </scene>
         <!--Add Student-->
         <scene sceneID="Xre-F5-8eH">
             <objects>
@@ -235,6 +270,7 @@
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="submitButton:" destination="rzJ-37-t8T" eventType="touchUpInside" id="T8I-Wf-ZY1"/>
+                                    <segue destination="CEO-uv-7Va" kind="show" id="Yua-ie-JBG"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Q1E-dR-X6w">
