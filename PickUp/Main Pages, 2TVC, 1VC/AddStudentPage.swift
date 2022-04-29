@@ -13,7 +13,7 @@ class AddStudentPage: UIViewController{
     }()
     @IBOutlet weak var grade: UITextField!
     @IBOutlet weak var name: UITextField!
-
+    var UUID: String = ""
     @IBOutlet weak var plateText: UITextField!
     var plateNums: [String] = []
     
@@ -38,12 +38,14 @@ class AddStudentPage: UIViewController{
             plateNums[index] = DATABASE.ApplyHash(plate)
         }
         
-        instance.AddInfo(childName, childGrade, self.plateNums)
+        self.UUID = instance.AddInfo(childName, childGrade, self.plateNums)
         name.text! = ""
         grade.text! = ""
         plateNums = []
         self.addedLabel.text = "Student Added Succesfully!"
         //self.addedLabel.isHidden = false
+        performSegue(withIdentifier: "QRsegue", sender: self)
+
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
             self.addedLabel.text = ""
             //self.addedLabel.isHidden = true
@@ -65,6 +67,13 @@ class AddStudentPage: UIViewController{
         plateNums.append(plateText.text!)
         plateText.text = ""
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            if let vc = segue.destination as? QRGenerator {
+                vc.qrText = self.UUID
+                }
+    }
+
     
 }
 

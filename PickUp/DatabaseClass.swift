@@ -132,10 +132,11 @@ class DATABASE{
         return(self.Children)
     }
     // Add student information
-    func AddInfo(_ name: String, _ grade: String, _ plates: [String]){
+    func AddInfo(_ name: String, _ grade: String, _ plates: [String]) -> String{
         let uuid = "Child:\(UUID().uuidString)"
         let object: [String: Any] = ["Name": name, "Grade": grade, "Status": "notHere", "Order": "0", "CarPlates": plates]
         self.ref.child(SCHOOLNAME).child("Children").child(uuid).setValue(object)
+        return uuid
     }
     // Edit student information
     func EditInfo(_ id: String, _ Status: String){

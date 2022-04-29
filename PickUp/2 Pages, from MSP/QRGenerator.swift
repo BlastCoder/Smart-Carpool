@@ -8,12 +8,14 @@
 import UIKit
 
 class QRGenerator: UIViewController {
-
+    var qrText: String = ""
     var image = UIImage()
     @IBOutlet weak var imageView: UIImageView!
+    
     override func viewDidLoad() {
             super.viewDidLoad()
-            guard let image = generateQRCode(from: "scanner") else {fatalError()}
+        print(self.qrText)
+        guard let image = generateQRCode(from: self.qrText) else {fatalError()}
             imageView.image = image
         }
         

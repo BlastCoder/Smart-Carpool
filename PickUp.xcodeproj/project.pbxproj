@@ -98,7 +98,6 @@
 				9218DB662729C5F4007F8E5A /* AppDelegate.swift */,
 				9218DB682729C5F4007F8E5A /* SceneDelegate.swift */,
 				9218DB6C2729C5F4007F8E5A /* Main.storyboard */,
-				EA842AE2281B65120002F403 /* QRGenerator.swift */,
 				9218DB6F2729C5F5007F8E5A /* Assets.xcassets */,
 				92D23473281751A3008085F8 /* LisencePlate2780.mlpackage */,
 				9218DB712729C5F5007F8E5A /* LaunchScreen.storyboard */,
@@ -134,6 +133,7 @@
 				92EBE5C627FF32B4000C1A98 /* CameraViewController.swift */,
 				9244C29527D7D55A007BCF13 /* EditPageController.swift */,
 				92D23475281AF180008085F8 /* QRCodeScannerVC.swift */,
+				EA842AE2281B65120002F403 /* QRGenerator.swift */,
 			);
 			path = "2 Pages, from MSP";
 			sourceTree = "<group>";
