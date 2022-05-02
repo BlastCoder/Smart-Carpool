@@ -11,12 +11,19 @@ import AVFoundation
 
 
 class QRCodeScannerVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
+    @IBOutlet weak var scanText: UILabel!
     var captureSession: AVCaptureSession!
     var previewLayer: AVCaptureVideoPreviewLayer!
     var studentID: String = "" {
         didSet {
+            scanText.text = "Scanned"
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                self.scanText.text = ""
+            }
             let instance = DATABASE()
-            instance.EditInfo(self.studentID, "here")
+            if instance.checkID(self.studentID) {
+                instance.EditInfo(self.studentID, "here")
+            }
         }
     }
     override func viewDidLoad() {

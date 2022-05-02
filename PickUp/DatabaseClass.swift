@@ -9,7 +9,7 @@ import FirebaseDatabase
 import CryptoKit
 
 ///This has all the components of the database, can  read, write, edit order and status, and edit name + grade
-class DATABASE{
+class DATABASE {
     var ref: DatabaseReference!
     lazy var background: DispatchQueue = {
         return DispatchQueue.init(label: "background.queue", attributes: .concurrent)
@@ -223,5 +223,19 @@ class DATABASE{
         let hashed = SHA256.hash(data: inputData)
         let string = hashed.compactMap {String(format: "%02x", $0)}.joined()
         return string
+    }
+    func checkID(_ uuid: String) -> Bool {
+        var bool = true
+        self.ref.child(SCHOOLNAME).child("Children").child(uuid).getData(completion:  { error, snapshot in
+            guard error == nil else {
+              return
+            }
+            guard let OrderDict = snapshot.value as? [String: Any]
+            else {
+                bool = false
+                return
+            }
+          })
+        return bool
     }
 }
