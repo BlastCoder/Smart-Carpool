@@ -31,7 +31,6 @@ class EditPageController: UIViewController {
         }
         
     }
-    // Add a student to the database
     func addInfo() {
         DispatchQueue.main.async { [weak self] in
             self?.ChildName.text = self!.studentValue["Name"]! as? String

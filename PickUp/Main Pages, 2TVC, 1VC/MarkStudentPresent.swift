@@ -79,7 +79,6 @@ class MarkStudentPresent: UITableViewController, UISearchResultsUpdating, UISear
         
         //var timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: "reloadData", userInfo: nil, repeats: true)
         initSearchController()
-        //not efficent but works I guess (maybe add observer on the self.peopleArray to detect change)
         ref.child(SCHOOLNAME).child("Children").observe(.childChanged, with: {(snapshot) -> Void in
             self.updateData(self.queryGrade, self.queryName)
           })
@@ -138,9 +137,8 @@ class MarkStudentPresent: UITableViewController, UISearchResultsUpdating, UISear
     }
     override func viewWillAppear(_ animated: Bool) {
         //print(tableViewData)
-        if tableViewData.first == "Loading..." {
-            updateData("All", "")
-        }
+        var possibleTitle = ["All", "1", "2", "3", "4", "5"]
+        updateData(possibleTitle[searchController.searchBar.selectedScopeButtonIndex], "")
     }
 }
 
