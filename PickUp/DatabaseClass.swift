@@ -225,17 +225,28 @@ class DATABASE {
         return string
     }
     func checkID(_ uuid: String) -> Bool {
-        var bool = true
-        self.ref.child(SCHOOLNAME).child("Children").child(uuid).getData(completion:  { error, snapshot in
+        var arrayKeys: [String] = []
+        let group = DispatchGroup.init()
+        group.enter()
+        //self.ref.child(SCHOOLNAME).child("Children").child(uuid)
+        //for some reason it gets the whole children
+        self.ref.child(SCHOOLNAME).child("Children").getData(completion:  { error, snapshot in
             guard error == nil else {
               return
             }
             guard let OrderDict = snapshot.value as? [String: Any]
             else {
-                bool = false
                 return
             }
+            arrayKeys = Array(OrderDict.keys)
+            group.leave()
           })
-        return bool
+        group.wait()
+        for key in arrayKeys {
+            if key == uuid {
+                return true
+            }
+        }
+        return false
     }
 }

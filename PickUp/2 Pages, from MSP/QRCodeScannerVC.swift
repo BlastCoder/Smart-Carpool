@@ -13,22 +13,26 @@ import AVFoundation
 class QRCodeScannerVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     @IBOutlet weak var scanText: UILabel!
     var captureSession: AVCaptureSession!
+    lazy var background: DispatchQueue = {
+        return DispatchQueue.init(label: "background.queue", attributes: .concurrent)
+    }()
     var previewLayer: AVCaptureVideoPreviewLayer!
     var studentID: String = "" {
         didSet {
             scanText.text = "Scanned"
-            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                 self.scanText.text = ""
             }
             let instance = DATABASE()
-            if instance.checkID(self.studentID) {
-                instance.EditInfo(self.studentID, "here")
+            self.background.async {
+                if instance.checkID(self.studentID) {
+                    instance.EditInfo(self.studentID, "here")
+                }
             }
         }
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-
         view.backgroundColor = UIColor.black
         captureSession = AVCaptureSession()
         captureSession.sessionPreset = .vga640x480
