@@ -31,6 +31,9 @@ class QRGenerator: UIViewController {
             }
             return nil
         }
+    @IBAction func addPhotos(_ sender: Any) {
+        UIImageWriteToSavedPhotosAlbum(self.image, nil, nil, nil)
+    }
     
 
     /*

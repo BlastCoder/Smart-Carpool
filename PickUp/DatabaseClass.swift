@@ -127,7 +127,6 @@ class DATABASE {
         }
         //wait for competion
         group.wait()
-        //make a seperate function to return self.children
         //Returns array of dictionaries
         return(self.Children)
     }
@@ -142,6 +141,7 @@ class DATABASE {
     func EditInfo(_ id: String, _ Status: String){
         ref.child(SCHOOLNAME).child("Children").child(id).updateChildValues(["Status": Status])
         if Status == "gone"{return}
+
         self.background.async{
             let order = self.StudentOrder()
             self.ref.child(SCHOOLNAME).child("Children").child(id).updateChildValues(["Order": order])
@@ -229,7 +229,6 @@ class DATABASE {
         let group = DispatchGroup.init()
         group.enter()
         //self.ref.child(SCHOOLNAME).child("Children").child(uuid)
-        //for some reason it gets the whole children
         self.ref.child(SCHOOLNAME).child("Children").getData(completion:  { error, snapshot in
             guard error == nil else {
               return

@@ -35,6 +35,8 @@
 	<true/>
 	<key>NSCameraUsageDescription</key>
 	<string>Camera to Scan Liscense Plates to mark students present automatically</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Add QRCode to Photo Library</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

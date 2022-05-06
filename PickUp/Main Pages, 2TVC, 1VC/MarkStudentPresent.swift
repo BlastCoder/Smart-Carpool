@@ -31,6 +31,7 @@ class MarkStudentPresent: UITableViewController, UISearchResultsUpdating, UISear
     }()
     
     func updateData(_ queryGrade: String, _ queryName: String){
+        //change this if we refactor
         self.background.async {
             let instance: DATABASE = DATABASE()
             self.peopleArray = instance.GetInfo("notHere", queryGrade, queryName)
@@ -47,7 +48,6 @@ class MarkStudentPresent: UITableViewController, UISearchResultsUpdating, UISear
     }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.tableViewData.count
-
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -60,29 +60,22 @@ class MarkStudentPresent: UITableViewController, UISearchResultsUpdating, UISear
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let instance: DATABASE = DATABASE()
         if !EditStatus {
+            //we have to change this code if we refactor
             instance.EditInfo(self.peopleArray[indexPath.row]["Id"]!, "here")
         }
         else if EditStatus {
             EditPersonID = (self.peopleArray[indexPath.row]["Id"]!)
             performSegue(withIdentifier: "EditPage", sender: self)
         }
-        //print(indexPath.row)
-        //have to fix this, becuase of filter, the index does matter anymore!
-        //instance.EditInfo(self.tableViewData[indexPath.row]["ID"], "here")
     }
     override func viewDidLoad() {
         let ref = Database.database().reference(fromURL: "https://pickup-2568e-default-rtdb.firebaseio.com/")
         super.viewDidLoad()
         title = "View Students"
-        //updateData("All", "")
-        //print(self.queryGrade)
-        
-        //var timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: "reloadData", userInfo: nil, repeats: true)
         initSearchController()
         ref.child(SCHOOLNAME).child("Children").observe(.childChanged, with: {(snapshot) -> Void in
             self.updateData(self.queryGrade, self.queryName)
           })
-        // Do any additional setup after loading the view.
     }
     func updateSearchResults(for searchController: UISearchController) {
         let searchBar = searchController.searchBar
@@ -98,11 +91,6 @@ class MarkStudentPresent: UITableViewController, UISearchResultsUpdating, UISear
         queryGrade = searchController.searchBar.scopeButtonTitles![selectedScope]
         updateData(queryGrade, queryName)
     }
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     
     func initSearchController()
     {
@@ -127,8 +115,6 @@ class MarkStudentPresent: UITableViewController, UISearchResultsUpdating, UISear
         else {
             EditButton.tintColor = .link
         }
-        //performSegue(withIdentifier: "EditPage", sender: self)
-        
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
             if let vc = segue.destination as? EditPageController {
@@ -136,21 +122,9 @@ class MarkStudentPresent: UITableViewController, UISearchResultsUpdating, UISear
                 }
     }
     override func viewWillAppear(_ animated: Bool) {
-        //print(tableViewData)
+
         var possibleTitle = ["All", "1", "2", "3", "4", "5"]
         updateData(possibleTitle[searchController.searchBar.selectedScopeButtonIndex], "")
     }
 }
-
-  
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
