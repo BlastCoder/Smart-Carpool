@@ -14,7 +14,7 @@ class DATABASE {
     lazy var background: DispatchQueue = {
         return DispatchQueue.init(label: "background.queue", attributes: .concurrent)
     }()
-    var Children: [[String : String]]
+    var Children: [Child]
     var Order: Int
     var StudentIDInfo: NSDictionary = [:]
     var status: Bool = false
@@ -57,10 +57,7 @@ class DATABASE {
             group.leave()
           })
         group.wait()
-        //print(enterEmail)
         for email in self.emails {
-            //print(email)
-
             if email == enterEmail.uppercased() {
                 return true
             }
@@ -69,7 +66,7 @@ class DATABASE {
         return false
     }
     // Get information of a student
-    func GetInfo(_ queryWord: String, _ queryGrade: String, _ queryName: String) ->  [[String: String]] {
+    func GetInfo(_ queryWord: String, _ queryGrade: String, _ queryName: String) ->  [Child] {
         //enter the group for async I guess
         self.Children = []
         let group = DispatchGroup.init()
@@ -99,12 +96,13 @@ class DATABASE {
                     let Status = dict["Status"] as! String
                     let Order = dict["Order"] as! String
                     if Status == queryWord{
-                        let childInfo: [String: String] = ["Id": ID, "Name": Name, "Grade": Grade, "Status": Status, "Order": Order]
-                        self.Children.append(childInfo)
+                        let child = Child(Id: ID, name: Name, grade: Grade, status: Status, order: Order)
+                        //let childInfo: [String: String] = ["Id": ID, "Name": Name, "Grade": Grade, "Status": Status, "Order": Order]
+                        self.Children.append(child)
                     }
                     else if queryWord == "All" && nameMatch {
-                        let childInfo: [String: String] = ["Id": ID, "Name": Name, "Grade": Grade, "Status": Status, "Order": Order]
-                        self.Children.append(childInfo)
+                        let child = Child(Id: ID, name: Name, grade: Grade, status: Status, order: Order)
+                        self.Children.append(child)
                     }
                 }
                 else if queryGrade == "All" && nameMatch {
@@ -113,13 +111,13 @@ class DATABASE {
                     let Grade = dict["Grade"]! as! String
                     let Status = dict["Status"] as! String
                     let Order = dict["Order"] as! String
-                    if Status == queryWord{
-                        let childInfo: [String: String] = ["Id": ID, "Name": Name, "Grade": Grade, "Status": Status, "Order": Order]
-                        self.Children.append(childInfo)
+                    if Status == queryWord {
+                        let child = Child(Id: ID, name: Name, grade: Grade, status: Status, order: Order)
+                        self.Children.append(child)
                     }
                     else if queryWord == "All" {
-                        let childInfo: [String: String] = ["Id": ID, "Name": Name, "Grade": Grade, "Status": Status, "Order": Order]
-                        self.Children.append(childInfo)
+                        let child = Child(Id: ID, name: Name, grade: Grade, status: Status, order: Order)
+                        self.Children.append(child)
                     }
                 }
             }
@@ -205,7 +203,6 @@ class DATABASE {
         self.ref.child(SCHOOLNAME).child("Children").child(Id).observeSingleEvent(of: .value, with: { snapshot in
             self.StudentIDInfo = (snapshot.value as? NSDictionary)!
             group.leave()
-              // ...
             }) { error in
               print(error.localizedDescription)
             }

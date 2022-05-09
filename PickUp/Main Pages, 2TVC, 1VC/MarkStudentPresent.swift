@@ -15,7 +15,7 @@ class MarkStudentPresent: UITableViewController, UISearchResultsUpdating, UISear
     var tableViewData = ["Loading..."]
     
     let searchController =  UISearchController()
-    var peopleArray: [[String:String]] = [[:]]
+    var peopleArray: [Child] = []
     var queryGrade: String = "All"
     var queryName: String = ""
     var EditPersonID: String = ""
@@ -35,10 +35,10 @@ class MarkStudentPresent: UITableViewController, UISearchResultsUpdating, UISear
         self.background.async {
             let instance: DATABASE = DATABASE()
             self.peopleArray = instance.GetInfo("notHere", queryGrade, queryName)
-            self.peopleArray.sort { ($0["Name"]!) < ($1["Name"]!) }
+            self.peopleArray.sort { ($0.name) < ($1.name) }
             self.tableViewData = []
             for people in self.peopleArray {
-                self.tableViewData.append("\(people["Name"] ?? "Error")")
+                self.tableViewData.append("\(people.name )")
             }
             self.testVar = !self.testVar
         }
@@ -61,10 +61,10 @@ class MarkStudentPresent: UITableViewController, UISearchResultsUpdating, UISear
         let instance: DATABASE = DATABASE()
         if !EditStatus {
             //we have to change this code if we refactor
-            instance.EditInfo(self.peopleArray[indexPath.row]["Id"]!, "here")
+            instance.EditInfo(self.peopleArray[indexPath.row].Id, "here")
         }
         else if EditStatus {
-            EditPersonID = (self.peopleArray[indexPath.row]["Id"]!)
+            EditPersonID = (self.peopleArray[indexPath.row].Id)
             performSegue(withIdentifier: "EditPage", sender: self)
         }
     }

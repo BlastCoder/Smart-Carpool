@@ -12,7 +12,7 @@ import FirebaseDatabase
 class MarkStudentGivenTVController: UITableViewController {
 
     var tableViewData = ["Loading"]
-    var peopleArray: [[String:String]] = [[:]]
+    var peopleArray: [Child] = []
     let ref = Database.database().reference(fromURL: "https://pickup-2568e-default-rtdb.firebaseio.com/")
     lazy var background: DispatchQueue = {
         return DispatchQueue.init(label: "background.queue", attributes: .concurrent)
@@ -22,10 +22,10 @@ class MarkStudentGivenTVController: UITableViewController {
             //fix this if we refactor
             let instance: DATABASE = DATABASE()
             self.peopleArray = instance.GetInfo("here", "All", "")
-            self.peopleArray.sort{($0["Order"]!) < ($1["Order"]!)}
+            self.peopleArray.sort{($0.order) < ($1.order)}
             self.tableViewData = []
             for people in self.peopleArray {
-                    self.tableViewData.append("\(people["Name"] ?? "Error") Grade: \(people["Grade"]!)")
+                self.tableViewData.append("\(people.name) Grade: \(people.grade)")
             }
         }
     }
@@ -48,7 +48,7 @@ class MarkStudentGivenTVController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let instance: DATABASE = DATABASE()
         //fix this if we refactor
-        instance.EditInfo(self.peopleArray[indexPath.row]["Id"]!, "gone")
+        instance.EditInfo(self.peopleArray[indexPath.row].Id, "gone")
     }
     
     override func viewDidLoad() {
