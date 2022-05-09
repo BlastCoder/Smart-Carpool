@@ -107,7 +107,7 @@
                                 <rect key="frame" x="0.0" y="717" width="414" height="179"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="EAM-dE-IMl">
-                                        <rect key="frame" x="136" y="45" width="143" height="67"/>
+                                        <rect key="frame" x="8" y="45" width="398" height="67"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                         <color key="textColor" red="0.39840600440000001" green="0.48857863909999999" blue="0.18461316289999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
