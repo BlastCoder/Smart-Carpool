@@ -24,9 +24,20 @@ class QRCodeScannerVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate 
                 self.scanText.text = ""
             }
             let instance = DATABASE()
+            
             self.background.async {
                 if instance.checkID(self.studentID) {
-                    instance.EditInfo(self.studentID, "here")
+                    if instance.GetInfoWithID(self.studentID)["Status"] as! String != "gone" {
+                        instance.EditInfo(self.studentID, "here")
+                    }
+                    else {
+                        DispatchQueue.main.async {
+                            self.scanText.text = "Child Already Checked Out"
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
+                                self.scanText.text = ""
+                            }
+                        }
+                    }
                 }
             }
         }

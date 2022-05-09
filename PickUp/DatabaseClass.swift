@@ -137,8 +137,9 @@ class DATABASE {
     }
     // Edit student information
     func EditInfo(_ id: String, _ Status: String){
+        
         ref.child(SCHOOLNAME).child("Children").child(id).updateChildValues(["Status": Status])
-        if Status == "gone"{return}
+        if Status == "gone" {return}
 
         self.background.async{
             let order = self.StudentOrder()
@@ -225,7 +226,6 @@ class DATABASE {
         var arrayKeys: [String] = []
         let group = DispatchGroup.init()
         group.enter()
-        //self.ref.child(SCHOOLNAME).child("Children").child(uuid)
         self.ref.child(SCHOOLNAME).child("Children").getData(completion:  { error, snapshot in
             guard error == nil else {
               return
