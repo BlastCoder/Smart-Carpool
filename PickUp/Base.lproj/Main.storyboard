@@ -273,7 +273,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Grade" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gnx-VQ-qHv">
-                                <rect key="frame" x="58" y="379" width="298" height="34"/>
+                                <rect key="frame" x="58" y="403.5" width="298" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="298" id="QpB-qg-bkd"/>
                                     <constraint firstAttribute="height" constant="34" id="qm2-NC-Hjz"/>
@@ -291,7 +291,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2cK-yE-lhM">
-                                <rect key="frame" x="150.5" y="580.5" width="113" height="31"/>
+                                <rect key="frame" x="150.5" y="605" width="113" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="31" id="I8h-Hj-pyf"/>
                                     <constraint firstAttribute="width" constant="113" id="Mk1-oG-5VS"/>
@@ -334,7 +334,7 @@
                                 </subviews>
                             </stackView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Child Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GnR-ks-ikY">
-                                <rect key="frame" x="58" y="324.5" width="298" height="34"/>
+                                <rect key="frame" x="58" y="349" width="298" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="JAO-v6-xxP"/>
                                     <constraint firstAttribute="width" constant="298" id="xtV-wL-xFV"/>
@@ -376,7 +376,13 @@
                             <constraint firstItem="9i6-K0-vGg" firstAttribute="top" secondItem="gnx-VQ-qHv" secondAttribute="bottom" constant="20.5" id="iGE-Bg-h0x"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Add Student" id="Hw4-G0-d94"/>
+                    <navigationItem key="navigationItem" title="Add Student" id="Hw4-G0-d94">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="LUv-ZE-fvZ">
+                            <connections>
+                                <segue destination="kFL-ub-64A" kind="presentation" modalPresentationStyle="fullScreen" id="zQl-dy-Tnm"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="addedLabel" destination="Tgh-Qq-ZJ2" id="kZJ-b2-jfe"/>
                         <outlet property="grade" destination="gnx-VQ-qHv" id="IBw-YM-LDO"/>
@@ -426,6 +432,64 @@
             </objects>
             <point key="canvasLocation" x="2496" y="115"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="n5h-6E-jBp">
+            <objects>
+                <viewController id="kFL-ub-64A" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qyD-TX-2aZ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Code X" translatesAutoresizingMaskIntoConstraints="NO" id="aIT-Bb-yUb">
+                                <rect key="frame" x="-102.5" y="44" width="619" height="359"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="359" id="V7M-EO-LTb"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="359" id="a2C-lf-giZ"/>
+                                    <constraint firstAttribute="width" constant="619" id="prj-dv-ucx"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="619" id="sSZ-h6-lTa"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1yF-dG-Pw0">
+                                <rect key="frame" x="110" y="472" width="194" height="63"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="63" id="X92-Vo-97P"/>
+                                    <constraint firstAttribute="width" constant="194" id="oEh-ve-tJ1"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="Teacher"/>
+                                <connections>
+                                    <segue destination="Kuj-5d-ChP" kind="presentation" modalPresentationStyle="fullScreen" id="jzS-Oy-rbM"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F5d-QG-sRY">
+                                <rect key="frame" x="110" y="618" width="194" height="63"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="194" id="1ph-iJ-Eq0"/>
+                                    <constraint firstAttribute="height" constant="63" id="Mm5-bK-enM"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="Admin"/>
+                                <connections>
+                                    <segue destination="H07-r7-sSo" kind="presentation" modalPresentationStyle="fullScreen" id="wh2-Tw-vNe"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="wiD-dW-LuF"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="1yF-dG-Pw0" firstAttribute="centerX" secondItem="wiD-dW-LuF" secondAttribute="centerX" id="Qg0-qo-9ng"/>
+                            <constraint firstItem="F5d-QG-sRY" firstAttribute="top" secondItem="1yF-dG-Pw0" secondAttribute="bottom" constant="83" id="THA-o4-dpd"/>
+                            <constraint firstItem="F5d-QG-sRY" firstAttribute="centerX" secondItem="wiD-dW-LuF" secondAttribute="centerX" id="Z5y-dP-tPW"/>
+                            <constraint firstItem="aIT-Bb-yUb" firstAttribute="centerX" secondItem="wiD-dW-LuF" secondAttribute="centerX" id="tcg-Iw-WRL"/>
+                            <constraint firstItem="1yF-dG-Pw0" firstAttribute="top" secondItem="aIT-Bb-yUb" secondAttribute="bottom" constant="69" id="txC-FB-Nis"/>
+                            <constraint firstItem="aIT-Bb-yUb" firstAttribute="top" secondItem="wiD-dW-LuF" secondAttribute="top" id="uRO-wr-Jyg"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OEq-I5-1cj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1727.536231884058" y="-2136.1607142857142"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="mad-H4-jHg">
             <objects>
@@ -437,13 +501,12 @@
                     </tabBar>
                     <connections>
                         <segue destination="02v-dv-NOs" kind="relationship" relationship="viewControllers" id="R1n-tB-gfF"/>
-                        <segue destination="H07-r7-sSo" kind="relationship" relationship="viewControllers" id="nSD-xC-tJ4"/>
                         <segue destination="SBI-sk-0te" kind="relationship" relationship="viewControllers" id="AYE-hh-Zge"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dJS-T6-ncm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1716" y="-1408"/>
+            <point key="canvasLocation" x="1716" y="-1414"/>
         </scene>
         <!--Item-->
         <scene sceneID="S27-A3-QrV">
@@ -553,6 +616,7 @@
                                 <buttonConfiguration key="configuration" style="gray" title="Done"/>
                                 <connections>
                                     <action selector="submitButton:" destination="fjU-bG-x8C" eventType="touchUpInside" id="biO-Yl-GB0"/>
+                                    <segue destination="kFL-ub-64A" kind="presentation" identifier="MainPageSegue" modalPresentationStyle="fullScreen" id="IbP-u5-QNk"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="School Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ir1-cd-rbv">
@@ -610,7 +674,6 @@
                     <connections>
                         <outlet property="doneButton" destination="2DX-59-BQR" id="Ltp-m9-cCx"/>
                         <outlet property="schoolName" destination="ir1-cd-rbv" id="3Qi-dK-DdV"/>
-                        <segue destination="Kuj-5d-ChP" kind="presentation" identifier="MainPageSegue" modalPresentationStyle="fullScreen" id="gFa-g8-ecE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MkW-qZ-D26" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -635,6 +698,7 @@
                                 <buttonConfiguration key="configuration" style="gray" title="Submit"/>
                                 <connections>
                                     <action selector="Submit:" destination="cEQ-05-5X3" eventType="touchUpInside" id="gkE-gV-m80"/>
+                                    <segue destination="XaL-pM-Kay" kind="presentation" modalPresentationStyle="fullScreen" id="Zfs-nu-RnB"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="School Name" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="hNA-S8-oDC">
@@ -793,6 +857,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="9Cp-fG-IzU"/>
+        <segue reference="zQl-dy-Tnm"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" systemColor="linkColor"/>
     <resources>
