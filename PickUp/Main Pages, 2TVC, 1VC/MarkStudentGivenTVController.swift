@@ -17,6 +17,13 @@ class MarkStudentGivenTVController: UITableViewController {
     lazy var background: DispatchQueue = {
         return DispatchQueue.init(label: "background.queue", attributes: .concurrent)
     }()
+    var edited: Bool = false {
+        didSet {
+            DispatchQueue.main.async {
+                self.reloadData()
+            }
+        }
+    }
     func updateData(){
         self.background.async {
             //fix this if we refactor
@@ -27,6 +34,7 @@ class MarkStudentGivenTVController: UITableViewController {
             for people in self.peopleArray {
                 self.tableViewData.append("\(people.name) Grade: \(people.grade)")
             }
+            self.edited = !self.edited
         }
     }
     
@@ -58,7 +66,7 @@ class MarkStudentGivenTVController: UITableViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "tableviewCell")
-        _ = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.reloadData), userInfo: nil, repeats: true)
+        //_ = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.reloadData), userInfo: nil, repeats: true)
         //not efficent but works I guess (maybe add observer on the self.peopleArray to detect change)
         ref.child(SCHOOLNAME).child("Children").observe(.childChanged, with: {(snapshot) -> Void in
             self.updateData()

@@ -9,7 +9,7 @@ import UIKit
 
 class QRGenerator: UIViewController {
     var qrText: String = ""
-    var image = UIImage()
+    var image: UIImage!
     @IBOutlet weak var imageView: UIImageView!
     
     override func viewDidLoad() {
@@ -26,13 +26,16 @@ class QRGenerator: UIViewController {
                 let transform = CGAffineTransform(scaleX: 3, y: 3)
 
                 if let output = filter.outputImage?.transformed(by: transform) {
-                    return UIImage(ciImage: output)
-                }
+                    let context = CIContext()
+                    guard let cgImage = context.createCGImage(output, from: output.extent) else { return nil }
+                    return UIImage(cgImage: cgImage)
+                }   
             }
             return nil
         }
     @IBAction func addPhotos(_ sender: Any) {
-        UIImageWriteToSavedPhotosAlbum(self.image, nil, nil, nil)
+        UIImageWriteToSavedPhotosAlbum(self.imageView.image!, nil, nil, nil)
+        print("Here")
     }
     
 
