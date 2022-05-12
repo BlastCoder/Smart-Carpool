@@ -39,25 +39,32 @@ class SignInVC: UIViewController {
     }
     
     @IBAction func submitButton(_ sender: Any) {
+        print("at top")
         guard var sName = schoolName.text
         else{return}
         sName = sName.uppercased()
         if email == "" {
             return
         }
-        self.background.async {
-            let instance = DATABASE()
-            if !instance.checkAccount(sName, self.email) {
-                print("Here")
-                return
-            }
-            SCHOOLNAME = sName.uppercased()
-            //print(SCHOOLNAME)
-            DispatchQueue.main.async {
-                self.performSegue(withIdentifier: "MainPageSegue", sender: self)
+        var testBool: Bool = false {
+            didSet {
+                if !testBool{
+                    return
+                }
+                SCHOOLNAME = sName.uppercased()
+                print(SCHOOLNAME)
+                DispatchQueue.main.async {
+                    self.performSegue(withIdentifier: "MainPageSegue", sender: self)
+                }
             }
         }
-    }
+        self.background.async {
+            let instance = DATABASE()
+            testBool = instance.checkAccount(sName, self.email)
+        }
+        print(testBool)
+        
+}
     /*
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
             let vc = segue.destination as? MainPage
