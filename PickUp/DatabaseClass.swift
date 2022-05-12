@@ -168,7 +168,7 @@ class DATABASE {
     func ResetValues() {
         self.ref.child(SCHOOLNAME).child("Children").observeSingleEvent(of: .value) { snapshot in
             for case let child as DataSnapshot in snapshot.children {
-                self.ref.child(SCHOOLNAME).child("Children").child(child.key).updateChildValues(["Order": "0", "Status": "notHere"])
+                self.ref.child(SCHOOLNAME).child("Children").child(child.key).updateChildValues(["Order": "0", "Status": "notSchool"])
             }
         }
         self.ref.child(SCHOOLNAME).child("Order").child("recentOrder").updateChildValues(["Order": "1"])
