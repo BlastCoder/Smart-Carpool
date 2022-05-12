@@ -68,7 +68,19 @@
                             <outlet property="delegate" destination="F7Y-z6-2Js" id="91r-Xp-pzi"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="JJA-ay-1bi"/>
+                    <navigationItem key="navigationItem" id="JJA-ay-1bi">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="U72-oj-Y63">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="s7h-hI-4Ye">
+                                <rect key="frame" x="20" y="5" width="92" height="34.5"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="New Day"/>
+                                <connections>
+                                    <action selector="newDay:" destination="F7Y-z6-2Js" eventType="touchUpInside" id="txD-2s-aFp"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Je7-vd-8eA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -163,7 +175,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pom-Oi-sGk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="209" y="1278"/>
+            <point key="canvasLocation" x="196" y="1572"/>
         </scene>
         <!--Edit Page Controller-->
         <scene sceneID="ZF8-P1-gtD">
@@ -891,7 +903,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="raH-6u-GFO" sceneMemberID="firstResponder"/>
                 <navigationItem id="g9V-Lw-IkQ"/>
             </objects>
-            <point key="canvasLocation" x="-1296" y="1278"/>
+            <point key="canvasLocation" x="-1262" y="1572"/>
         </scene>
         <!--Item-->
         <scene sceneID="3Rs-oy-CKl">
@@ -902,7 +914,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="91s-cr-Khx">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                        <color key="backgroundColor" red="0.50503389440000002" green="0.62427457829999999" blue="0.2318571576" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <color key="tintColor" systemColor="linkColor"/>
                         <color key="barTintColor" systemColor="systemGreenColor"/>
                     </navigationBar>

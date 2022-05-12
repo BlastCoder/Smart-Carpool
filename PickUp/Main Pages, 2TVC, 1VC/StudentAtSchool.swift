@@ -108,5 +108,10 @@ class StudentAtSchool: UITableViewController, UISearchResultsUpdating, UISearchB
         var possibleTitle = ["All", "1", "2", "3", "4", "5"]
         updateData(possibleTitle[searchController.searchBar.selectedScopeButtonIndex], "")
     }
+    
+    @IBAction func newDay(_ sender: Any) {
+        let instance: DATABASE = DATABASE()
+        instance.ResetValues()
+    }
 }
 
