@@ -69,9 +69,20 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="JJA-ay-1bi">
-                        <barButtonItem key="leftBarButtonItem" style="plain" id="U72-oj-Y63">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="s7h-hI-4Ye">
+                        <barButtonItem key="leftBarButtonItem" title="Back" style="plain" id="1HL-l6-A4u">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="ff0-J4-N7I">
                                 <rect key="frame" x="20" y="5" width="92" height="34.5"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Back"/>
+                                <connections>
+                                    <segue destination="kFL-ub-64A" kind="presentation" modalPresentationStyle="fullScreen" id="e0E-QO-zOs"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="U72-oj-Y63">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="s7h-hI-4Ye">
+                                <rect key="frame" x="302" y="5" width="92" height="34.5"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="New Day"/>
@@ -652,7 +663,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kcb-Pb-Exb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1580" y="-1500"/>
+            <point key="canvasLocation" x="-1633" y="-1833"/>
         </scene>
         <!--Sign InVC-->
         <scene sceneID="BCQ-O5-nJO">
@@ -730,7 +741,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MkW-qZ-D26" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-981" y="-687"/>
+            <point key="canvasLocation" x="-1633" y="-1035"/>
         </scene>
         <!--Sign UpVC-->
         <scene sceneID="YSQ-fw-ZA6">
@@ -827,7 +838,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EMO-9q-gki" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-329" y="-1500"/>
+            <point key="canvasLocation" x="-638" y="-1833"/>
         </scene>
         <!--Item-->
         <scene sceneID="uA6-IG-P4Z">
@@ -929,8 +940,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="9Cp-fG-IzU"/>
-        <segue reference="zQl-dy-Tnm"/>
+        <segue reference="efu-dT-GkF"/>
+        <segue reference="u3R-0y-G2u"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" systemColor="linkColor"/>
     <resources>
