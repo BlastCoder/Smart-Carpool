@@ -925,9 +925,9 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="91s-cr-Khx">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" red="0.50503389440000002" green="0.62427457829999999" blue="0.2318571576" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.41905477870022362" green="0.87830129173613081" blue="0.16643522483856446" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <color key="tintColor" systemColor="linkColor"/>
-                        <color key="barTintColor" systemColor="systemGreenColor"/>
+                        <color key="barTintColor" systemColor="linkColor"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
