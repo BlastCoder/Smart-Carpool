@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="XaL-pM-Kay">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="XaL-pM-Kay">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -17,35 +17,47 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fao-t1-yTA">
-                                <rect key="frame" x="140" y="514" width="139" height="46"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="gray" title="QR Code Scanner"/>
-                                <connections>
-                                    <segue destination="GlG-Ff-UVn" kind="show" id="wE1-Lp-XXw"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="51f-1J-6bq">
-                                <rect key="frame" x="121" y="396" width="174" height="43"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="51f-1J-6bq">
+                                <rect key="frame" x="92" y="403" width="230" height="43"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="43" id="VUu-7E-P15"/>
+                                    <constraint firstAttribute="width" constant="230" id="mAa-Hm-Y4g"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="gray" title="Liscense Plate Scanner"/>
                                 <connections>
                                     <segue destination="Mfr-pl-DrR" kind="show" id="XJf-nM-LLa"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fao-t1-yTA">
+                                <rect key="frame" x="107" y="521" width="200" height="43"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="4LW-gD-i0C"/>
+                                    <constraint firstAttribute="height" constant="43" id="YWj-Js-7uA"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="gray" title="QR Code Scanner"/>
+                                <connections>
+                                    <segue destination="GlG-Ff-UVn" kind="show" id="wE1-Lp-XXw"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6lU-Rp-hwU"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Fao-t1-yTA" firstAttribute="top" secondItem="51f-1J-6bq" secondAttribute="bottom" constant="75" id="6YB-ED-xuk"/>
+                            <constraint firstItem="6lU-Rp-hwU" firstAttribute="bottom" secondItem="Fao-t1-yTA" secondAttribute="bottom" constant="249" id="KkV-cc-4f5"/>
+                            <constraint firstItem="Fao-t1-yTA" firstAttribute="centerX" secondItem="6lU-Rp-hwU" secondAttribute="centerX" id="SRO-Py-Xam"/>
+                            <constraint firstItem="51f-1J-6bq" firstAttribute="centerX" secondItem="6lU-Rp-hwU" secondAttribute="centerX" id="gym-14-lmW"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="uEq-80-Ad7"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ijr-sv-RbO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-528" y="848"/>
+            <point key="canvasLocation" x="-528.98550724637687" y="847.76785714285711"/>
         </scene>
-        <!--Student At School-->
+        <!--Attendence-->
         <scene sceneID="zK8-Sl-ZAR">
             <objects>
                 <tableViewController id="F7Y-z6-2Js" customClass="StudentAtSchool" customModule="PickUp" customModuleProvider="target" sceneMemberID="viewController">
@@ -68,17 +80,11 @@
                             <outlet property="delegate" destination="F7Y-z6-2Js" id="91r-Xp-pzi"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="JJA-ay-1bi">
-                        <barButtonItem key="leftBarButtonItem" title="Back" style="plain" id="1HL-l6-A4u">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="ff0-J4-N7I">
-                                <rect key="frame" x="20" y="5" width="92" height="34.5"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Back"/>
-                                <connections>
-                                    <segue destination="kFL-ub-64A" kind="presentation" modalPresentationStyle="fullScreen" id="e0E-QO-zOs"/>
-                                </connections>
-                            </button>
+                    <navigationItem key="navigationItem" title="Attendence" id="JJA-ay-1bi">
+                        <barButtonItem key="leftBarButtonItem" title="Item" id="vL4-JN-05d">
+                            <connections>
+                                <segue destination="kFL-ub-64A" kind="presentation" modalPresentationStyle="fullScreen" id="hOO-Ky-YIn"/>
+                            </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="plain" id="U72-oj-Y63">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="s7h-hI-4Ye">
@@ -97,7 +103,7 @@
             </objects>
             <point key="canvasLocation" x="861" y="115"/>
         </scene>
-        <!--Mark Student Present-->
+        <!--Parent Arrival-->
         <scene sceneID="n4Q-Gb-CKr">
             <objects>
                 <tableViewController id="vvj-Lw-fox" customClass="MarkStudentPresent" customModule="PickUp" customModuleProvider="target" sceneMemberID="viewController">
@@ -120,7 +126,7 @@
                             <outlet property="delegate" destination="vvj-Lw-fox" id="M1D-ye-Zzj"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Mark Student Present" id="K72-m1-o9n">
+                    <navigationItem key="navigationItem" title="Parent Arrival" id="K72-m1-o9n">
                         <barButtonItem key="leftBarButtonItem" style="plain" systemItem="camera" id="PTR-bK-TWp">
                             <connections>
                                 <segue destination="niG-fb-tLS" kind="show" id="A14-KQ-Cwa"/>
@@ -327,14 +333,14 @@
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Grade" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gnx-VQ-qHv">
                                 <rect key="frame" x="58" y="403.5" width="298" height="34"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="298" id="QpB-qg-bkd"/>
-                                    <constraint firstAttribute="height" constant="34" id="qm2-NC-Hjz"/>
+                                    <constraint firstAttribute="height" constant="34" id="CIP-FT-ndN"/>
+                                    <constraint firstAttribute="width" constant="298" id="HOn-nZ-vNv"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tgh-Qq-ZJ2">
-                                <rect key="frame" x="0.0" y="119" width="414" height="36"/>
+                                <rect key="frame" x="0.0" y="119" width="0.0" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="7Hh-r5-l2u"/>
                                 </constraints>
@@ -345,8 +351,8 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2cK-yE-lhM">
                                 <rect key="frame" x="150.5" y="605" width="113" height="31"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="31" id="I8h-Hj-pyf"/>
-                                    <constraint firstAttribute="width" constant="113" id="Mk1-oG-5VS"/>
+                                    <constraint firstAttribute="width" constant="113" id="CKB-sl-MWl"/>
+                                    <constraint firstAttribute="height" constant="31" id="Qas-fD-jk6"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Add">
@@ -358,24 +364,44 @@
                                     <action selector="submitButton:" destination="rzJ-37-t8T" eventType="touchUpInside" id="T8I-Wf-ZY1"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Child Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GnR-ks-ikY">
+                                <rect key="frame" x="58" y="349" width="298" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="298" id="b1l-xi-y6U"/>
+                                    <constraint firstAttribute="height" constant="34" id="rt6-xv-4Ba"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xBe-P8-uEm">
+                                <rect key="frame" x="87" y="789" width="240" height="38"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="38" id="DOE-Jg-Qnv"/>
+                                    <constraint firstAttribute="width" constant="240" id="YNb-0S-O3a"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Temp: Reset"/>
+                                <connections>
+                                    <action selector="resetTest:" destination="rzJ-37-t8T" eventType="touchUpInside" id="xbY-Bu-VQW"/>
+                                </connections>
+                            </button>
                             <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Q1E-dR-X6w">
-                                <rect key="frame" x="38" y="431" width="335" height="34"/>
+                                <rect key="frame" x="40" y="461" width="320" height="34"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Plate Number" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9i6-K0-vGg">
-                                        <rect key="frame" x="0.0" y="0.0" width="270" height="34"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="250" height="34"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="34" id="J4t-zZ-Mbm"/>
-                                            <constraint firstAttribute="width" constant="270" id="tWE-eP-ff3"/>
+                                            <constraint firstAttribute="width" constant="250" id="C2i-kL-wAX"/>
+                                            <constraint firstAttribute="height" constant="34" id="Vg4-hB-8Yf"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" spellCheckingType="no"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d48-iG-hLV">
-                                        <rect key="frame" x="270" y="0.0" width="65" height="34"/>
+                                        <rect key="frame" x="250" y="0.0" width="70" height="34"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="34" id="Dgy-gW-7if"/>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="34" id="MS2-G9-dYU"/>
-                                            <constraint firstAttribute="width" constant="65" id="f4f-8H-Fu3"/>
+                                            <constraint firstAttribute="height" constant="34" id="98o-Ya-CvW"/>
+                                            <constraint firstAttribute="width" constant="70" id="no6-tg-C0x"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="gray" title="More"/>
@@ -385,47 +411,22 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Child Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GnR-ks-ikY">
-                                <rect key="frame" x="58" y="349" width="298" height="34"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="34" id="JAO-v6-xxP"/>
-                                    <constraint firstAttribute="width" constant="298" id="xtV-wL-xFV"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xBe-P8-uEm">
-                                <rect key="frame" x="94" y="789" width="226" height="38"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="38" id="cHp-Mc-xkC"/>
-                                    <constraint firstAttribute="width" constant="154" id="dEU-w4-tLq"/>
-                                    <constraint firstAttribute="height" constant="38" id="rjp-qb-1ra"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Temp: Reset"/>
-                                <connections>
-                                    <action selector="resetTest:" destination="rzJ-37-t8T" eventType="touchUpInside" id="xbY-Bu-VQW"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="fDc-Yv-bkU"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="xBe-P8-uEm" firstAttribute="leading" secondItem="fDc-Yv-bkU" secondAttribute="leading" constant="130" id="5QO-I5-Eef"/>
-                            <constraint firstItem="xBe-P8-uEm" firstAttribute="bottom" secondItem="fDc-Yv-bkU" secondAttribute="bottom" constant="14" id="6uZ-Jd-zVb"/>
-                            <constraint firstItem="xBe-P8-uEm" firstAttribute="centerX" secondItem="Tgh-Qq-ZJ2" secondAttribute="centerX" id="A5N-Zn-9Z8"/>
-                            <constraint firstItem="xBe-P8-uEm" firstAttribute="centerX" secondItem="fDc-Yv-bkU" secondAttribute="centerX" id="FfD-B2-7jU"/>
-                            <constraint firstItem="9i6-K0-vGg" firstAttribute="top" secondItem="GnR-ks-ikY" secondAttribute="bottom" constant="75" id="GCe-yD-wkK"/>
-                            <constraint firstItem="gnx-VQ-qHv" firstAttribute="centerX" secondItem="fDc-Yv-bkU" secondAttribute="centerX" id="LyL-G4-AGE"/>
+                            <constraint firstItem="gnx-VQ-qHv" firstAttribute="top" secondItem="GnR-ks-ikY" secondAttribute="bottom" constant="20.5" id="18V-oZ-4u1"/>
+                            <constraint firstItem="Q1E-dR-X6w" firstAttribute="centerX" secondItem="fDc-Yv-bkU" secondAttribute="centerX" id="45T-oT-kvX"/>
+                            <constraint firstItem="9i6-K0-vGg" firstAttribute="top" secondItem="gnx-VQ-qHv" secondAttribute="bottom" constant="23.5" id="9A6-Ih-SZu"/>
+                            <constraint firstItem="2cK-yE-lhM" firstAttribute="centerX" secondItem="fDc-Yv-bkU" secondAttribute="centerX" id="BcB-GP-Nd0"/>
+                            <constraint firstItem="2cK-yE-lhM" firstAttribute="top" secondItem="Q1E-dR-X6w" secondAttribute="bottom" constant="110" id="M09-qa-M6j"/>
                             <constraint firstItem="Tgh-Qq-ZJ2" firstAttribute="leading" secondItem="8Ml-dC-Its" secondAttribute="leading" id="OMd-XB-eJl"/>
-                            <constraint firstItem="xBe-P8-uEm" firstAttribute="centerX" secondItem="8Ml-dC-Its" secondAttribute="centerX" id="TR2-qr-FbD"/>
-                            <constraint firstItem="GnR-ks-ikY" firstAttribute="centerX" secondItem="fDc-Yv-bkU" secondAttribute="centerX" id="TlR-gz-jkk"/>
+                            <constraint firstItem="GnR-ks-ikY" firstAttribute="centerX" secondItem="fDc-Yv-bkU" secondAttribute="centerX" id="TpB-gy-6CG"/>
                             <constraint firstItem="Tgh-Qq-ZJ2" firstAttribute="top" secondItem="fDc-Yv-bkU" secondAttribute="top" constant="31" id="WEP-su-qwt"/>
-                            <constraint firstItem="Q1E-dR-X6w" firstAttribute="centerY" secondItem="fDc-Yv-bkU" secondAttribute="centerY" id="ajO-u8-9ah"/>
-                            <constraint firstItem="Q1E-dR-X6w" firstAttribute="centerX" secondItem="fDc-Yv-bkU" secondAttribute="centerX" id="fUM-bz-CHC"/>
-                            <constraint firstItem="2cK-yE-lhM" firstAttribute="top" secondItem="9i6-K0-vGg" secondAttribute="bottom" constant="113" id="hST-Id-ug0"/>
-                            <constraint firstItem="2cK-yE-lhM" firstAttribute="centerX" secondItem="fDc-Yv-bkU" secondAttribute="centerX" id="hUn-5d-muJ"/>
-                            <constraint firstItem="9i6-K0-vGg" firstAttribute="top" secondItem="gnx-VQ-qHv" secondAttribute="bottom" constant="20.5" id="iGE-Bg-h0x"/>
+                            <constraint firstItem="xBe-P8-uEm" firstAttribute="centerX" secondItem="fDc-Yv-bkU" secondAttribute="centerX" id="bhv-df-kbI"/>
+                            <constraint firstItem="fDc-Yv-bkU" firstAttribute="bottom" secondItem="xBe-P8-uEm" secondAttribute="bottom" constant="35" id="bmc-ly-9Xb"/>
+                            <constraint firstItem="gnx-VQ-qHv" firstAttribute="centerX" secondItem="fDc-Yv-bkU" secondAttribute="centerX" id="fV9-AO-sY2"/>
+                            <constraint firstItem="fDc-Yv-bkU" firstAttribute="bottom" secondItem="2cK-yE-lhM" secondAttribute="bottom" constant="226" id="pCj-Y8-viZ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Add Student" id="Hw4-G0-d94">
@@ -440,14 +441,14 @@
                         <outlet property="grade" destination="gnx-VQ-qHv" id="IBw-YM-LDO"/>
                         <outlet property="name" destination="GnR-ks-ikY" id="zBy-Hg-wIE"/>
                         <outlet property="plateText" destination="9i6-K0-vGg" id="AmN-td-xeY"/>
-                        <segue destination="CEO-uv-7Va" kind="show" identifier="QRsegue" id="Ejm-Oc-4ed"/>
+                        <segue destination="CEO-uv-7Va" kind="presentation" identifier="QRsegue" modalPresentationStyle="fullScreen" id="Ejm-Oc-4ed"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dNX-dL-vub" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4093" y="-603"/>
         </scene>
-        <!--Mark Given-->
+        <!--Students To Send-->
         <scene sceneID="kwS-9N-Bdc">
             <objects>
                 <tableViewController id="hfk-GY-eWB" customClass="MarkStudentGivenTVController" customModule="PickUp" customModuleProvider="target" sceneMemberID="viewController">
@@ -478,7 +479,7 @@
                             <outlet property="delegate" destination="hfk-GY-eWB" id="tu6-dU-9ps"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Mark Given" id="NNQ-mq-5cu"/>
+                    <navigationItem key="navigationItem" title="Students To Send" id="NNQ-mq-5cu"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pbJ-Ie-yJN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -488,7 +489,7 @@
         <scene sceneID="n5h-6E-jBp">
             <objects>
                 <viewController id="kFL-ub-64A" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="qyD-TX-2aZ">
+                    <view key="view" contentMode="scaleToFill" id="qyD-TX-2aZ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -516,12 +517,6 @@
                                     <segue destination="H07-r7-sSo" kind="presentation" modalPresentationStyle="fullScreen" id="wh2-Tw-vNe"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Welcome!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZSD-hU-Pes">
-                                <rect key="frame" x="136" y="72" width="159" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Code X" translatesAutoresizingMaskIntoConstraints="NO" id="aIT-Bb-yUb">
                                 <rect key="frame" x="-32" y="101" width="478" height="290"/>
                                 <constraints>
@@ -537,10 +532,7 @@
                         <constraints>
                             <constraint firstItem="1yF-dG-Pw0" firstAttribute="centerX" secondItem="wiD-dW-LuF" secondAttribute="centerX" id="Qg0-qo-9ng"/>
                             <constraint firstItem="F5d-QG-sRY" firstAttribute="top" secondItem="1yF-dG-Pw0" secondAttribute="bottom" constant="83" id="THA-o4-dpd"/>
-                            <constraint firstItem="ZSD-hU-Pes" firstAttribute="centerX" secondItem="aIT-Bb-yUb" secondAttribute="centerX" id="YJv-4p-Mdu"/>
-                            <constraint firstItem="ZSD-hU-Pes" firstAttribute="centerY" secondItem="wiD-dW-LuF" secondAttribute="centerY" id="YtA-JT-hbp"/>
                             <constraint firstItem="F5d-QG-sRY" firstAttribute="centerX" secondItem="wiD-dW-LuF" secondAttribute="centerX" id="Z5y-dP-tPW"/>
-                            <constraint firstItem="aIT-Bb-yUb" firstAttribute="top" secondItem="ZSD-hU-Pes" secondAttribute="bottom" constant="-46" id="kCV-dV-uSJ"/>
                             <constraint firstItem="aIT-Bb-yUb" firstAttribute="centerX" secondItem="wiD-dW-LuF" secondAttribute="centerX" id="tcg-Iw-WRL"/>
                             <constraint firstItem="1yF-dG-Pw0" firstAttribute="top" secondItem="aIT-Bb-yUb" secondAttribute="bottom" constant="69" id="txC-FB-Nis"/>
                             <constraint firstItem="aIT-Bb-yUb" firstAttribute="top" secondItem="wiD-dW-LuF" secondAttribute="top" id="uRO-wr-Jyg"/>
@@ -769,7 +761,7 @@
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                             </textField>
                             <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="h9j-g0-cXQ">
-                                <rect key="frame" x="38" y="436" width="336" height="34"/>
+                                <rect key="frame" x="38" y="436" width="341" height="34"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Emails" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dCC-1N-xwk">
                                         <rect key="frame" x="0.0" y="0.0" width="249" height="34"/>
@@ -783,10 +775,10 @@
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartQuotesType="no"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SBf-MT-hca">
-                                        <rect key="frame" x="271" y="0.0" width="65" height="34"/>
+                                        <rect key="frame" x="271" y="0.0" width="70" height="34"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="65" id="CVH-Rx-5cl"/>
-                                            <constraint firstAttribute="height" constant="34" id="pWW-dK-k7p"/>
+                                            <constraint firstAttribute="height" constant="34" id="6Pb-wc-AQF"/>
+                                            <constraint firstAttribute="width" constant="70" id="Iwk-PL-Nh5"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="More"/>
