@@ -41,9 +41,20 @@ class SignInVC: UIViewController {
     @IBAction func submitButton(_ sender: Any) {
         print("at top")
         guard var sName = schoolName.text
-        else{return}
+        else{
+            let alert = createFormAlert(about: "School Required", withInfo: "Please include a valid school for the account.")
+            present(alert, animated: true)
+            return
+        }
+        if sName == "" {
+            let alert = createFormAlert(about: "School Required", withInfo: "Please include a valid school for the account.")
+            present(alert, animated: true)
+            return
+        }
         sName = sName.uppercased()
         if email == "" {
+            let alert = createFormAlert(about: "Sign in with Google", withInfo: "Please add a valid email.")
+            present(alert, animated: true)
             return
         }
         var testBool: Bool = false {
@@ -63,7 +74,6 @@ class SignInVC: UIViewController {
             testBool = instance.checkAccount(sName, self.email)
         }
         print(testBool)
-        
 }
     func createFormAlert(about title: String, withInfo message: String) -> UIAlertController{
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
