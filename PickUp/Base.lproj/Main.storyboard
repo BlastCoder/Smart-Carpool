@@ -70,7 +70,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="JJA-ay-1bi">
                         <barButtonItem key="leftBarButtonItem" title="Back" style="plain" id="1HL-l6-A4u">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="ff0-J4-N7I">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="ff0-J4-N7I">
                                 <rect key="frame" x="20" y="5" width="92" height="34.5"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
@@ -940,8 +940,9 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="jzS-Oy-rbM"/>
         <segue reference="efu-dT-GkF"/>
-        <segue reference="u3R-0y-G2u"/>
+        <segue reference="e0E-QO-zOs"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" systemColor="linkColor"/>
     <resources>
