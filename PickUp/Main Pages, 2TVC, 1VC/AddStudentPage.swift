@@ -27,8 +27,28 @@ class AddStudentPage: UIViewController{
     @IBOutlet weak var addedLabel: UILabel!
     
     @IBAction func submitButton(_ sender: Any) {
-        let childName: String = name.text!
-        let childGrade: String = grade.text!
+        guard let childName: String = name.text
+        else {
+            let alert = createFormAlert(about: "Name Required", withInfo: "Please include a valid name for the student.")
+            present(alert, animated: true)
+            return
+        }
+        if childName == "" {
+            let alert = createFormAlert(about: "Name Required", withInfo: "Please include a valid name for the student.")
+            present(alert, animated: true)
+            return
+        }
+        guard let childGrade: String = grade.text
+        else {
+            let alert = createFormAlert(about: "Grade Required", withInfo: "Please include a valid grade for the student.")
+            present(alert, animated: true)
+            return
+        }
+        if childGrade == "" {
+            let alert = createFormAlert(about: "Grade Required", withInfo: "Please include a valid grade for the student.")
+            present(alert, animated: true)
+            return
+        }
         plateNums.append(plateText.text!)
         plateText.text = ""
         
@@ -64,7 +84,19 @@ class AddStudentPage: UIViewController{
     }
     
     @IBAction func morePlates(_ sender: Any) {
-        plateNums.append(plateText.text!)
+        guard let plateNum: String = plateText.text
+        else {
+            let alert = createFormAlert(about: "Please enter valid Plate", withInfo: "Please include a plate for the student.")
+            present(alert, animated: true)
+            return
+        }
+        if plateNum == ""
+        {
+            let alert = createFormAlert(about: "Please enter valid Plate", withInfo: "Please include a plate for the student.")
+            present(alert, animated: true)
+            return
+        }
+        plateNums.append(plateNum)
         plateText.text = ""
     }
     
@@ -74,6 +106,12 @@ class AddStudentPage: UIViewController{
                 }
     }
 
+    func createFormAlert(about title: String, withInfo message: String) -> UIAlertController{
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: "OK", style: .default)
+        alert.addAction(alertAction)
+        return alert
+    }
     
 }
 

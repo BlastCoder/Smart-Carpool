@@ -65,11 +65,12 @@ class SignInVC: UIViewController {
         print(testBool)
         
 }
-    /*
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-            let vc = segue.destination as? MainPage
+    func createFormAlert(about title: String, withInfo message: String) -> UIAlertController{
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: "OK", style: .default)
+        alert.addAction(alertAction)
+        return alert
     }
-    */
 }
 
 extension SignInVC: UITextFieldDelegate {

@@ -23,16 +23,44 @@ class SignUpVC: UIViewController {
     
     @IBAction func MoreEmail(_ sender: Any) {
         guard let email = Email.text
-        else{return}
+        else{
+            let alert = createFormAlert(about: "Email Required", withInfo: "Please include a valid email for the account.")
+            present(alert, animated: true)
+            return
+        }
+        if email == "" {
+            let alert = createFormAlert(about: "Email Required", withInfo: "Please include a valid email for the account.")
+            present(alert, animated: true)
+            return
+        }
         EmailList.append(email.uppercased())
         Email.text = ""
     }
     
     @IBAction func Submit(_ sender: Any) {
-        guard let school = SchoolName.text else{return}
+        guard let school = SchoolName.text
+        else{
+            let alert = createFormAlert(about: "School Required", withInfo: "Please include a school name for the account.")
+            present(alert, animated: true)
+            return
+        }
+        if school == "" {
+            let alert = createFormAlert(about: "School Required", withInfo: "Please include a school name for the account.")
+            present(alert, animated: true)
+            return
+        }
         let instance: DATABASE = DATABASE()
         guard let email = Email.text
-        else{return}
+        else{
+            let alert = createFormAlert(about: "Email Required", withInfo: "Please include a valid email for the account.")
+            present(alert, animated: true)
+            return
+        }
+        if email == "" {
+            let alert = createFormAlert(about: "Email Required", withInfo: "Please include a valid email for the account.")
+            present(alert, animated: true)
+            return
+        }
         self.EmailList.append(email.uppercased())
         
         Email.text = ""
@@ -41,15 +69,13 @@ class SignUpVC: UIViewController {
         self.EmailList = []
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func createFormAlert(about title: String, withInfo message: String) -> UIAlertController{
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: "OK", style: .default)
+        alert.addAction(alertAction)
+        return alert
     }
-    */
+    
 
 }
 extension SignUpVC: UITextFieldDelegate {

@@ -940,9 +940,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="jzS-Oy-rbM"/>
         <segue reference="efu-dT-GkF"/>
-        <segue reference="e0E-QO-zOs"/>
+        <segue reference="zQl-dy-Tnm"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" systemColor="linkColor"/>
     <resources>
