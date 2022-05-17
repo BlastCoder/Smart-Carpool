@@ -29,6 +29,7 @@ class DATABASE {
         let schoolName = school.uppercased()
 
         self.ref.child(schoolName).child("Teachers").getData(completion:  { error, snapshot in
+            // confirms that the school name is not already in use
             guard error == nil else {
               return
             }
@@ -36,6 +37,7 @@ class DATABASE {
             else {
                 let object: [String: [String]] = ["Emails": emails]
                 self.ref.child(schoolName).child("Teachers").setValue(object)
+                //adds emails and school name
                 return
             }
           })
@@ -61,6 +63,7 @@ class DATABASE {
             if email == enterEmail.uppercased() {
                 return true
             }
+            //checks if entered email is in use
         }
         //print("HERE")
         return false
@@ -81,15 +84,18 @@ class DATABASE {
                 var nameMatch: Bool = false
                 if queryName == "" {
                         nameMatch = true
+                    // if search bar is empty
                 }
                 else if name.lowercased().contains(queryName.lowercased()) {
                     nameMatch = true
+                    //for the search bar
                 }
                 else {
                     nameMatch = false
                 }
                 
                 if dict["Grade"]! as! String == queryGrade && nameMatch {
+                    //checking parameters inputed, name, grade, etc.
                     let ID = child.key
                     let Name = dict["Name"]! as! String
                     let Grade = dict["Grade"]! as! String
@@ -97,7 +103,6 @@ class DATABASE {
                     let Order = dict["Order"] as! String
                     if Status == queryWord{
                         let child = Child(Id: ID, name: Name, grade: Grade, status: Status, order: Order)
-                        //let childInfo: [String: String] = ["Id": ID, "Name": Name, "Grade": Grade, "Status": Status, "Order": Order]
                         self.Children.append(child)
                     }
                     else if queryWord == "All" && nameMatch {
@@ -106,6 +111,7 @@ class DATABASE {
                     }
                 }
                 else if queryGrade == "All" && nameMatch {
+                    //if grade is all, then continues
                     let ID = child.key
                     let Name = dict["Name"]! as! String
                     let Grade = dict["Grade"]! as! String
@@ -125,28 +131,30 @@ class DATABASE {
         }
         //wait for competion
         group.wait()
-        //Returns array of dictionaries
+        //Returns array of children
         return(self.Children)
     }
-    // Add student information
+    // Add student information with given input
     func AddInfo(_ name: String, _ grade: String, _ plates: [String]) -> String{
         let uuid = "Child:\(UUID().uuidString)"
         let object: [String: Any] = ["Name": name, "Grade": grade, "Status": "notHere", "Order": "0", "CarPlates": plates]
         self.ref.child(SCHOOLNAME).child("Children").child(uuid).setValue(object)
         return uuid
     }
-    // Edit student information
+    // Edit student information, given id etc.
     func EditInfo(_ id: String, _ Status: String){
         
         ref.child(SCHOOLNAME).child("Children").child(id).updateChildValues(["Status": Status])
-        if Status == "gone" {return}
+        //don't change check order, if the status is gone or notHere, becuase there is no need
+        if Status == "gone" || Status == "notHere"
+        {return}
 
         self.background.async{
             let order = self.StudentOrder()
             self.ref.child(SCHOOLNAME).child("Children").child(id).updateChildValues(["Order": order])
         }
     }
-    // Order the students depending on arrival
+    // Order the students depending on arrival, looks at student order in database, and then  continues
     func StudentOrder() -> String{
         let group = DispatchGroup.init()
         group.enter()
@@ -157,14 +165,13 @@ class DATABASE {
             guard let OrderDict = snapshot.value as? [String: String]
             else {return}
             self.Order = Int(OrderDict["Order"] ?? ("0")) ?? (1)
-            //self.Order = ((((snapshot.value! as? NSDictionary)!["Order"]!)as? Int)!)
             group.leave()
           })
         group.wait()
         self.ref.child(SCHOOLNAME).child("Order").child("recentOrder").updateChildValues(["Order": String(self.Order + 1)])
         return String(self.Order)
     }
-    // Reset the value of if students have arrived
+    // Reset the value of if students have arrived, new day
     func ResetValues() {
         self.ref.child(SCHOOLNAME).child("Children").observeSingleEvent(of: .value) { snapshot in
             for case let child as DataSnapshot in snapshot.children {
@@ -197,6 +204,7 @@ class DATABASE {
         group.wait()
         return StudentId
     }
+    //gets the student's information given their id
     func GetInfoWithID(_ Id: String) -> NSDictionary {
         let group = DispatchGroup.init()
         StudentIDInfo = [:]
@@ -210,6 +218,7 @@ class DATABASE {
         group.wait()
     return StudentIDInfo
     }
+    //edits the child's info
     func EditAllInfo(_ id: String, _ name: String, _ grade: String){
         ref.child(SCHOOLNAME).child("Children").child(id).updateChildValues(["Name": name, "Grade": grade])
     }
@@ -222,6 +231,7 @@ class DATABASE {
         let string = hashed.compactMap {String(format: "%02x", $0)}.joined()
         return string
     }
+    //check if id exists in the database
     func checkID(_ uuid: String) -> Bool {
         var arrayKeys: [String] = []
         let group = DispatchGroup.init()
