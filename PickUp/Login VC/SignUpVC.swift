@@ -21,6 +21,7 @@ class SignUpVC: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    // Allow the user to input more emails to add to a given school by clicking the More button. If the email is not valid, create an alert to ask for a valid email
     @IBAction func MoreEmail(_ sender: Any) {
         guard let email = Email.text
         else{
@@ -37,6 +38,7 @@ class SignUpVC: UIViewController {
         Email.text = ""
     }
     
+    // Create a new school with the given emails. If the school or email is not valid, create an alert to ask for a valid school/email
     @IBAction func Submit(_ sender: Any) {
         guard let school = SchoolName.text
         else{
