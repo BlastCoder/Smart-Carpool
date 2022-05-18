@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="XaL-pM-Kay">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="XaL-pM-Kay">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -81,7 +81,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Attendence" id="JJA-ay-1bi">
-                        <barButtonItem key="leftBarButtonItem" title="Item" id="vL4-JN-05d">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="vL4-JN-05d">
                             <connections>
                                 <segue destination="kFL-ub-64A" kind="presentation" modalPresentationStyle="fullScreen" id="hOO-Ky-YIn"/>
                             </connections>
@@ -297,7 +297,7 @@
                                 <rect key="frame" x="100" y="579" width="215" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="gray" title="Save to Photos"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="Save to Photos"/>
                                 <connections>
                                     <action selector="addPhotos:" destination="CEO-uv-7Va" eventType="touchUpInside" id="tiD-GZ-G2f"/>
                                 </connections>
@@ -404,7 +404,7 @@
                                             <constraint firstAttribute="width" constant="70" id="no6-tg-C0x"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="gray" title="More"/>
+                                        <buttonConfiguration key="configuration" style="tinted" title="More"/>
                                         <connections>
                                             <action selector="morePlates:" destination="rzJ-37-t8T" eventType="touchUpInside" id="uyQ-0C-15Q"/>
                                         </connections>
@@ -685,7 +685,7 @@
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qko-GP-wUW">
                                 <rect key="frame" x="99" y="429" width="217" height="38"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Sign In With Google"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="Sign In With Google"/>
                                 <connections>
                                     <action selector="SignIn:" destination="fjU-bG-x8C" eventType="touchUpInside" id="sHg-wq-sBu"/>
                                 </connections>
@@ -755,8 +755,12 @@
                                     <action selector="Submit:" destination="cEQ-05-5X3" eventType="touchUpInside" id="gkE-gV-m80"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="School Name" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="hNA-S8-oDC">
-                                <rect key="frame" x="50" y="369" width="314" height="34"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="School Name" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="hNA-S8-oDC">
+                                <rect key="frame" x="50" y="374" width="314" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="314" id="YWJ-yu-Oak"/>
+                                    <constraint firstAttribute="height" constant="34" id="agp-vs-6un"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                             </textField>
@@ -781,7 +785,7 @@
                                             <constraint firstAttribute="width" constant="70" id="Iwk-PL-Nh5"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="More"/>
+                                        <buttonConfiguration key="configuration" style="tinted" title="More"/>
                                         <connections>
                                             <action selector="MoreEmail:" destination="cEQ-05-5X3" eventType="touchUpInside" id="EqA-yr-YO8"/>
                                         </connections>
@@ -932,8 +936,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="efu-dT-GkF"/>
-        <segue reference="zQl-dy-Tnm"/>
+        <segue reference="9Cp-fG-IzU"/>
+        <segue reference="hOO-Ky-YIn"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" systemColor="linkColor"/>
     <resources>
