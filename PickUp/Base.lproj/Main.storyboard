@@ -286,16 +286,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="amJ-2O-cbO">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="amJ-2O-cbO">
                                 <rect key="frame" x="87" y="224" width="240" height="221"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="240" id="Km1-Yr-qZo"/>
-                                    <constraint firstAttribute="height" constant="128" id="hrz-X8-WhF"/>
+                                    <constraint firstAttribute="width" constant="240" id="9lJ-FT-fM5"/>
+                                    <constraint firstAttribute="height" constant="221" id="HAT-7N-OJD"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C4x-BV-OTe">
-                                <rect key="frame" x="100" y="579" width="215" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C4x-BV-OTe">
+                                <rect key="frame" x="99.5" y="579" width="215" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="5Gm-lV-iLi"/>
+                                    <constraint firstAttribute="width" constant="215" id="lst-ru-Wqm"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="tinted" title="Save to Photos"/>
                                 <connections>
@@ -306,8 +309,10 @@
                         <viewLayoutGuide key="safeArea" id="y4Y-eo-HhG"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="amJ-2O-cbO" firstAttribute="centerX" secondItem="y4Y-eo-HhG" secondAttribute="centerX" id="mJQ-gf-LuO"/>
-                            <constraint firstItem="amJ-2O-cbO" firstAttribute="centerY" secondItem="y4Y-eo-HhG" secondAttribute="centerY" id="xfZ-9x-1xK"/>
+                            <constraint firstItem="C4x-BV-OTe" firstAttribute="centerX" secondItem="y4Y-eo-HhG" secondAttribute="centerX" id="Csa-Dq-xvC"/>
+                            <constraint firstItem="y4Y-eo-HhG" firstAttribute="bottom" secondItem="amJ-2O-cbO" secondAttribute="bottom" constant="417" id="R4c-AA-4nQ"/>
+                            <constraint firstItem="amJ-2O-cbO" firstAttribute="centerX" secondItem="y4Y-eo-HhG" secondAttribute="centerX" id="WtV-Zo-3T8"/>
+                            <constraint firstItem="C4x-BV-OTe" firstAttribute="top" secondItem="amJ-2O-cbO" secondAttribute="bottom" constant="134" id="vxH-tr-VXs"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="MiP-JG-Ebi"/>
@@ -441,7 +446,7 @@
                         <outlet property="grade" destination="gnx-VQ-qHv" id="IBw-YM-LDO"/>
                         <outlet property="name" destination="GnR-ks-ikY" id="zBy-Hg-wIE"/>
                         <outlet property="plateText" destination="9i6-K0-vGg" id="AmN-td-xeY"/>
-                        <segue destination="CEO-uv-7Va" kind="presentation" identifier="QRsegue" modalPresentationStyle="fullScreen" id="Ejm-Oc-4ed"/>
+                        <segue destination="CEO-uv-7Va" kind="show" identifier="QRsegue" id="Ejm-Oc-4ed"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dNX-dL-vub" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -959,7 +964,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="9Cp-fG-IzU"/>
-        <segue reference="u3R-0y-G2u"/>
+        <segue reference="zQl-dy-Tnm"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" systemColor="linkColor"/>
     <resources>
