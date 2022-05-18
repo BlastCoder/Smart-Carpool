@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="XaL-pM-Kay">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="XaL-pM-Kay">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -581,11 +581,11 @@
             </objects>
             <point key="canvasLocation" x="4094" y="-1414"/>
         </scene>
-        <!--Item-->
+        <!--Students To Send-->
         <scene sceneID="GKf-bf-1fD">
             <objects>
                 <navigationController id="SBI-sk-0te" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="3Zg-9m-whc"/>
+                    <tabBarItem key="tabBarItem" title="Students To Send" id="3Zg-9m-whc"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="nP0-Uf-LSn">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -858,11 +858,11 @@
             </objects>
             <point key="canvasLocation" x="-638" y="-1833"/>
         </scene>
-        <!--Item-->
+        <!--Parent Arrival-->
         <scene sceneID="uA6-IG-P4Z">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="02v-dv-NOs" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="wBz-RJ-h6q"/>
+                    <tabBarItem key="tabBarItem" title="Parent Arrival" id="wBz-RJ-h6q"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="hgh-bo-iV5">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -934,11 +934,11 @@
             </objects>
             <point key="canvasLocation" x="-1262" y="1572"/>
         </scene>
-        <!--Item-->
+        <!--Attendence-->
         <scene sceneID="3Rs-oy-CKl">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GbC-TV-bKR" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="YD8-z0-xBf"/>
+                    <tabBarItem key="tabBarItem" title="Attendence" id="YD8-z0-xBf"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="91s-cr-Khx">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>

@@ -17,23 +17,41 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Code X" translatesAutoresizingMaskIntoConstraints="NO" id="bxY-bh-vyK">
-                                <rect key="frame" x="-6" y="-13" width="426" height="444"/>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="jW1-ww-GBc">
+                                <rect key="frame" x="101" y="638" width="212" height="4"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="444" id="MLh-cf-iIK"/>
-                                    <constraint firstAttribute="width" constant="426" id="Xk9-mn-20x"/>
+                                    <constraint firstAttribute="height" constant="4" id="Tdv-cl-F82"/>
+                                    <constraint firstAttribute="width" constant="212" id="oMt-YE-w5S"/>
+                                </constraints>
+                            </progressView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Code X" translatesAutoresizingMaskIntoConstraints="NO" id="vmn-wp-6Qt">
+                                <rect key="frame" x="-102.5" y="44" width="619" height="359"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="619" id="4k9-uL-iZ3"/>
+                                    <constraint firstAttribute="width" constant="619" id="7jy-ij-VKA"/>
+                                    <constraint firstAttribute="height" constant="359" id="DpO-O0-DfC"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="359" id="eKk-LL-MU2"/>
                                 </constraints>
                             </imageView>
-                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="jW1-ww-GBc">
-                                <rect key="frame" x="101" y="638" width="212" height="4"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </progressView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Code X" translatesAutoresizingMaskIntoConstraints="NO" id="1j8-ne-SEt">
+                                <rect key="frame" x="-102.5" y="44" width="619" height="359"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="359" id="Rkb-GS-OGW"/>
+                                    <constraint firstAttribute="height" constant="359" id="kXI-5H-EEa"/>
+                                    <constraint firstAttribute="width" constant="619" id="lQ5-O2-3G4"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="619" id="w8I-7Y-GN7"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="top" secondItem="bxY-bh-vyK" secondAttribute="top" constant="57" id="Iab-Kd-bDg"/>
-                            <constraint firstItem="bxY-bh-vyK" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="qdJ-Fv-XAI"/>
+                            <constraint firstItem="1j8-ne-SEt" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="CgE-Ep-Edi"/>
+                            <constraint firstItem="jW1-ww-GBc" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="GsO-gh-9zr"/>
+                            <constraint firstItem="vmn-wp-6Qt" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="QMV-87-bdm"/>
+                            <constraint firstItem="vmn-wp-6Qt" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="bzg-fc-NCU"/>
+                            <constraint firstItem="1j8-ne-SEt" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="eE1-Ng-0kj"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="jW1-ww-GBc" secondAttribute="bottom" constant="220" id="fAR-WP-29L"/>
                         </constraints>
                     </view>
                 </viewController>

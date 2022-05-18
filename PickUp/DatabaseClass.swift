@@ -47,12 +47,14 @@ class DATABASE {
           })
         return
          */
+        //adds the school account, used after checkSchoolName
         let schoolName = school.uppercased()
         let object: [String: [String]] = ["Emails": emails]
         self.ref.child(schoolName).child("Teachers").setValue(object)
         return
     }
     func checkSchoolName(_ school: String) -> Bool {
+        //confirms that the school name is not already in use
         var arrayKeys: [String] = []
         let group = DispatchGroup.init()
         group.enter()
@@ -69,16 +71,19 @@ class DATABASE {
           })
         group.wait()
         for key in arrayKeys {
+            //grabs the values (keys) and then iterates through, if it finds name match then return true, else false
             if key == school.uppercased() {
                 return true
             }
         }
         return false
+        // Check if email is in an account
     }
     // Check if email is in an account
     func checkAccount(_ school: String, _ enterEmail: String) -> Bool {
         let group = DispatchGroup.init()
         group.enter()
+        //similar code and purpose as above, checks if account in list of emails, given a school name
         self.ref.child(school.uppercased()).child("Teachers").getData(completion:  { error, snapshot in
             guard error == nil else {
                   return
@@ -102,7 +107,7 @@ class DATABASE {
     }
     // Get information of a student
     func GetInfo(_ queryWord: String, _ queryGrade: String, _ queryName: String) ->  [Child] {
-        //enter the group for async I guess
+        //just for concurrency stuff
         self.Children = []
         let group = DispatchGroup.init()
         group.enter()
@@ -142,6 +147,7 @@ class DATABASE {
                         self.Children.append(child)
                     }
                 }
+                //if grade is all, then its not filter
                 else if queryGrade == "All" && nameMatch {
                     //if grade is all, then continues
                     let ID = child.key
@@ -200,6 +206,7 @@ class DATABASE {
             group.leave()
           })
         group.wait()
+        // Reset the value of if students have arrived, for new days
         self.ref.child(SCHOOLNAME).child("Order").child("recentOrder").updateChildValues(["Order": String(self.Order + 1)])
         return String(self.Order)
     }
@@ -217,6 +224,7 @@ class DATABASE {
         var StudentId: [String] = []
         let group = DispatchGroup.init()
         group.enter()
+        //iterates through to find
         self.ref.child(SCHOOLNAME).child("Children").observeSingleEvent(of: .value) { snapshot in
             for case let child as DataSnapshot in snapshot.children {
                 guard let dict = child.value as? [String:Any] else {
@@ -257,6 +265,7 @@ class DATABASE {
     func RemoveStudent(_ id: String) {
         self.ref.child(SCHOOLNAME).child("Children").child(id).removeValue()
     }
+    //applies hash for liscense plate
     static func ApplyHash(_ input: String) -> String {
         let inputData = Data(input.utf8)
         let hashed = SHA256.hash(data: inputData)
