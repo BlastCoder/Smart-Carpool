@@ -71,7 +71,7 @@ class MarkStudentPresent: UITableViewController, UISearchResultsUpdating, UISear
     override func viewDidLoad() {
         let ref = Database.database().reference(fromURL: "https://pickup-2568e-default-rtdb.firebaseio.com/")
         super.viewDidLoad()
-        //title = "View Students"
+        title = "Parent Arrival"
         initSearchController()
         ref.child(SCHOOLNAME).child("Children").observe(.childChanged, with: {(snapshot) -> Void in
             self.updateData(self.queryGrade, self.queryName)

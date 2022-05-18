@@ -19,7 +19,7 @@ class AddStudentPage: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //title = "Add Student"
+        title = "Add Student"
         grade.delegate = self
         name.delegate = self
         plateText.delegate = self

@@ -125,10 +125,10 @@
 		92EBE5CB2800939C000C1A98 /* Main Pages, 2TVC, 1VC */ = {
 			isa = PBXGroup;
 			children = (
-				9267F8B027C4393700E8788D /* MarkStudentPresent.swift */,
-				92FB1D012790CF0A009B82C8 /* AddStudentPage.swift */,
-				9267F8B227C688E100E8788D /* MarkStudentGivenTVController.swift */,
 				92643FEA282D9F0600F9B314 /* StudentAtSchool.swift */,
+				9267F8B027C4393700E8788D /* MarkStudentPresent.swift */,
+				9267F8B227C688E100E8788D /* MarkStudentGivenTVController.swift */,
+				92FB1D012790CF0A009B82C8 /* AddStudentPage.swift */,
 			);
 			path = "Main Pages, 2TVC, 1VC";
 			sourceTree = "<group>";

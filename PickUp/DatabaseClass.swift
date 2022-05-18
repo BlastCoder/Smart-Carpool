@@ -280,6 +280,7 @@ class DATABASE {
             group.leave()
           })
         group.wait()
+        // finds the keys in the arrays
         for key in arrayKeys {
             if key == uuid {
                 return true
