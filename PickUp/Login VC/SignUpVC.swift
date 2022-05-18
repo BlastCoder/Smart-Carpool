@@ -20,6 +20,9 @@ class SignUpVC: UIViewController {
 
         // Do any additional setup after loading the view.
     }
+    lazy var background: DispatchQueue = {
+        return DispatchQueue.init(label: "background.queue", attributes: .concurrent)
+    }()
     
     // Allow the user to input more emails to add to a given school by clicking the More button. If the email is not valid, create an alert to ask for a valid email
     @IBAction func MoreEmail(_ sender: Any) {
@@ -65,10 +68,24 @@ class SignUpVC: UIViewController {
         }
         self.EmailList.append(email.uppercased())
         
-        Email.text = ""
-        SchoolName.text = ""
-        instance.addAccount(school, self.EmailList)
-        self.EmailList = []
+        
+        self.background.async {
+            if !instance.checkSchoolName(school) {
+                instance.addAccount(school, self.EmailList)
+                self.EmailList = []
+                DispatchQueue.main.async {
+                    self.Email.text = ""
+                    self.SchoolName.text = ""
+                }
+            }
+            else {
+                DispatchQueue.main.async {
+                    let alert = self.createFormAlert(about: "School Name in Use", withInfo: "Please make up a unique school for the account.")
+                    self.present(alert, animated: true)
+                    self.EmailList.remove(at: (self.EmailList.count - 1))
+                }
+            }
+        }
     }
     
     func createFormAlert(about title: String, withInfo message: String) -> UIAlertController{
@@ -77,8 +94,6 @@ class SignUpVC: UIViewController {
         alert.addAction(alertAction)
         return alert
     }
-    
-
 }
 extension SignUpVC: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

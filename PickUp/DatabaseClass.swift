@@ -25,9 +25,13 @@ class DATABASE {
         self.Order = -1
     }
     // Add a school account
-    func addAccount(_ school: String, _ emails: [String]) {
+    func addAccount(_ school: String, _ emails: [String]){
+        /*
         let schoolName = school.uppercased()
-
+        var success: Bool = false
+        let group = DispatchGroup.init()
+        group.enter()
+        
         self.ref.child(schoolName).child("Teachers").getData(completion:  { error, snapshot in
             // confirms that the school name is not already in use
             guard error == nil else {
@@ -37,11 +41,39 @@ class DATABASE {
             else {
                 let object: [String: [String]] = ["Emails": emails]
                 self.ref.child(schoolName).child("Teachers").setValue(object)
-                //adds emails and school name
+                success = true
                 return
             }
           })
         return
+         */
+        let schoolName = school.uppercased()
+        let object: [String: [String]] = ["Emails": emails]
+        self.ref.child(schoolName).child("Teachers").setValue(object)
+        return
+    }
+    func checkSchoolName(_ school: String) -> Bool {
+        var arrayKeys: [String] = []
+        let group = DispatchGroup.init()
+        group.enter()
+        self.ref.getData(completion:  { error, snapshot in
+            guard error == nil else {
+              return
+            }
+            guard let OrderDict = snapshot.value as? [String: Any]
+            else {
+                return
+            }
+            arrayKeys = Array(OrderDict.keys)
+            group.leave()
+          })
+        group.wait()
+        for key in arrayKeys {
+            if key == school.uppercased() {
+                return true
+            }
+        }
+        return false
     }
     // Check if email is in an account
     func checkAccount(_ school: String, _ enterEmail: String) -> Bool {

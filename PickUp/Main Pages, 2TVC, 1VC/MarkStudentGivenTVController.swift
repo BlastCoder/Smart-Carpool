@@ -61,7 +61,7 @@ class MarkStudentGivenTVController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Present Students"
+        //title = "Present Students"
         self.updateData()
         tableView.dataSource = self
         tableView.delegate = self
