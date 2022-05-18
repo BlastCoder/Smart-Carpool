@@ -77,11 +77,6 @@ class AddStudentPage: UIViewController{
         //}
         
     }
-    @IBAction func resetTest(_ sender: Any) {
-        let instance: DATABASE = DATABASE()
-        instance.ResetValues()
-        //not going to be in final app!
-    }
     
     @IBAction func morePlates(_ sender: Any) {
         guard let plateNum: String = plateText.text

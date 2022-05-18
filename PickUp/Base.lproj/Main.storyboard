@@ -378,18 +378,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xBe-P8-uEm">
-                                <rect key="frame" x="87" y="789" width="240" height="38"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="38" id="DOE-Jg-Qnv"/>
-                                    <constraint firstAttribute="width" constant="240" id="YNb-0S-O3a"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Temp: Reset"/>
-                                <connections>
-                                    <action selector="resetTest:" destination="rzJ-37-t8T" eventType="touchUpInside" id="xbY-Bu-VQW"/>
-                                </connections>
-                            </button>
                             <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Q1E-dR-X6w">
                                 <rect key="frame" x="40" y="461" width="320" height="34"/>
                                 <subviews>
@@ -428,8 +416,6 @@
                             <constraint firstItem="Tgh-Qq-ZJ2" firstAttribute="leading" secondItem="8Ml-dC-Its" secondAttribute="leading" id="OMd-XB-eJl"/>
                             <constraint firstItem="GnR-ks-ikY" firstAttribute="centerX" secondItem="fDc-Yv-bkU" secondAttribute="centerX" id="TpB-gy-6CG"/>
                             <constraint firstItem="Tgh-Qq-ZJ2" firstAttribute="top" secondItem="fDc-Yv-bkU" secondAttribute="top" constant="31" id="WEP-su-qwt"/>
-                            <constraint firstItem="xBe-P8-uEm" firstAttribute="centerX" secondItem="fDc-Yv-bkU" secondAttribute="centerX" id="bhv-df-kbI"/>
-                            <constraint firstItem="fDc-Yv-bkU" firstAttribute="bottom" secondItem="xBe-P8-uEm" secondAttribute="bottom" constant="35" id="bmc-ly-9Xb"/>
                             <constraint firstItem="gnx-VQ-qHv" firstAttribute="centerX" secondItem="fDc-Yv-bkU" secondAttribute="centerX" id="fV9-AO-sY2"/>
                             <constraint firstItem="fDc-Yv-bkU" firstAttribute="bottom" secondItem="2cK-yE-lhM" secondAttribute="bottom" constant="226" id="pCj-Y8-viZ"/>
                         </constraints>
@@ -577,7 +563,7 @@
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.45546334979999997" green="0.78917044400000003" blue="0.51368200779999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <color key="tintColor" red="0.45546334979999997" green="0.78917044400000003" blue="0.51368200779999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="tintColor" systemColor="linkColor"/>
                     </navigationBar>
                     <connections>
                         <segue destination="rzJ-37-t8T" kind="relationship" relationship="rootViewController" id="J1U-1J-H4L"/>
@@ -964,7 +950,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="J1U-1J-H4L"/>
         <segue reference="9Cp-fG-IzU"/>
         <segue reference="zQl-dy-Tnm"/>
     </inferredMetricsTieBreakers>
