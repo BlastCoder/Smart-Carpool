@@ -95,8 +95,8 @@
 			isa = PBXGroup;
 			children = (
 				92EBE5CF28062330000C1A98 /* ConfigFile.swift */,
-				92EBE5CC28009407000C1A98 /* 2 Pages, from MSP */,
-				92EBE5CB2800939C000C1A98 /* Main Pages, 2TVC, 1VC */,
+				92EBE5CC28009407000C1A98 /* Additional Features */,
+				92EBE5CB2800939C000C1A98 /* Main Pages */,
 				92EBE5CA28009372000C1A98 /* Login VC */,
 				926F9FB32734500000E8D435 /* DatabaseClass.swift */,
 				92643FE828256A8200F9B314 /* ChildClass.swift */,
@@ -122,7 +122,7 @@
 			path = "Login VC";
 			sourceTree = "<group>";
 		};
-		92EBE5CB2800939C000C1A98 /* Main Pages, 2TVC, 1VC */ = {
+		92EBE5CB2800939C000C1A98 /* Main Pages */ = {
 			isa = PBXGroup;
 			children = (
 				92643FEA282D9F0600F9B314 /* StudentAtSchool.swift */,
@@ -130,10 +130,10 @@
 				9267F8B227C688E100E8788D /* MarkStudentGivenTVController.swift */,
 				92FB1D012790CF0A009B82C8 /* AddStudentPage.swift */,
 			);
-			path = "Main Pages, 2TVC, 1VC";
+			path = "Main Pages";
 			sourceTree = "<group>";
 		};
-		92EBE5CC28009407000C1A98 /* 2 Pages, from MSP */ = {
+		92EBE5CC28009407000C1A98 /* Additional Features */ = {
 			isa = PBXGroup;
 			children = (
 				92EBE5C627FF32B4000C1A98 /* CameraViewController.swift */,
@@ -141,7 +141,7 @@
 				92D23475281AF180008085F8 /* QRCodeScannerVC.swift */,
 				EA842AE2281B65120002F403 /* QRGenerator.swift */,
 			);
-			path = "2 Pages, from MSP";
+			path = "Additional Features";
 			sourceTree = "<group>";
 		};
 		C52F269024B5A7D799B78564 /* Frameworks */ = {

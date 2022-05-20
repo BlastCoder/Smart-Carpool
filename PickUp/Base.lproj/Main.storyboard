@@ -284,18 +284,18 @@
             <objects>
                 <viewController title="QRGenerator" id="CEO-uv-7Va" customClass="QRGenerator" customModule="PickUp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qUP-EL-jQ8">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="amJ-2O-cbO">
-                                <rect key="frame" x="87" y="204" width="240" height="221"/>
+                                <rect key="frame" x="87" y="224" width="240" height="221"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="240" id="9lJ-FT-fM5"/>
                                     <constraint firstAttribute="height" constant="221" id="HAT-7N-OJD"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C4x-BV-OTe">
-                                <rect key="frame" x="99.5" y="559" width="215" height="44"/>
+                                <rect key="frame" x="99.5" y="579" width="215" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="5Gm-lV-iLi"/>
                                     <constraint firstAttribute="width" constant="215" id="lst-ru-Wqm"/>
@@ -949,7 +949,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="9Cp-fG-IzU"/>
-        <segue reference="zQl-dy-Tnm"/>
+        <segue reference="u3R-0y-G2u"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" systemColor="linkColor"/>
     <resources>
