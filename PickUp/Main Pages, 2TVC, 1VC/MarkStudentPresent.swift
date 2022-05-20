@@ -34,12 +34,14 @@ class MarkStudentPresent: UITableViewController, UISearchResultsUpdating, UISear
         //change this if we refactor
         self.background.async {
             let instance: DATABASE = DATABASE()
+            //orders based on name
             self.peopleArray = instance.GetInfo("notHere", queryGrade, queryName)
             self.peopleArray.sort { ($0.name) < ($1.name) }
             self.tableViewData = []
             for people in self.peopleArray {
                 self.tableViewData.append("\(people.name )")
             }
+            //resets once completed
             self.testVar = !self.testVar
         }
     }
@@ -60,7 +62,7 @@ class MarkStudentPresent: UITableViewController, UISearchResultsUpdating, UISear
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let instance: DATABASE = DATABASE()
         if !EditStatus {
-            //we have to change this code if we refactor
+            //for the edit button, its a toggle
             instance.EditInfo(self.peopleArray[indexPath.row].Id, "here")
         }
         else if EditStatus {
@@ -73,6 +75,7 @@ class MarkStudentPresent: UITableViewController, UISearchResultsUpdating, UISear
         super.viewDidLoad()
         title = "Parent Arrival"
         initSearchController()
+        //observes changes in the database
         ref.child(SCHOOLNAME).child("Children").observe(.childChanged, with: {(snapshot) -> Void in
             self.updateData(self.queryGrade, self.queryName)
           })
@@ -84,6 +87,7 @@ class MarkStudentPresent: UITableViewController, UISearchResultsUpdating, UISear
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         queryName = searchController.searchBar.text!
+        // class update date, etc.
         updateData(queryGrade, queryName)
         
     }
@@ -108,6 +112,7 @@ class MarkStudentPresent: UITableViewController, UISearchResultsUpdating, UISear
     @IBOutlet weak var EditButton: UIButton!
     
     @IBAction func EditStudent(_ sender: Any) {
+        //changes the edit button, for the toggles
         EditStatus = !EditStatus
         if EditStatus {
             EditButton.tintColor = .red
@@ -122,7 +127,7 @@ class MarkStudentPresent: UITableViewController, UISearchResultsUpdating, UISear
                 }
     }
     override func viewWillAppear(_ animated: Bool) {
-
+        // makes sure scope is maintained regardless of page changes
         var possibleTitle = ["All", "1", "2", "3", "4", "5"]
         updateData(possibleTitle[searchController.searchBar.selectedScopeButtonIndex], "")
     }

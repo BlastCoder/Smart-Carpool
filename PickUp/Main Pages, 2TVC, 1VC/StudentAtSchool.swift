@@ -30,19 +30,22 @@ class StudentAtSchool: UITableViewController, UISearchResultsUpdating, UISearchB
     lazy var background: DispatchQueue = {
         return DispatchQueue.init(label: "background.queue", attributes: .concurrent)
     }()
-    
+    //updates the data
     func updateData(_ queryGrade: String, _ queryName: String){
         self.background.async {
             let instance: DATABASE = DATABASE()
+            //order them based on name, alaphbetical, queries with query fields
             self.peopleArray = instance.GetInfo("notSchool", queryGrade, queryName)
             self.peopleArray.sort { ($0.name) < ($1.name) }
             self.tableViewData = []
             for people in self.peopleArray {
                 self.tableViewData.append("\(people.name )")
             }
+            //once completed, reloads the table data
             self.testVar = !self.testVar
         }
     }
+    //boilder plate stuff
     @objc func reloadData() {
         tableView.reloadData()
     }
@@ -66,6 +69,7 @@ class StudentAtSchool: UITableViewController, UISearchResultsUpdating, UISearchB
         super.viewDidLoad()
         title = "Attendence"
         initSearchController()
+        //observer, observes changes
         ref.child(SCHOOLNAME).child("Children").observe(.childChanged, with: {(snapshot) -> Void in
             self.updateData(self.queryGrade, self.queryName)
           })
@@ -104,12 +108,13 @@ class StudentAtSchool: UITableViewController, UISearchResultsUpdating, UISearchB
             }
     }
     override func viewWillAppear(_ animated: Bool) {
-
         var possibleTitle = ["All", "1", "2", "3", "4", "5"]
+        //if the scope buttons changes, filter
         updateData(possibleTitle[searchController.searchBar.selectedScopeButtonIndex], "")
     }
     
     @IBAction func newDay(_ sender: Any) {
+        //new day reset
         let instance: DATABASE = DATABASE()
         instance.ResetValues()
     }

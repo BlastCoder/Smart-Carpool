@@ -24,13 +24,14 @@ class QRCodeScannerVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate 
                 self.scanText.text = ""
             }
             let instance = DATABASE()
-            
+            //marks student present after QRcode is scanned
             self.background.async {
                 if instance.checkID(self.studentID) {
                     if instance.GetInfoWithID(self.studentID)["Status"] as! String != "gone" {
                         instance.EditInfo(self.studentID, "here")
                     }
                     else {
+                        //if the child is checked out, then throw error
                         DispatchQueue.main.async {
                             self.scanText.text = "Child Already Checked Out"
                             DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
@@ -42,6 +43,8 @@ class QRCodeScannerVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate 
             }
         }
     }
+    //set up the camera
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.black

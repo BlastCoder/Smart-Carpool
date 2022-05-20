@@ -11,7 +11,7 @@ class QRGenerator: UIViewController {
     var qrText: String = ""
     var image: UIImage!
     @IBOutlet weak var imageView: UIImageView!
-    
+    //segue from add student page, given student id to generate QR code
     override func viewDidLoad() {
             super.viewDidLoad()
         print(self.qrText)
@@ -35,6 +35,7 @@ class QRGenerator: UIViewController {
         }
     @IBAction func addPhotos(_ sender: Any) {
         UIImageWriteToSavedPhotosAlbum(self.imageView.image!, nil, nil, nil)
+        //add to photos
         print("Here")
     }
     

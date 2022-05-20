@@ -11,7 +11,7 @@ import GoogleSignIn
 class SignInVC: UIViewController {
     var email = ""
     @IBOutlet weak var schoolName: UITextField!
-    
+    //google sign in stuff
     let signInConfig = GIDConfiguration.init(clientID: "715022030244-s446uchablfua5v8prif7c33ft2a18va.apps.googleusercontent.com")
     lazy var background: DispatchQueue = {
         return DispatchQueue.init(label: "background.queue", attributes: .concurrent)
@@ -33,6 +33,7 @@ class SignInVC: UIViewController {
 
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                 self.doneButton.isEnabled = true
+                //for the bug, does not exist...
             }
             
           }
@@ -40,6 +41,7 @@ class SignInVC: UIViewController {
     
     @IBAction func submitButton(_ sender: Any) {
         print("at top")
+        //checks fields
         guard var sName = schoolName.text
         else{
             let alert = createFormAlert(about: "School Required", withInfo: "Please include a valid school for the account.")
@@ -57,6 +59,7 @@ class SignInVC: UIViewController {
             present(alert, animated: true)
             return
         }
+        //logins in if matches records, else gives alert
         var testBool: Bool = false {
             didSet {
                 if !testBool{
@@ -75,6 +78,7 @@ class SignInVC: UIViewController {
         }
         print(testBool)
 }
+    //create alerts
     func createFormAlert(about title: String, withInfo message: String) -> UIAlertController{
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let alertAction = UIAlertAction(title: "OK", style: .default)
@@ -82,7 +86,7 @@ class SignInVC: UIViewController {
         return alert
     }
 }
-
+//for the return for text fields
 extension SignInVC: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder() // dismiss keyboard

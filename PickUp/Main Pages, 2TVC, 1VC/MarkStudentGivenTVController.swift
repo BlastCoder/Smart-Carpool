@@ -27,12 +27,14 @@ class MarkStudentGivenTVController: UITableViewController {
     func updateData(){
         self.background.async {
             let instance: DATABASE = DATABASE()
+            //orders based on name...alaphetic names
             self.peopleArray = instance.GetInfo("here", "All", "")
             self.peopleArray.sort{($0.order) < ($1.order)}
             self.tableViewData = []
             for people in self.peopleArray {
                 self.tableViewData.append("\(people.name) Grade: \(people.grade)")
             }
+            //updates data after completion
             self.edited = !self.edited
         }
     }
@@ -54,7 +56,7 @@ class MarkStudentGivenTVController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let instance: DATABASE = DATABASE()
-        //fix this if we refactor
+        //edits the status to gone
         instance.EditInfo(self.peopleArray[indexPath.row].Id, "gone")
     }
     
@@ -65,6 +67,7 @@ class MarkStudentGivenTVController: UITableViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "tableviewCell")
+        //observes the changes to the database
         ref.child(SCHOOLNAME).child("Children").observe(.childChanged, with: {(snapshot) -> Void in
             self.updateData()
           })

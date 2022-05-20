@@ -83,6 +83,7 @@ class SignUpVC: UIViewController {
                     let alert = self.createFormAlert(about: "School Name in Use", withInfo: "Please make up a unique school for the account.")
                     self.present(alert, animated: true)
                     self.EmailList.remove(at: (self.EmailList.count - 1))
+                    //if school name already in use, give alert
                 }
             }
         }

@@ -6,6 +6,7 @@
 
 import Foundation
 
+//class for child, child object
 struct Child {
     var Id: String
     var name: String

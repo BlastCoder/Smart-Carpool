@@ -13,6 +13,7 @@ import Firebase
 import FirebaseDatabase
 
 class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDelegate {
+   //a lot of camera set up
     var image:CGImage? = nil
     var requestGoing = false
     var bufferSize: CGSize = .zero
@@ -31,11 +32,12 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
     var currentPlate: String = "" {
         willSet {}
         didSet {
-            //print(currentPlate)
+            //scans the liscense plate, and marks the student present
             self.background.async {
                 let instance: DATABASE = DATABASE()
                 var idNums = instance.FindIDWithPlate(DATABASE.ApplyHash(self.currentPlate))
                 for plate in idNums {
+                    //edit information
                     self.background.async {
                         let instance: DATABASE = DATABASE()
                         instance.EditInfo(plate, "here")
@@ -126,11 +128,12 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
     func setupVision() -> NSError? {
         // Setup Vision parts
         let error: NSError! = nil
-        
+        //for the model stuff
         guard let modelURL = Bundle.main.url(forResource: "LisencePlate2780", withExtension: "mlmodelc") else {
             return NSError(domain: "VisionObjectRecognitionViewController", code: -1, userInfo: [NSLocalizedDescriptionKey: "Model file is missing"])
         }
         do {
+            //gives bounding box and calls a different function
             let visionModel = try VNCoreMLModel(for: MLModel(contentsOf: modelURL))
             let objectRecognition = VNCoreMLRequest(model: visionModel, completionHandler: { (request, error) in
                 if request.results?[0].value(forKey: "boundingBox") != nil {
@@ -156,7 +159,7 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
         }
     
     func cropImage(_ cropBox1: Any?, _ CVimage: CVPixelBuffer?) {
-        
+        //crops the image with the given cropBox
         var image: CGImage?
         VTCreateCGImageFromCVPixelBuffer(CVimage!, options: nil, imageOut: &image)
         guard let image = image else {
@@ -172,7 +175,7 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
         let newCGimage = (image.cropping(to: cropBox))!
         getNumber(newCGimage)
         var newImage = UIImage(cgImage: newCGimage)
-        
+        //tranforms the image, since conversion is really weird
     }
     func getNumber(_ cgImage: CGImage){
         let requestHandler = VNImageRequestHandler(cgImage: cgImage)
@@ -214,13 +217,15 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
             for str in recognizedStrings {
                 var string = str
                 string.removeAll(where: { removeCharacters.contains($0)})
-               
+               // confirms that the liscense plate is actually a valid liscense plate
+                //make sure the liscense plate is scanned multiple times before its confirmed, since the scanner is error-prone
                 if string.count >= 6 && !numbSet.isDisjoint(with: string) {
                     //print(string)
                     if self.liscenseDict[string] == nil {
                         self.liscenseDict[string] = 1
                     }
                     else if self.liscenseDict[string]! >= 20 {
+                        //if it occurs 20 times than resets the dict, and gives the plate num to above function
                         self.liscenseDict = [:]
                         DispatchQueue.main.async {
                             self.plateNum.text = string
@@ -231,6 +236,7 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
                         }
                     }
                     else {
+                        //adds the string to dict
                         self.liscenseDict[string]! += 1
                     }
                     break

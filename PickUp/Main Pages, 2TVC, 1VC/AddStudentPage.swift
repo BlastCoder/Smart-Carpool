@@ -11,6 +11,7 @@ class AddStudentPage: UIViewController{
     lazy var background: DispatchQueue = {
         return DispatchQueue.init(label: "background.queue", attributes: .concurrent)
     }()
+    //set up vars, for text fields
     @IBOutlet weak var grade: UITextField!
     @IBOutlet weak var name: UITextField!
     var UUID: String = ""
@@ -25,7 +26,7 @@ class AddStudentPage: UIViewController{
         plateText.delegate = self
     }
     @IBOutlet weak var addedLabel: UILabel!
-    
+    //confirms that all fields are filled, before adding record
     @IBAction func submitButton(_ sender: Any) {
         guard let childName: String = name.text
         else {
@@ -49,6 +50,7 @@ class AddStudentPage: UIViewController{
             present(alert, animated: true)
             return
         }
+        //gives info to database class
         plateNums.append(plateText.text!)
         plateText.text = ""
         
@@ -71,14 +73,10 @@ class AddStudentPage: UIViewController{
             //self.addedLabel.isHidden = true
         }
 
-        //Testing Purpose, to find Student with plate, it works
-        //self.background.async {
-          //  print(instance.FindIDWithPlate("111AAA"))
-        //}
-        
     }
     
     @IBAction func morePlates(_ sender: Any) {
+        //for the more number plates, cycles through
         guard let plateNum: String = plateText.text
         else {
             let alert = createFormAlert(about: "Please enter valid Plate", withInfo: "Please include a plate for the student.")

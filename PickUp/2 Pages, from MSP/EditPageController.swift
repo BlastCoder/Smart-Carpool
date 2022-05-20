@@ -33,14 +33,16 @@ class EditPageController: UIViewController {
     }
     func addInfo() {
         DispatchQueue.main.async { [weak self] in
+            //confirms that the fields are filled before submits
             self?.ChildName.text = self!.studentValue["Name"]! as? String
             self?.ChildGrade.text = self!.studentValue["Grade"]! as? String
         }
     }
    
     @IBOutlet weak var saveLabeled: UILabel!
-    
+
     @IBAction func SaveButton(_ sender: Any) {
+        //saves the fields
         let instance: DATABASE = DATABASE()
         instance.EditAllInfo(studentID, ChildName.text!, ChildGrade.text!)
         self.saveLabeled.text = "Saved Changes!"
@@ -50,6 +52,7 @@ class EditPageController: UIViewController {
     }
         // Uncomment the following line to preserve selection between presentations
     @IBAction func deleteRecord(_ sender: Any) {
+        //for delete record field
         let instance: DATABASE = DATABASE()
         instance.RemoveStudent(self.studentID)
         self.ChildName.text = ""
