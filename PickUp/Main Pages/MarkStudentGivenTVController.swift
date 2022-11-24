@@ -11,32 +11,37 @@ import FirebaseDatabase
 
 class MarkStudentGivenTVController: UITableViewController {
 
-    var tableViewData = ["Loading"]
+    var tableViewData = ["None"]
     var peopleArray: [Child] = []
     let ref = Database.database().reference(fromURL: "https://pickup-2568e-default-rtdb.firebaseio.com/")
     lazy var background: DispatchQueue = {
         return DispatchQueue.init(label: "background.queue", attributes: .concurrent)
     }()
+    
+    
     var edited: Bool = false {
         didSet {
+            self.tableViewData = []
+            print(self.peopleArray)
+            for people in self.peopleArray {
+                self.tableViewData.append("\(people.name) Grade: \(people.grade)")
+            }   
+            //print(self.tableViewData)
             DispatchQueue.main.async {
                 self.reloadData()
             }
         }
     }
     func updateData(){
+        self.tableViewData = []
         self.background.async {
             let instance: DATABASE = DATABASE()
-            //orders based on name...alaphetic names
+            //orders based on order
             self.peopleArray = instance.GetInfo("here", "All", "")
             self.peopleArray.sort{($0.order) < ($1.order)}
-            self.tableViewData = []
-            for people in self.peopleArray {
-                self.tableViewData.append("\(people.name) Grade: \(people.grade)")
-            }
-            //updates data after completion
             self.edited = !self.edited
         }
+
     }
     
     @objc func reloadData() {
@@ -51,7 +56,7 @@ class MarkStudentGivenTVController: UITableViewController {
             let cell = tableView.dequeueReusableCell(withIdentifier: "tableviewCell",
                                                          for: indexPath)
             cell.textLabel?.text = self.tableViewData[indexPath.row]
-                return cell
+            return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -62,6 +67,7 @@ class MarkStudentGivenTVController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableViewData = ["None"]
         title = "Students to Send"
         self.updateData()
         tableView.dataSource = self

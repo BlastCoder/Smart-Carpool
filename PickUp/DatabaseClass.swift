@@ -181,15 +181,16 @@ class DATABASE {
     }
     // Edit student information, given id etc.
     func EditInfo(_ id: String, _ Status: String){
-        
-        ref.child(SCHOOLNAME).child("Children").child(id).updateChildValues(["Status": Status])
+        //please fix this once you figure out how this code works please... switch the order + status thing
         //don't change check order, if the status is gone or notHere, becuase there is no need
-        if Status == "gone" || Status == "notHere"
-        {return}
+        if Status == "gone" || Status == "notHere" {
+            ref.child(SCHOOLNAME).child("Children").child(id).updateChildValues(["Status": Status])
+            return
+        }
 
-        self.background.async{
+        self.background.async {
             let order = self.StudentOrder()
-            self.ref.child(SCHOOLNAME).child("Children").child(id).updateChildValues(["Order": order])
+            self.ref.child(SCHOOLNAME).child("Children").child(id).updateChildValues(["Order": order, "Status": Status])
         }
     }
     // Order the students depending on arrival, looks at student order in database, and then  continues
