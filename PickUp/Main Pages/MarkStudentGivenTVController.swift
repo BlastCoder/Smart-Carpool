@@ -13,33 +13,38 @@ class MarkStudentGivenTVController: UITableViewController {
 
     var tableViewData = ["None"]
     var peopleArray: [Child] = []
-    let ref = Database.database().reference(fromURL: "https://pickup-2568e-default-rtdb.firebaseio.com/")
-    lazy var background: DispatchQueue = {
-        return DispatchQueue.init(label: "background.queue", attributes: .concurrent)
-    }()
-    
-    
-    var edited: Bool = false {
+    {
         didSet {
-            self.tableViewData = []
-            print(self.peopleArray)
+            //orders based on order
+            if peopleArray.count > 1 {
+                self.peopleArray.sort{(Int($0.order) ?? 100 < Int($1.order) ?? 100)}
+            }
+            self.placeholder = []
             for people in self.peopleArray {
-                self.tableViewData.append("\(people.name) Grade: \(people.grade)")
-            }   
-            //print(self.tableViewData)
+                self.placeholder.append("\(people.name) Grade: \(people.grade)")
+            }
+            self.tableViewData = self.placeholder
             DispatchQueue.main.async {
                 self.reloadData()
             }
         }
     }
+    var placeholder: [String] = []
+    let ref = Database.database().reference(fromURL: "https://pickup-2568e-default-rtdb.firebaseio.com/")
+    
+    lazy var background: DispatchQueue = {
+        return DispatchQueue.init(label: "background.queue", attributes: .concurrent)
+    }()
+    
+    var edited: Bool = false
+    
     func updateData(){
         self.tableViewData = []
         self.background.async {
             let instance: DATABASE = DATABASE()
-            //orders based on order
             self.peopleArray = instance.GetInfo("here", "All", "")
-            self.peopleArray.sort{($0.order) < ($1.order)}
-            self.edited = !self.edited
+            //make int and then compare
+            //self.edited = !self.edited
         }
 
     }
@@ -55,8 +60,11 @@ class MarkStudentGivenTVController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             let cell = tableView.dequeueReusableCell(withIdentifier: "tableviewCell",
                                                          for: indexPath)
-            cell.textLabel?.text = self.tableViewData[indexPath.row]
-            return cell
+            if tableViewData != [] {
+                cell.textLabel?.text = self.tableViewData[indexPath.row]
+                return cell
+            }
+        return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

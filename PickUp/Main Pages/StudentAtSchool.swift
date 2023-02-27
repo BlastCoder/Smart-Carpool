@@ -13,9 +13,21 @@ class StudentAtSchool: UITableViewController, UISearchResultsUpdating, UISearchB
     
     var EditStatus: Bool = false
     var tableViewData = ["Loading..."]
-    
+    var placeholder: [String] = []
     let searchController =  UISearchController()
-    var peopleArray: [Child] = []
+    var peopleArray: [Child] = [] {
+        didSet {
+            if peopleArray.count > 1 {
+                self.peopleArray.sort {($0.name) < ($1.name)}
+            }
+            self.placeholder = []
+            for people in self.peopleArray {
+                self.placeholder.append("\(people.name )")
+            }
+            self.tableViewData = self.placeholder
+            self.testVar = !self.testVar
+            }
+    }
     var queryGrade: String = "All"
     var queryName: String = ""
     var EditPersonID: String = ""
@@ -36,13 +48,7 @@ class StudentAtSchool: UITableViewController, UISearchResultsUpdating, UISearchB
             let instance: DATABASE = DATABASE()
             //order them based on name, alaphbetical, queries with query fields
             self.peopleArray = instance.GetInfo("notSchool", queryGrade, queryName)
-            self.peopleArray.sort { ($0.name) < ($1.name) }
-            self.tableViewData = []
-            for people in self.peopleArray {
-                self.tableViewData.append("\(people.name )")
-            }
-            //once completed, reloads the table data
-            self.testVar = !self.testVar
+            //print(self.peopleArray)
         }
     }
     //boilder plate stuff
@@ -56,9 +62,13 @@ class StudentAtSchool: UITableViewController, UISearchResultsUpdating, UISearchB
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             let cell = tableView.dequeueReusableCell(withIdentifier: "tableviewCell",
                                                          for: indexPath)
+        if tableViewData != [] {
             cell.textLabel?.text = self.tableViewData[indexPath.row]
-                return cell
-       
+            return cell
+        }
+        else {
+            return cell
+        }
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let instance: DATABASE = DATABASE()
@@ -73,6 +83,12 @@ class StudentAtSchool: UITableViewController, UISearchResultsUpdating, UISearchB
         ref.child(SCHOOLNAME).child("Children").observe(.childChanged, with: {(snapshot) -> Void in
             self.updateData(self.queryGrade, self.queryName)
           })
+        /*
+        ref.child(SCHOOLNAME).child("Children").observe(.childAdded, with: {(snapshot) -> Void in
+            self.updateData(self.queryGrade, self.queryName)
+          })
+         */
+        
     }
     func updateSearchResults(for searchController: UISearchController) {
         let searchBar = searchController.searchBar

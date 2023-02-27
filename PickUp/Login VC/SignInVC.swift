@@ -10,6 +10,13 @@ import GoogleSignIn
 
 class SignInVC: UIViewController {
     var email = ""
+    /*
+    {
+        didSet {
+            self.doneButton.isEnabled = true
+        }
+    }
+     */
     @IBOutlet weak var schoolName: UITextField!
     //google sign in stuff
     let signInConfig = GIDConfiguration.init(clientID: "715022030244-s446uchablfua5v8prif7c33ft2a18va.apps.googleusercontent.com")
@@ -20,6 +27,7 @@ class SignInVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         schoolName.delegate = self
+        //self.doneButton.isEnabled = false
         // Do any additional setup after loading the view.
     }
    
@@ -29,13 +37,11 @@ class SignInVC: UIViewController {
             guard error == nil else { return }
             let user = GIDSignIn.sharedInstance.currentUser
             self.email = (user?.profile?.email)!
+            
             self.doneButton.isEnabled = false
-
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                 self.doneButton.isEnabled = true
-                //for the bug, does not exist...
             }
-            
           }
     }
     
@@ -76,7 +82,6 @@ class SignInVC: UIViewController {
             let instance = DATABASE()
             testBool = instance.checkAccount(sName, self.email)
         }
-        print(testBool)
 }
     //create alerts
     func createFormAlert(about title: String, withInfo message: String) -> UIAlertController{

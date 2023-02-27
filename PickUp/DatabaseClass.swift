@@ -69,6 +69,7 @@ class DATABASE {
             arrayKeys = Array(OrderDict.keys)
             group.leave()
           })
+        
         group.wait()
         for key in arrayKeys {
             //grabs the values (keys) and then iterates through, if it finds name match then return true, else false
@@ -181,7 +182,7 @@ class DATABASE {
     }
     // Edit student information, given id etc.
     func EditInfo(_ id: String, _ Status: String){
-        //please fix this once you figure out how this code works please... switch the order + status thing
+
         //don't change check order, if the status is gone or notHere, becuase there is no need
         if Status == "gone" || Status == "notHere" {
             ref.child(SCHOOLNAME).child("Children").child(id).updateChildValues(["Status": Status])

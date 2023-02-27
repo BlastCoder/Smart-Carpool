@@ -15,10 +15,23 @@ class MarkStudentPresent: UITableViewController, UISearchResultsUpdating, UISear
     var tableViewData = ["Loading..."]
     
     let searchController =  UISearchController()
-    var peopleArray: [Child] = []
+    var peopleArray: [Child] = [] {
+        didSet {
+            if peopleArray.count > 1 {
+                    self.peopleArray.sort { ($0.name) < ($1.name) }
+            }
+            self.placeholder = []
+            for people in self.peopleArray {
+                self.placeholder.append("\(people.name )")
+            }
+            self.tableViewData = self.placeholder
+            self.testVar = !self.testVar
+        }
+    }
     var queryGrade: String = "All"
     var queryName: String = ""
     var EditPersonID: String = ""
+    var placeholder: [String] = []
     var testVar: Bool = false {
         didSet {
             DispatchQueue.main.async {
@@ -34,15 +47,7 @@ class MarkStudentPresent: UITableViewController, UISearchResultsUpdating, UISear
         //change this if we refactor
         self.background.async {
             let instance: DATABASE = DATABASE()
-            //orders based on name
             self.peopleArray = instance.GetInfo("notHere", queryGrade, queryName)
-            self.peopleArray.sort { ($0.name) < ($1.name) }
-            self.tableViewData = []
-            for people in self.peopleArray {
-                self.tableViewData.append("\(people.name )")
-            }
-            //resets once completed
-            self.testVar = !self.testVar
         }
     }
     @objc func reloadData() {
@@ -64,6 +69,8 @@ class MarkStudentPresent: UITableViewController, UISearchResultsUpdating, UISear
         if !EditStatus {
             //for the edit button, its a toggle
             instance.EditInfo(self.peopleArray[indexPath.row].Id, "here")
+            //self.peopleArray.remove(at: indexPath.row)
+
         }
         else if EditStatus {
             EditPersonID = (self.peopleArray[indexPath.row].Id)
@@ -79,6 +86,10 @@ class MarkStudentPresent: UITableViewController, UISearchResultsUpdating, UISear
         ref.child(SCHOOLNAME).child("Children").observe(.childChanged, with: {(snapshot) -> Void in
             self.updateData(self.queryGrade, self.queryName)
           })
+        ref.child(SCHOOLNAME).child("Children").observe(.childRemoved, with: {(snapshot) -> Void in
+            self.updateData(self.queryGrade, self.queryName)
+          })
+        
     }
     func updateSearchResults(for searchController: UISearchController) {
         let searchBar = searchController.searchBar

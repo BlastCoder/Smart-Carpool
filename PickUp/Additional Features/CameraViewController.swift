@@ -24,7 +24,6 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
     let maximumZoom: CGFloat = 10.0
     var lastZoomFactor: CGFloat = 1.0
     var device: AVCaptureDevice? = nil
-    //var idNums: [String] = [""]
     lazy var background: DispatchQueue = {
         return DispatchQueue.init(label: "background.queue", attributes: .concurrent)
     }()
@@ -59,10 +58,11 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
                                                           for: .video, position: .unspecified) else { return }
         self.device = captureDevice
         guard let input = try? AVCaptureDeviceInput(device: captureDevice) else { return }
-    
+        
         captureSession.addInput(input)
         
-        captureSession.startRunning()
+        //DispatchQueue.global(qos: .background).async {
+        //}
         
         let previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
         view.layer.addSublayer(previewLayer)
@@ -93,6 +93,8 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
         }
         captureSession.commitConfiguration()
         
+        captureSession.startRunning()
+
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -136,8 +138,12 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
             //gives bounding box and calls a different function
             let visionModel = try VNCoreMLModel(for: MLModel(contentsOf: modelURL))
             let objectRecognition = VNCoreMLRequest(model: visionModel, completionHandler: { (request, error) in
+                
+                if request.results! == []{
+                    return
+                }
                 if request.results?[0].value(forKey: "boundingBox") != nil {
-                       
+                    print("here")
                     self.cropImage(request.results?[0].value(forKey: "boundingBox"), self.pixelBuffer1!)
                     }})
             objectRecognition.imageCropAndScaleOption = .scaleFill
@@ -219,6 +225,7 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
                 string.removeAll(where: { removeCharacters.contains($0)})
                // confirms that the liscense plate is actually a valid liscense plate
                 //make sure the liscense plate is scanned multiple times before its confirmed, since the scanner is error-prone
+                //print(string)
                 if string.count >= 6 && !numbSet.isDisjoint(with: string) {
                     //print(string)
                     if self.liscenseDict[string] == nil {
