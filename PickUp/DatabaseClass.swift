@@ -139,12 +139,13 @@ class DATABASE {
                     let Grade = dict["Grade"]! as! String
                     let Status = dict["Status"] as! String
                     let Order = dict["Order"] as! String
+                    let Number = dict["Number"] as! String
                     if Status == queryWord{
-                        let child = Child(Id: ID, name: Name, grade: Grade, status: Status, order: Order)
+                        let child = Child(Id: ID, name: Name, grade: Grade, status: Status, order: Order, number: Number)
                         self.Children.append(child)
                     }
                     else if queryWord == "All" && nameMatch {
-                        let child = Child(Id: ID, name: Name, grade: Grade, status: Status, order: Order)
+                        let child = Child(Id: ID, name: Name, grade: Grade, status: Status, order: Order, number: Number)
                         self.Children.append(child)
                     }
                 }
@@ -156,12 +157,13 @@ class DATABASE {
                     let Grade = dict["Grade"]! as! String
                     let Status = dict["Status"] as! String
                     let Order = dict["Order"] as! String
+                    let Number = dict["Number"] as! String
                     if Status == queryWord {
-                        let child = Child(Id: ID, name: Name, grade: Grade, status: Status, order: Order)
+                        let child = Child(Id: ID, name: Name, grade: Grade, status: Status, order: Order, number: Number)
                         self.Children.append(child)
                     }
                     else if queryWord == "All" {
-                        let child = Child(Id: ID, name: Name, grade: Grade, status: Status, order: Order)
+                        let child = Child(Id: ID, name: Name, grade: Grade, status: Status, order: Order, number: Number )
                         self.Children.append(child)
                     }
                 }
@@ -174,9 +176,9 @@ class DATABASE {
         return(self.Children)
     }
     // Add student information with given input
-    func AddInfo(_ name: String, _ grade: String, _ plates: [String]) -> String{
+    func AddInfo(_ name: String, _ grade: String, _ plates: [String], _ number: String) -> String{
         let uuid = "Child:\(UUID().uuidString)"
-        let object: [String: Any] = ["Name": name, "Grade": grade, "Status": "notSchool", "Order": "0", "CarPlates": plates]
+        let object: [String: Any] = ["Name": name, "Grade": grade, "Status": "notSchool", "Order": "0", "CarPlates": plates, "Number": number]
         self.ref.child(SCHOOLNAME).child("Children").child(uuid).setValue(object)
         return uuid
     }
@@ -246,6 +248,34 @@ class DATABASE {
         group.wait()
         return StudentId
     }
+    func FindIDWithNumber(_ number: String) -> String {
+        //works finds student with matching number
+        var StudentId: [String] = []
+        let group = DispatchGroup.init()
+        group.enter()
+        //iterates through to find
+        self.ref.child(SCHOOLNAME).child("Children").observeSingleEvent(of: .value) { snapshot in
+            for case let child as DataSnapshot in snapshot.children {
+                guard let dict = child.value as? [String:Any] else {
+                    return
+                }
+                let ID = child.key
+                let studentNumber = dict["Number"] as! String
+                if studentNumber == number {
+                    StudentId.append(ID)
+                    break
+                }
+            }
+            group.leave()
+        }
+        group.wait()
+        if StudentId.count == 0
+        {
+            return ""
+        }
+        return StudentId[0]
+    }
+    
     //gets the student's information given their id
     func GetInfoWithID(_ Id: String) -> NSDictionary {
         let group = DispatchGroup.init()

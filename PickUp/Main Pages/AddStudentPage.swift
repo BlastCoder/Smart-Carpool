@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AddStudentPage: UIViewController{
+class AddStudentPage: UIViewController {
     lazy var background: DispatchQueue = {
         return DispatchQueue.init(label: "background.queue", attributes: .concurrent)
     }()
@@ -17,6 +17,7 @@ class AddStudentPage: UIViewController{
     var UUID: String = ""
     @IBOutlet weak var plateText: UITextField!
     var plateNums: [String] = []
+    @IBOutlet weak var carpoolNumber: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +25,7 @@ class AddStudentPage: UIViewController{
         grade.delegate = self
         name.delegate = self
         plateText.delegate = self
+        carpoolNumber.delegate = self
     }
     @IBOutlet weak var addedLabel: UILabel!
     //confirms that all fields are filled, before adding record
@@ -50,7 +52,19 @@ class AddStudentPage: UIViewController{
             present(alert, animated: true)
             return
         }
-        //gives info to database class
+        guard var number: String = carpoolNumber.text
+        else {
+            let alert = createFormAlert(about: "Number Required", withInfo: "Please include a valid Number for the student.")
+            present(alert, animated: true)
+            return
+        }
+        if number == "" {
+            let alert = createFormAlert(about: "Number Required", withInfo: "Please include a valid Number for the student.")
+            present(alert, animated: true)
+            return
+        }
+        number = DATABASE.ApplyHash(number)
+        
         plateNums.append(plateText.text!)
         plateText.text = ""
         
@@ -60,9 +74,11 @@ class AddStudentPage: UIViewController{
             plateNums[index] = DATABASE.ApplyHash(plate)
         }
         
-        self.UUID = instance.AddInfo(childName, childGrade, self.plateNums)
+        self.UUID = instance.AddInfo(childName, childGrade, self.plateNums, number)
         name.text! = ""
         grade.text! = ""
+        carpoolNumber.text! = ""
+        
         plateNums = []
         self.addedLabel.text = "Student Added Succesfully!"
         //self.addedLabel.isHidden = false
@@ -107,6 +123,7 @@ class AddStudentPage: UIViewController{
     }
     
 }
+
 
 extension AddStudentPage: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

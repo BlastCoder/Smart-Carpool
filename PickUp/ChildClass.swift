@@ -13,5 +13,6 @@ struct Child {
     var grade: String
     var status: String
     var order: String
+    var number: String
 }
     
