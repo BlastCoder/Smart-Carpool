@@ -192,6 +192,7 @@ class DATABASE {
         }
 
         self.background.async {
+            //THERE IS PROBLEM HERE, IF STUDENT IS NOT MARKED PRESENT, THEY SHOULDN'T BE MARKER HERE, FIX THIS CODE
             let order = self.StudentOrder()
             self.ref.child(SCHOOLNAME).child("Children").child(id).updateChildValues(["Order": order, "Status": Status])
         }

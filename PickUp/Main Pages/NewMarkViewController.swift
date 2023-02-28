@@ -47,7 +47,7 @@ class NewMarkViewController: UIViewController {
         studentNumber.text = ""
         ref.child(SCHOOLNAME).child("Children").observe(.childChanged, with: {(snapshot) -> Void in self.getData()
           })
-        
+        getData()
     }
     
     @IBAction func sumbitButton(_ sender: Any) {
@@ -66,7 +66,7 @@ class NewMarkViewController: UIViewController {
         self.background.async {
             let instance: DATABASE = DATABASE()
             let idNum = instance.FindIDWithNumber(DATABASE.ApplyHash(self.Number))
-            if idNum != ""{
+            if idNum != "" {
                 self.background.async {
                     let instance: DATABASE = DATABASE()
                     instance.EditInfo(idNum, "here")
