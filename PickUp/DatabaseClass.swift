@@ -197,6 +197,24 @@ class DATABASE {
             self.ref.child(SCHOOLNAME).child("Children").child(id).updateChildValues(["Order": order, "Status": Status])
         }
     }
+    /*
+    func EditInfoCasady(_ id: String) -> String{
+        var bool: Bool = Never
+        var dict: NSDictionary = [:] {
+            didSet {
+                if dict["Status"] as! String != "notSchool" || dict["Status"] as! String != "gone" {
+                    self.background.async {
+                        let order = self.StudentOrder()
+                        self.ref.child(SCHOOLNAME).child("Children").child(id).updateChildValues(["Order": order, "Status": "here"])
+                    }
+                }
+            }
+        }
+        self.background.async {
+            dict = self.GetInfoWithID(id)
+        }
+    }
+    */
     // Order the students depending on arrival, looks at student order in database, and then  continues
     func StudentOrder() -> String{
         let group = DispatchGroup.init()

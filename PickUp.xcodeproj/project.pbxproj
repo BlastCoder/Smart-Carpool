@@ -14,6 +14,8 @@
 		9218DB6E2729C5F4007F8E5A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9218DB6C2729C5F4007F8E5A /* Main.storyboard */; };
 		9218DB702729C5F5007F8E5A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9218DB6F2729C5F5007F8E5A /* Assets.xcassets */; };
 		9218DB732729C5F5007F8E5A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9218DB712729C5F5007F8E5A /* LaunchScreen.storyboard */; };
+		922D4AE429B183C30056F2AE /* MassUpload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922D4AE329B183C30056F2AE /* MassUpload.swift */; };
+		922D4AE629CBA8E90056F2AE /* GoogleSignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922D4AE529CBA8E90056F2AE /* GoogleSignIn.swift */; };
 		9244C29627D7D55A007BCF13 /* EditPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9244C29527D7D55A007BCF13 /* EditPageController.swift */; };
 		92643FE928256A8200F9B314 /* ChildClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92643FE828256A8200F9B314 /* ChildClass.swift */; };
 		92643FEB282D9F0600F9B314 /* StudentAtSchool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92643FEA282D9F0600F9B314 /* StudentAtSchool.swift */; };
@@ -28,6 +30,7 @@
 		92EBE5C727FF32B4000C1A98 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EBE5C627FF32B4000C1A98 /* CameraViewController.swift */; };
 		92EBE5CE28049A83000C1A98 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EBE5CD28049A83000C1A98 /* SignUpVC.swift */; };
 		92EBE5D028062330000C1A98 /* ConfigFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EBE5CF28062330000C1A98 /* ConfigFile.swift */; };
+		92F1491229AEE27C0049DE4F /* RemainingStudents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F1491129AEE27C0049DE4F /* RemainingStudents.swift */; };
 		92FB1D042790CF0A009B82C8 /* AddStudentPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FB1D012790CF0A009B82C8 /* AddStudentPage.swift */; };
 		EA842AE3281B65120002F403 /* QRGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA842AE2281B65120002F403 /* QRGenerator.swift */; };
 /* End PBXBuildFile section */
@@ -42,6 +45,8 @@
 		9218DB6F2729C5F5007F8E5A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9218DB722729C5F5007F8E5A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9218DB742729C5F5007F8E5A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		922D4AE329B183C30056F2AE /* MassUpload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MassUpload.swift; sourceTree = "<group>"; };
+		922D4AE529CBA8E90056F2AE /* GoogleSignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleSignIn.swift; sourceTree = "<group>"; };
 		9239197327A2FC1A00620A31 /* PickUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PickUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9244C29527D7D55A007BCF13 /* EditPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPageController.swift; sourceTree = "<group>"; };
 		92643FE828256A8200F9B314 /* ChildClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildClass.swift; sourceTree = "<group>"; };
@@ -57,6 +62,7 @@
 		92EBE5C627FF32B4000C1A98 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		92EBE5CD28049A83000C1A98 /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		92EBE5CF28062330000C1A98 /* ConfigFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigFile.swift; sourceTree = "<group>"; };
+		92F1491129AEE27C0049DE4F /* RemainingStudents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemainingStudents.swift; sourceTree = "<group>"; };
 		92FB1D012790CF0A009B82C8 /* AddStudentPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddStudentPage.swift; sourceTree = "<group>"; };
 		EA842AE2281B65120002F403 /* QRGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRGenerator.swift; sourceTree = "<group>"; };
 		FFA592F220171AEDEB0DF850 /* Pods-PickUp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PickUp.debug.xcconfig"; path = "Target Support Files/Pods-PickUp/Pods-PickUp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -120,6 +126,7 @@
 			children = (
 				92EBE5CD28049A83000C1A98 /* SignUpVC.swift */,
 				92733B102807662F00BEE0D2 /* SignInVC.swift */,
+				922D4AE529CBA8E90056F2AE /* GoogleSignIn.swift */,
 			);
 			path = "Login VC";
 			sourceTree = "<group>";
@@ -143,6 +150,8 @@
 				9244C29527D7D55A007BCF13 /* EditPageController.swift */,
 				92D23475281AF180008085F8 /* QRCodeScannerVC.swift */,
 				EA842AE2281B65120002F403 /* QRGenerator.swift */,
+				92F1491129AEE27C0049DE4F /* RemainingStudents.swift */,
+				922D4AE329B183C30056F2AE /* MassUpload.swift */,
 			);
 			path = "Additional Features";
 			sourceTree = "<group>";
@@ -277,8 +286,11 @@
 				92733B112807662F00BEE0D2 /* SignInVC.swift in Sources */,
 				92EBE5D028062330000C1A98 /* ConfigFile.swift in Sources */,
 				92643FEB282D9F0600F9B314 /* StudentAtSchool.swift in Sources */,
+				92F1491229AEE27C0049DE4F /* RemainingStudents.swift in Sources */,
+				922D4AE429B183C30056F2AE /* MassUpload.swift in Sources */,
 				92643FE928256A8200F9B314 /* ChildClass.swift in Sources */,
 				92643FED2838277B00F9B314 /* LisencePlate2780.mlmodel in Sources */,
+				922D4AE629CBA8E90056F2AE /* GoogleSignIn.swift in Sources */,
 				926F9FB42734500000E8D435 /* DatabaseClass.swift in Sources */,
 				9218DB692729C5F4007F8E5A /* SceneDelegate.swift in Sources */,
 				EA842AE3281B65120002F403 /* QRGenerator.swift in Sources */,

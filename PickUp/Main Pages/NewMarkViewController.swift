@@ -90,6 +90,14 @@ class NewMarkViewController: UIViewController {
             self.peopleArray = instance.GetInfo("notHere", "All", "")
         }
     }
+    /*
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            if let vc = segue.destination as? EditPageController {
+                vc.studentID = self.peopl
+            }
+    }
+    */
+    
    
     
 }
