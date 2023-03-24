@@ -127,9 +127,11 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Students Remaining: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r7p-2n-zNk">
-                                <rect key="frame" x="74" y="92" width="264" height="47"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Students Remaining: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r7p-2n-zNk">
+                                <rect key="frame" x="119.5" y="92" width="175" height="47"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="47" id="EUZ-nv-qAa"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -140,6 +142,9 @@
                         <constraints>
                             <constraint firstItem="f7I-MF-VYl" firstAttribute="top" secondItem="YnI-7b-3J7" secondAttribute="bottom" constant="55" id="AiT-0B-WsS"/>
                             <constraint firstItem="f7I-MF-VYl" firstAttribute="leading" secondItem="Jsk-cL-0KE" secondAttribute="leading" constant="129" id="DAQ-BP-Axt"/>
+                            <constraint firstItem="r7p-2n-zNk" firstAttribute="leading" secondItem="Jsk-cL-0KE" secondAttribute="leading" constant="119.5" id="GOu-HZ-p0R"/>
+                            <constraint firstItem="r7p-2n-zNk" firstAttribute="top" secondItem="Jsk-cL-0KE" secondAttribute="top" id="H3T-vI-cHX"/>
+                            <constraint firstItem="r7p-2n-zNk" firstAttribute="centerX" secondItem="RT1-eg-bgp" secondAttribute="centerX" id="Hqn-Ue-7JW"/>
                             <constraint firstItem="YnI-7b-3J7" firstAttribute="centerX" secondItem="RT1-eg-bgp" secondAttribute="centerX" id="KIa-fQ-k6O"/>
                             <constraint firstItem="YnI-7b-3J7" firstAttribute="top" secondItem="Jsk-cL-0KE" secondAttribute="top" constant="315" id="Yvf-fp-tJJ"/>
                             <constraint firstItem="Jsk-cL-0KE" firstAttribute="trailing" secondItem="f7I-MF-VYl" secondAttribute="trailing" constant="131" id="a44-8o-4Bf"/>
@@ -791,7 +796,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="School Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ir1-cd-rbv">
-                                <rect key="frame" x="99" y="429" width="217" height="38"/>
+                                <rect key="frame" x="99" y="395" width="217" height="38"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="217" id="KyH-Bf-rmX"/>
                                     <constraint firstAttribute="height" constant="38" id="idV-WD-Ggo"/>
@@ -807,7 +812,7 @@
                             <constraint firstItem="Bgb-Z5-Uac" firstAttribute="centerX" secondItem="foh-Zl-Han" secondAttribute="centerX" id="IT0-Ya-I9y"/>
                             <constraint firstItem="Bgb-Z5-Uac" firstAttribute="top" secondItem="foh-Zl-Han" secondAttribute="top" constant="44" id="ZSZ-qf-wu8"/>
                             <constraint firstItem="2DX-59-BQR" firstAttribute="centerX" secondItem="foh-Zl-Han" secondAttribute="centerX" id="gvL-Mh-iqo"/>
-                            <constraint firstItem="ir1-cd-rbv" firstAttribute="top" secondItem="Bgb-Z5-Uac" secondAttribute="bottom" constant="18" id="mkj-Cq-QcE"/>
+                            <constraint firstItem="ir1-cd-rbv" firstAttribute="top" secondItem="Bgb-Z5-Uac" secondAttribute="bottom" constant="67" id="mkj-Cq-QcE"/>
                             <constraint firstItem="ir1-cd-rbv" firstAttribute="centerX" secondItem="foh-Zl-Han" secondAttribute="centerX" id="s6X-DX-i0s"/>
                         </constraints>
                     </view>
@@ -1041,9 +1046,8 @@
                                     <constraint firstAttribute="height" constant="359" id="uua-Sa-TT1"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UwK-yo-72G">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UwK-yo-72G">
                                 <rect key="frame" x="120" y="633" width="174" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="tinted" title="Sign In With Google"/>
                                 <connections>
@@ -1057,6 +1061,8 @@
                         <constraints>
                             <constraint firstItem="Tdm-LR-WT2" firstAttribute="centerX" secondItem="kgl-FX-ZOi" secondAttribute="centerX" id="4Pp-Gj-u53"/>
                             <constraint firstItem="Tdm-LR-WT2" firstAttribute="top" secondItem="dE2-Gk-o1j" secondAttribute="top" id="4cM-Mo-VFr"/>
+                            <constraint firstItem="UwK-yo-72G" firstAttribute="centerX" secondItem="kgl-FX-ZOi" secondAttribute="centerX" id="OFd-4n-eI8"/>
+                            <constraint firstItem="dE2-Gk-o1j" firstAttribute="bottom" secondItem="UwK-yo-72G" secondAttribute="bottom" constant="194" id="fUc-JH-SZg"/>
                         </constraints>
                     </view>
                     <connections>
@@ -1070,7 +1076,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="van-80-wry"/>
+        <segue reference="9Cp-fG-IzU"/>
         <segue reference="u3R-0y-G2u"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" systemColor="linkColor"/>
