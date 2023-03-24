@@ -7,6 +7,7 @@ import UIKit
 import Firebase
 import FirebaseDatabase
 import CryptoKit
+import Crypto
 
 ///This has all the components of the database, can  read, write, edit order and status, and edit name + grade
 class DATABASE {
@@ -309,6 +310,7 @@ class DATABASE {
         group.wait()
     return StudentIDInfo
     }
+    
     //edits the child's info
     func EditAllInfo(_ id: String, _ name: String, _ grade: String){
         ref.child(SCHOOLNAME).child("Children").child(id).updateChildValues(["Name": name, "Grade": grade])
@@ -322,6 +324,23 @@ class DATABASE {
         let hashed = SHA256.hash(data: inputData)
         let string = hashed.compactMap {String(format: "%02x", $0)}.joined()
         return string
+    }
+    func encrypt(_ key: String, _ value: String) -> String {
+        let inputData = Data(value.utf8)
+        var keyStr = DATABASE.ApplyHash(key).prefix(32)
+        let encryptedData = try? AES256(key: String(keyStr))?.encrypt(messageData: inputData)
+        return (encryptedData?.hexadecimal)!
+        //var string = String(decoding: encryptedData!, as: UTF8.self)
+        //print(string)
+        //return string
+    }
+    
+    func decrypt(_ key: String, _ value: String) -> String {
+        let encryptedData = Data(hexString: value)
+        let keyStr = DATABASE.ApplyHash(key).prefix(32)
+        //print(encryptedData)
+        let decryptedData = try? AES256(key: String(keyStr))?.decrypt(encryptedData: encryptedData)
+        return String(decoding: decryptedData!, as: UTF8.self)
     }
     //check if id exists in the database
     func checkID(_ uuid: String) -> Bool {
@@ -347,5 +366,28 @@ class DATABASE {
             }
         }
         return false
+    }
+}
+public extension Data {
+    init?(hexString: String) {
+      let len = hexString.count / 2
+      var data = Data(capacity: len)
+      var i = hexString.startIndex
+      for _ in 0..<len {
+        let j = hexString.index(i, offsetBy: 2)
+        let bytes = hexString[i..<j]
+        if var num = UInt8(bytes, radix: 16) {
+          data.append(&num, count: 1)
+        } else {
+          return nil
+        }
+        i = j
+      }
+      self = data
+    }
+    /// Hexadecimal string representation of `Data` object.
+    var hexadecimal: String {
+        return map { String(format: "%02x", $0) }
+            .joined()
     }
 }

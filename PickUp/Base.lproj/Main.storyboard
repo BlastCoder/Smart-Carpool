@@ -1042,7 +1042,7 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UwK-yo-72G">
-                                <rect key="frame" x="120" y="635" width="174" height="35"/>
+                                <rect key="frame" x="120" y="633" width="174" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="tinted" title="Sign In With Google"/>
@@ -1070,7 +1070,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="9Cp-fG-IzU"/>
+        <segue reference="van-80-wry"/>
         <segue reference="u3R-0y-G2u"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" systemColor="linkColor"/>

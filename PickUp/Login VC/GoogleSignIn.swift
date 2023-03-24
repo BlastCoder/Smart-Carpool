@@ -16,7 +16,13 @@ class GoogleSignIn: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        var instance = DATABASE()
+        var key = "Child:703EBE45-A1D2-4517-8772-B9637FB55EBD"
+        var name = "Krish Patel"
+        name = instance.encrypt(key, name)
+        print(name)
+        name = instance.decrypt(key, name)
+        print(String(name))
         // Do any additional setup after loading the view.
     }
     
