@@ -119,7 +119,7 @@ class DATABASE {
                 guard let dict = child.value as? [String:Any] else {
                     return
                 }
-                var name = dict["Name"]! as! String
+                var name =  self.decrypt(child.key, (dict["Name"]! as! String))
                 var nameMatch: Bool = false
                 if queryName == "" {
                         nameMatch = true
@@ -136,7 +136,7 @@ class DATABASE {
                 if dict["Grade"]! as! String == queryGrade && nameMatch {
                     //checking parameters inputed, name, grade, etc.
                     let ID = child.key
-                    let Name = dict["Name"]! as! String
+                    let Name = self.decrypt(ID, (dict["Name"]! as! String))
                     let Grade = dict["Grade"]! as! String
                     let Status = dict["Status"] as! String
                     let Order = dict["Order"] as! String
@@ -154,7 +154,7 @@ class DATABASE {
                 else if queryGrade == "All" && nameMatch {
                     //if grade is all, then continues
                     let ID = child.key
-                    let Name = dict["Name"]! as! String
+                    let Name = self.decrypt(ID, (dict["Name"]! as! String))
                     let Grade = dict["Grade"]! as! String
                     let Status = dict["Status"] as! String
                     let Order = dict["Order"] as! String
@@ -179,7 +179,7 @@ class DATABASE {
     // Add student information with given input
     func AddInfo(_ name: String, _ grade: String, _ plates: [String], _ number: String) -> String{
         let uuid = "Child:\(UUID().uuidString)"
-        let object: [String: Any] = ["Name": name, "Grade": grade, "Status": "notSchool", "Order": "0", "CarPlates": plates, "Number": number]
+        let object: [String: Any] = ["Name": encrypt(uuid, name), "Grade": grade, "Status": "notSchool", "Order": "0", "CarPlates": plates, "Number": number]
         self.ref.child(SCHOOLNAME).child("Children").child(uuid).setValue(object)
         return uuid
     }
