@@ -128,7 +128,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Students Remaining: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r7p-2n-zNk">
-                                <rect key="frame" x="119.5" y="92" width="175" height="47"/>
+                                <rect key="frame" x="0.0" y="92" width="414" height="47"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="47" id="EUZ-nv-qAa"/>
                                 </constraints>
@@ -142,13 +142,14 @@
                         <constraints>
                             <constraint firstItem="f7I-MF-VYl" firstAttribute="top" secondItem="YnI-7b-3J7" secondAttribute="bottom" constant="55" id="AiT-0B-WsS"/>
                             <constraint firstItem="f7I-MF-VYl" firstAttribute="leading" secondItem="Jsk-cL-0KE" secondAttribute="leading" constant="129" id="DAQ-BP-Axt"/>
-                            <constraint firstItem="r7p-2n-zNk" firstAttribute="leading" secondItem="Jsk-cL-0KE" secondAttribute="leading" constant="119.5" id="GOu-HZ-p0R"/>
                             <constraint firstItem="r7p-2n-zNk" firstAttribute="top" secondItem="Jsk-cL-0KE" secondAttribute="top" id="H3T-vI-cHX"/>
                             <constraint firstItem="r7p-2n-zNk" firstAttribute="centerX" secondItem="RT1-eg-bgp" secondAttribute="centerX" id="Hqn-Ue-7JW"/>
+                            <constraint firstAttribute="trailing" secondItem="r7p-2n-zNk" secondAttribute="trailing" id="K1I-Y6-L7s"/>
                             <constraint firstItem="YnI-7b-3J7" firstAttribute="centerX" secondItem="RT1-eg-bgp" secondAttribute="centerX" id="KIa-fQ-k6O"/>
                             <constraint firstItem="YnI-7b-3J7" firstAttribute="top" secondItem="Jsk-cL-0KE" secondAttribute="top" constant="315" id="Yvf-fp-tJJ"/>
                             <constraint firstItem="Jsk-cL-0KE" firstAttribute="trailing" secondItem="f7I-MF-VYl" secondAttribute="trailing" constant="131" id="a44-8o-4Bf"/>
                             <constraint firstItem="YnI-7b-3J7" firstAttribute="leading" secondItem="Jsk-cL-0KE" secondAttribute="leading" constant="75" id="k6g-zo-cDV"/>
+                            <constraint firstItem="r7p-2n-zNk" firstAttribute="leading" secondItem="Jsk-cL-0KE" secondAttribute="leading" id="m2k-ok-fnU"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="wk7-YE-XgW"/>
@@ -1076,8 +1077,9 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="9Kt-Su-eC2"/>
         <segue reference="9Cp-fG-IzU"/>
-        <segue reference="u3R-0y-G2u"/>
+        <segue reference="hOO-Ky-YIn"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" systemColor="linkColor"/>
     <resources>

@@ -66,10 +66,12 @@ class NewMarkViewController: UIViewController {
         self.background.async {
             let instance: DATABASE = DATABASE()
             let idNum = instance.FindIDWithNumber(DATABASE.ApplyHash(self.Number))
-            if idNum != "" {
+            if idNum != [""] {
                 self.background.async {
-                    let instance: DATABASE = DATABASE()
-                    instance.EditInfo(idNum, "here")
+                    for num in idNum {
+                        let instance: DATABASE = DATABASE()
+                        instance.EditInfo(num, "here")
+                    }
                 }
             }
         }

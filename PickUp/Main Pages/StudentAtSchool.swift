@@ -77,12 +77,14 @@ class StudentAtSchool: UITableViewController, UISearchResultsUpdating, UISearchB
     override func viewDidLoad() {
         let ref = Database.database().reference(fromURL: "https://pickup-2568e-default-rtdb.firebaseio.com/")
         super.viewDidLoad()
-        title = "Attendence"
+        title = "Attendance"
         initSearchController()
         //observer, observes changes
         ref.child(SCHOOLNAME).child("Children").observe(.childChanged, with: {(snapshot) -> Void in
             self.updateData(self.queryGrade, self.queryName)
           })
+        //var load = LOAD()
+        //load.load()
         /*
         ref.child(SCHOOLNAME).child("Children").observe(.childAdded, with: {(snapshot) -> Void in
             self.updateData(self.queryGrade, self.queryName)

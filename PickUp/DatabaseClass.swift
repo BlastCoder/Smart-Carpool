@@ -230,7 +230,6 @@ class DATABASE {
             group.leave()
           })
         group.wait()
-        // Reset the value of if students have arrived, for new days
         self.ref.child(SCHOOLNAME).child("Order").child("recentOrder").updateChildValues(["Order": String(self.Order + 1)])
         return String(self.Order)
     }
@@ -239,6 +238,7 @@ class DATABASE {
         self.ref.child(SCHOOLNAME).child("Children").observeSingleEvent(of: .value) { snapshot in
             for case let child as DataSnapshot in snapshot.children {
                 self.ref.child(SCHOOLNAME).child("Children").child(child.key).updateChildValues(["Order": "0", "Status": "notSchool"])
+                //self.ref.child(SCHOOLNAME).child("Children").child(child.key).updateChildValues(["Order": "0", "Status": "notHere"])
             }
         }
         self.ref.child(SCHOOLNAME).child("Order").child("recentOrder").updateChildValues(["Order": "1"])
@@ -268,7 +268,7 @@ class DATABASE {
         group.wait()
         return StudentId
     }
-    func FindIDWithNumber(_ number: String) -> String {
+    func FindIDWithNumber(_ number: String) -> [String] {
         //works finds student with matching number
         var StudentId: [String] = []
         let group = DispatchGroup.init()
@@ -283,7 +283,6 @@ class DATABASE {
                 let studentNumber = dict["Number"] as! String
                 if studentNumber == number {
                     StudentId.append(ID)
-                    break
                 }
             }
             group.leave()
@@ -291,9 +290,9 @@ class DATABASE {
         group.wait()
         if StudentId.count == 0
         {
-            return ""
+            return [""]
         }
-        return StudentId[0]
+        return StudentId
     }
     
     //gets the student's information given their id

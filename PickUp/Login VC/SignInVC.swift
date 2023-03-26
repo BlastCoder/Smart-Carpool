@@ -32,6 +32,7 @@ class SignInVC: UIViewController {
     }
    
     @IBOutlet weak var doneButton: UIButton!
+    /*
     @IBAction func SignIn(_ sender: Any) {
         
         GIDSignIn.sharedInstance.signIn(with: signInConfig, presenting: self) { user, error in
@@ -45,6 +46,7 @@ class SignInVC: UIViewController {
             }
           }
     }
+     */
     
     @IBAction func submitButton(_ sender: Any) {
         //checks fields
