@@ -20,8 +20,18 @@ class MarkStudentGivenTVController: UITableViewController {
                 self.peopleArray.sort{(Int($0.order) ?? 100 < Int($1.order) ?? 100)}
             }
             self.placeholder = []
+            var occured: [String] = []
+            var number: String = ""
             for people in self.peopleArray {
-                self.placeholder.append("\(people.name) Grade: \(people.grade)")
+                //self.placeholder.append("\(people.name) Grade: \(people.grade)")
+                if occured.contains(people.grade) && (people.number != number) {
+                    self.placeholder.append("(IN QUEUE) \(people.name) Position: \(people.grade)")
+                }
+                else {
+                    self.placeholder.append("\(people.name) Position: \(people.grade)")
+                    occured.append(people.grade)
+                    number = people.number
+                }
             }
             self.tableViewData = self.placeholder
             DispatchQueue.main.async {

@@ -314,6 +314,9 @@ class DATABASE {
     func EditAllInfo(_ id: String, _ name: String, _ grade: String){
         ref.child(SCHOOLNAME).child("Children").child(id).updateChildValues(["Name": name, "Grade": grade])
     }
+    func EditCasady(_ id: String,_ grade: String){
+        ref.child(SCHOOLNAME).child("Children").child(id).updateChildValues(["Grade": grade])
+    }
     func RemoveStudent(_ id: String) {
         self.ref.child(SCHOOLNAME).child("Children").child(id).removeValue()
     }

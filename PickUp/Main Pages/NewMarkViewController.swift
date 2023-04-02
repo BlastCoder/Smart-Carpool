@@ -34,6 +34,7 @@ class NewMarkViewController: UIViewController {
         }
     }
     
+    @IBOutlet weak var studentPosition: UITextField!
     @IBOutlet weak var studentLabel: UILabel!
     @IBOutlet weak var studentNumber: UITextField!
     
@@ -62,6 +63,13 @@ class NewMarkViewController: UIViewController {
             present(alert, animated: true)
             return
         }
+        guard var position: String = studentPosition.text
+        else {
+            let alert = createFormAlert(about: "Position Required", withInfo: "Please include a valid Number for the student.")
+            present(alert, animated: true)
+            return
+        }
+                
         self.Number = number
         self.background.async {
             let instance: DATABASE = DATABASE()
@@ -70,11 +78,13 @@ class NewMarkViewController: UIViewController {
                 self.background.async {
                     for num in idNum {
                         let instance: DATABASE = DATABASE()
+                        instance.EditCasady(num, position)
                         instance.EditInfo(num, "here")
                     }
                 }
             }
         }
+        studentPosition.text! = ""
         studentNumber.text! = ""
         return
     }

@@ -6,31 +6,81 @@
 //
 
 import UIKit
+import Firebase
+
 
 class RemainingStudents: UITableViewController {
     
+
+    var tableViewData = ["None"]
     var peopleArray: [Child] = []
+    {
+        didSet {
+            if peopleArray.count > 1 {
+                    self.peopleArray.sort { ($0.name) < ($1.name) }
+            }
+            self.placeholder = []
+            for people in self.peopleArray {
+                self.placeholder.append("\(people.name )")
+            }
+            self.tableViewData = self.placeholder
+            DispatchQueue.main.async {
+                self.reloadData()
+            }
+        }
+    }
+    var placeholder: [String] = []
+    let ref = Database.database().reference(fromURL: "https://pickup-2568e-default-rtdb.firebaseio.com/")
+    
+    lazy var background: DispatchQueue = {
+        return DispatchQueue.init(label: "background.queue", attributes: .concurrent)
+    }()
+    
+    var edited: Bool = false
+    
+    func updateData(){
+        self.tableViewData = []
+        self.background.async {
+            let instance: DATABASE = DATABASE()
+            self.peopleArray = instance.GetInfo("notHere", "All", "")
+
+        }
+
+    }
+    
+    @objc func reloadData() {
+        tableView.reloadData()
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.tableViewData.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "tableviewCell",
+                                                         for: indexPath)
+            if tableViewData != [] {
+                cell.textLabel?.text = self.tableViewData[indexPath.row]
+                return cell
+            }
+        return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
-    }
-
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return self.peopleArray.count
+        tableViewData = ["None"]
+        title = "Students Remaining"
+        self.updateData()
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "tableviewCell")
+        //observes the changes to the database
+        ref.child(SCHOOLNAME).child("Children").observe(.childChanged, with: {(snapshot) -> Void in
+            self.updateData()
+          })
     }
 
     /*

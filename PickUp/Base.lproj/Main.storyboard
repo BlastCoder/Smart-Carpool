@@ -136,26 +136,58 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Position" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Nhj-Oi-K0F">
+                                <rect key="frame" x="75" y="352" width="264" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Jsk-cL-0KE"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="f7I-MF-VYl" firstAttribute="top" secondItem="YnI-7b-3J7" secondAttribute="bottom" constant="55" id="AiT-0B-WsS"/>
+                            <constraint firstItem="YnI-7b-3J7" firstAttribute="top" secondItem="Nhj-Oi-K0F" secondAttribute="bottom" constant="21" id="Bko-tH-Va9"/>
                             <constraint firstItem="f7I-MF-VYl" firstAttribute="leading" secondItem="Jsk-cL-0KE" secondAttribute="leading" constant="129" id="DAQ-BP-Axt"/>
+                            <constraint firstItem="Nhj-Oi-K0F" firstAttribute="leading" secondItem="YnI-7b-3J7" secondAttribute="leading" id="EOx-l7-saH"/>
                             <constraint firstItem="r7p-2n-zNk" firstAttribute="top" secondItem="Jsk-cL-0KE" secondAttribute="top" id="H3T-vI-cHX"/>
                             <constraint firstItem="r7p-2n-zNk" firstAttribute="centerX" secondItem="RT1-eg-bgp" secondAttribute="centerX" id="Hqn-Ue-7JW"/>
                             <constraint firstAttribute="trailing" secondItem="r7p-2n-zNk" secondAttribute="trailing" id="K1I-Y6-L7s"/>
                             <constraint firstItem="YnI-7b-3J7" firstAttribute="centerX" secondItem="RT1-eg-bgp" secondAttribute="centerX" id="KIa-fQ-k6O"/>
+                            <constraint firstItem="Nhj-Oi-K0F" firstAttribute="trailing" secondItem="YnI-7b-3J7" secondAttribute="trailing" id="WD3-c1-9UO"/>
                             <constraint firstItem="YnI-7b-3J7" firstAttribute="top" secondItem="Jsk-cL-0KE" secondAttribute="top" constant="315" id="Yvf-fp-tJJ"/>
                             <constraint firstItem="Jsk-cL-0KE" firstAttribute="trailing" secondItem="f7I-MF-VYl" secondAttribute="trailing" constant="131" id="a44-8o-4Bf"/>
                             <constraint firstItem="YnI-7b-3J7" firstAttribute="leading" secondItem="Jsk-cL-0KE" secondAttribute="leading" constant="75" id="k6g-zo-cDV"/>
                             <constraint firstItem="r7p-2n-zNk" firstAttribute="leading" secondItem="Jsk-cL-0KE" secondAttribute="leading" id="m2k-ok-fnU"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="wk7-YE-XgW"/>
+                    <navigationItem key="navigationItem" id="wk7-YE-XgW">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="Qyg-1u-6Mr">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="I57-y9-vuq">
+                                <rect key="frame" x="20" y="5" width="108" height="34.5"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="QRscanner"/>
+                                <connections>
+                                    <segue destination="GlG-Ff-UVn" kind="show" id="Hq6-ah-3zO"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="vNT-it-Tz5">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="tBt-ec-QhD">
+                                <rect key="frame" x="302" y="5" width="92" height="34.5"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Details"/>
+                                <connections>
+                                    <segue destination="bGT-vC-Ycs" kind="show" id="sDC-Vj-aIf"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="studentLabel" destination="r7p-2n-zNk" id="6Uu-Fi-F64"/>
                         <outlet property="studentNumber" destination="YnI-7b-3J7" id="Mvb-Dv-aii"/>
+                        <outlet property="studentPosition" destination="Nhj-Oi-K0F" id="Olt-dM-zGx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PFd-0i-jHs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -217,11 +249,11 @@
             <objects>
                 <viewController id="GlG-Ff-UVn" customClass="QRCodeScannerVC" customModule="PickUp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4oZ-FU-nGf">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="838"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F50-ZA-pwy">
-                                <rect key="frame" x="0.0" y="670.5" width="414" height="167.5"/>
+                                <rect key="frame" x="0.0" y="717" width="414" height="179"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="EAM-dE-IMl">
                                         <rect key="frame" x="8" y="45" width="398" height="67"/>
@@ -251,7 +283,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pom-Oi-sGk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="158" y="1572"/>
+            <point key="canvasLocation" x="954" y="1572"/>
         </scene>
         <!--Edit Page Controller-->
         <scene sceneID="ZF8-P1-gtD">
@@ -338,10 +370,10 @@
             </objects>
             <point key="canvasLocation" x="487" y="848"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Remaining Students-->
         <scene sceneID="12I-Bc-LUX">
             <objects>
-                <tableViewController id="bGT-vC-Ycs" sceneMemberID="viewController">
+                <tableViewController id="bGT-vC-Ycs" customClass="RemainingStudents" customModule="PickUp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="L7D-N5-ROo">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1077,9 +1109,9 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="9Kt-Su-eC2"/>
         <segue reference="9Cp-fG-IzU"/>
         <segue reference="hOO-Ky-YIn"/>
+        <segue reference="Hq6-ah-3zO"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" systemColor="linkColor"/>
     <resources>
