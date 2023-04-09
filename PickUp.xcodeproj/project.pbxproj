@@ -16,6 +16,7 @@
 		9218DB732729C5F5007F8E5A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9218DB712729C5F5007F8E5A /* LaunchScreen.storyboard */; };
 		922349D529CCF86800DCF87F /* Crypto in Frameworks */ = {isa = PBXBuildFile; productRef = 922349D429CCF86800DCF87F /* Crypto */; };
 		922349D729CD106E00DCF87F /* Encryption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922349D629CD106E00DCF87F /* Encryption.swift */; };
+		922349DB29E2319400DCF87F /* CasadyQR.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922349DA29E2319400DCF87F /* CasadyQR.swift */; };
 		922D4AE629CBA8E90056F2AE /* GoogleSignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922D4AE529CBA8E90056F2AE /* GoogleSignIn.swift */; };
 		9244C29627D7D55A007BCF13 /* EditPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9244C29527D7D55A007BCF13 /* EditPageController.swift */; };
 		92643FE928256A8200F9B314 /* ChildClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92643FE828256A8200F9B314 /* ChildClass.swift */; };
@@ -47,6 +48,7 @@
 		9218DB722729C5F5007F8E5A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9218DB742729C5F5007F8E5A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		922349D629CD106E00DCF87F /* Encryption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Encryption.swift; sourceTree = "<group>"; };
+		922349DA29E2319400DCF87F /* CasadyQR.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CasadyQR.swift; sourceTree = "<group>"; };
 		922D4AE529CBA8E90056F2AE /* GoogleSignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleSignIn.swift; sourceTree = "<group>"; };
 		9239197327A2FC1A00620A31 /* PickUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PickUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9244C29527D7D55A007BCF13 /* EditPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPageController.swift; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 				92D23475281AF180008085F8 /* QRCodeScannerVC.swift */,
 				EA842AE2281B65120002F403 /* QRGenerator.swift */,
 				92F1491129AEE27C0049DE4F /* RemainingStudents.swift */,
+				922349DA29E2319400DCF87F /* CasadyQR.swift */,
 			);
 			path = "Additional Features";
 			sourceTree = "<group>";
@@ -302,6 +305,7 @@
 				926F9FB42734500000E8D435 /* DatabaseClass.swift in Sources */,
 				9218DB692729C5F4007F8E5A /* SceneDelegate.swift in Sources */,
 				EA842AE3281B65120002F403 /* QRGenerator.swift in Sources */,
+				922349DB29E2319400DCF87F /* CasadyQR.swift in Sources */,
 				92FB1D042790CF0A009B82C8 /* AddStudentPage.swift in Sources */,
 				92EBE5C727FF32B4000C1A98 /* CameraViewController.swift in Sources */,
 				9267F8B327C688E100E8788D /* MarkStudentGivenTVController.swift in Sources */,

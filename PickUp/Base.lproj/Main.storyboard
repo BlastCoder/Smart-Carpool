@@ -244,10 +244,10 @@
             </objects>
             <point key="canvasLocation" x="-94" y="115"/>
         </scene>
-        <!--Code ScannerVC-->
+        <!--CasadyQR-->
         <scene sceneID="0aD-9h-QVk">
             <objects>
-                <viewController id="GlG-Ff-UVn" customClass="QRCodeScannerVC" customModule="PickUp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="GlG-Ff-UVn" customClass="CasadyQR" customModule="PickUp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4oZ-FU-nGf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -255,16 +255,19 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F50-ZA-pwy">
                                 <rect key="frame" x="0.0" y="717" width="414" height="179"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="EAM-dE-IMl">
-                                        <rect key="frame" x="8" y="45" width="398" height="67"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                        <color key="textColor" red="0.39840600440000001" green="0.48857863909999999" blue="0.18461316289999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <nil key="highlightedColor"/>
-                                        <size key="shadowOffset" width="0.0" height="0.0"/>
-                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Position" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VXy-q9-KVK">
+                                        <rect key="frame" x="8" y="72" width="398" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="VXy-q9-KVK" firstAttribute="top" secondItem="F50-ZA-pwy" secondAttribute="top" constant="72" id="1zu-6h-Ucb"/>
+                                    <constraint firstItem="VXy-q9-KVK" firstAttribute="centerY" secondItem="F50-ZA-pwy" secondAttribute="centerY" id="NpA-ca-9nr"/>
+                                    <constraint firstItem="VXy-q9-KVK" firstAttribute="trailing" secondItem="F50-ZA-pwy" secondAttribute="trailingMargin" id="vz4-QV-UZJ"/>
+                                    <constraint firstItem="VXy-q9-KVK" firstAttribute="leading" secondItem="F50-ZA-pwy" secondAttribute="leadingMargin" id="x4c-hD-2DA"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="5QT-dO-RMw"/>
@@ -278,12 +281,12 @@
                     </view>
                     <navigationItem key="navigationItem" id="847-MB-Ybo"/>
                     <connections>
-                        <outlet property="scanText" destination="EAM-dE-IMl" id="PRn-ET-mvC"/>
+                        <outlet property="positionNumber" destination="VXy-q9-KVK" id="4at-yl-ROk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pom-Oi-sGk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="954" y="1572"/>
+            <point key="canvasLocation" x="953.62318840579712" y="1571.6517857142856"/>
         </scene>
         <!--Edit Page Controller-->
         <scene sceneID="ZF8-P1-gtD">
@@ -404,18 +407,18 @@
             <objects>
                 <viewController title="QRGenerator" id="CEO-uv-7Va" customClass="QRGenerator" customModule="PickUp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qUP-EL-jQ8">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="838"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="amJ-2O-cbO">
-                                <rect key="frame" x="87" y="224" width="240" height="221"/>
+                                <rect key="frame" x="87" y="200" width="240" height="221"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="240" id="9lJ-FT-fM5"/>
                                     <constraint firstAttribute="height" constant="221" id="HAT-7N-OJD"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C4x-BV-OTe">
-                                <rect key="frame" x="99.5" y="579" width="215" height="44"/>
+                                <rect key="frame" x="99.5" y="555" width="215" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="5Gm-lV-iLi"/>
                                     <constraint firstAttribute="width" constant="215" id="lst-ru-Wqm"/>
@@ -1110,7 +1113,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="9Cp-fG-IzU"/>
-        <segue reference="hOO-Ky-YIn"/>
+        <segue reference="zQl-dy-Tnm"/>
         <segue reference="Hq6-ah-3zO"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" systemColor="linkColor"/>
