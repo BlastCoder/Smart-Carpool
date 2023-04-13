@@ -30,23 +30,9 @@ class SignInVC: UIViewController {
         //self.doneButton.isEnabled = false
         // Do any additional setup after loading the view.
     }
-   
-    @IBOutlet weak var doneButton: UIButton!
-    @IBAction func SignIn(_ sender: Any) {
-        GIDSignIn.sharedInstance.signIn(with: signInConfig, presenting: self) { user, error in
-            guard error == nil else { return }
-            let user = GIDSignIn.sharedInstance.currentUser
-            self.email = (user?.profile?.email)!
-            
-            self.doneButton.isEnabled = false
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                self.doneButton.isEnabled = true
-            }
-          }
-    }
+
     
-    @IBAction func submitButton(_ sender: Any) {
-        print("at top")
+    @IBAction func Submit(_ sender: Any) {
         //checks fields
         guard var sName = schoolName.text
         else{
@@ -60,11 +46,13 @@ class SignInVC: UIViewController {
             return
         }
         sName = sName.uppercased()
-        if email == "" {
-            let alert = createFormAlert(about: "Sign in with Google", withInfo: "Please add a valid email.")
-            present(alert, animated: true)
-            return
-        }
+        /*
+         if email == "" {
+         let alert = createFormAlert(about: "Sign in with Google", withInfo: "Please add a valid email.")
+         present(alert, animated: true)
+         return
+         }
+         */
         //logins in if matches records, else gives alert
         var testBool: Bool = false {
             didSet {
@@ -80,9 +68,9 @@ class SignInVC: UIViewController {
         }
         self.background.async {
             let instance = DATABASE()
-            testBool = instance.checkAccount(sName, self.email)
+            testBool = instance.checkAccount(sName, EMAIL)
         }
-}
+    }
     //create alerts
     func createFormAlert(about title: String, withInfo message: String) -> UIAlertController{
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
